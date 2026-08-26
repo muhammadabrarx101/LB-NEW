@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://learningbubble.org/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/kids.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/academics.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/courses.html?branch=kids</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/courses.html?branch=academics</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/about.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://learningbubble.org/resources.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://learningbubble.org/contact.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+</urlset>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-branch="hub">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Learning Bubble — Talk to a Real Person</title>
+    <meta name="description"
+        content="Get in touch with Learning Bubble by WhatsApp, email or the contact form. We reply personally, usually within a few hours during working hours.">
+    <meta property="og:title" content="Contact Learning Bubble">
+    <meta property="og:description" content="WhatsApp, email or the form — we reply personally.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://learningbubble.org/contact.html">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        (function () {
+            try { if (localStorage.getItem('lb-theme') === 'dark') document.documentElement.classList.add('dark-theme'); }
+            catch (e) { }
+        })();
+    </script>
+
+    <script defer src="courses-data.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<body data-branch="hub">
+
+    <header class="site-header" id="siteHeader">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="assets/images/logo.png" alt="Learning Bubble" width="40" height="40">
+                <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Kids &amp;
+                        Academics</em></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Main">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="kids.html">For Kids</a>
+                <a class="nav-link" href="academics.html">Academics</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="resources.html">Resources</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn" data-search-open aria-label="Search courses" title="Search (Ctrl+K)">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
+                <a class="btn btn-primary btn-sm" href="enrollment.html">Enquire</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
+                    aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-head">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Contact</span>
+                </nav>
+                <span class="eyebrow"><i class="fas fa-comments"></i> We reply personally</span>
+                <h1>Get in touch</h1>
+                <p>WhatsApp is fastest. Email and the form both reach the same inbox, and a person reads every message
+                    — usually replying within a few hours during working hours.</p>
+            </div>
+        </section>
+
+        <!-- ---------- CONTACT METHODS ---------- -->
+        <section class="section section--tight">
+            <div class="container">
+                <div class="grid grid-4">
+                    <a class="info-card reveal" data-delay="1" id="waCard" href="#" target="_blank" rel="noopener">
+                        <span class="info-ico" style="background:rgba(37,211,102,.14);color:#25d366"><i
+                                class="fab fa-whatsapp"></i></span>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+92 321 2481610</p>
+                            <p style="font-size:.8rem;margin-top:.3rem">Fastest — usually within the hour</p>
+                        </div>
+                    </a>
+                    <a class="info-card reveal" data-delay="2" href="mailto:info@learningbubble.org">
+                        <span class="info-ico"><i class="fas fa-envelope"></i></span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@learningbubble.org</p>
+                            <p style="font-size:.8rem;margin-top:.3rem">Replies within one working day</p>
+                        </div>
+                    </a>
+                    <div class="info-card reveal" data-delay="3">
+                        <span class="info-ico"><i class="fas fa-clock"></i></span>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon–Sat, 10am–8pm PKT</p>
+                            <p style="font-size:.8rem;margin-top:.3rem">Classes also run outside these hours</p>
+                        </div>
+                    </div>
+                    <div class="info-card reveal" data-delay="4">
+                        <span class="info-ico"><i class="fas fa-globe"></i></span>
+                        <div>
+                            <h4>Where we teach</h4>
+                            <p>Fully online, worldwide</p>
+                            <p style="font-size:.8rem;margin-top:.3rem">Timings arranged around your zone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- FORM ---------- -->
+        <section class="section">
+            <div class="container">
+                <div class="enrol-grid">
+                    <div class="form-card">
+                        <h2 style="font-size:1.4rem;margin-bottom:.4rem">Send a message</h2>
+                        <p style="font-size:.9rem;margin-bottom:1.75rem">If you want to enquire about a specific course,
+                            the <a href="enrollment.html" style="color:var(--accent);font-weight:600">enquiry form</a>
+                            is quicker — it lets you attach the courses directly.</p>
+
+                        <form id="contactForm" novalidate>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="cname">Your name <span class="req">*</span></label>
+                                    <input type="text" id="cname" name="name" placeholder="Full name"
+                                        autocomplete="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cemail">Email <span class="req">*</span></label>
+                                    <input type="email" id="cemail" name="email" placeholder="you@example.com"
+                                        autocomplete="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cphone">Phone / WhatsApp</label>
+                                    <input type="tel" id="cphone" name="phone" placeholder="0300 1234567"
+                                        autocomplete="tel">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cinterest">Interested in</label>
+                                    <select id="cinterest" name="interest">
+                                        <option value="">Not sure yet</option>
+                                        <option>Learning Bubble for Kids</option>
+                                        <option>Learning Bubble Academics</option>
+                                        <option>Both</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full">
+                                    <label for="csubject">Subject <span class="req">*</span></label>
+                                    <select id="csubject" name="subject" required>
+                                        <option value="">Choose a subject…</option>
+                                        <option>Course enquiry</option>
+                                        <option>Schedules and availability</option>
+                                        <option>Fees and payment</option>
+                                        <option>Technical help</option>
+                                        <option>Teaching with Learning Bubble</option>
+                                        <option>Partnership or collaboration</option>
+                                        <option>Something else</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full">
+                                    <label for="cmessage">Message <span class="req">*</span></label>
+                                    <textarea id="cmessage" name="message" rows="5"
+                                        placeholder="Tell us who the student is, what you are hoping for, and anything that has not worked before."
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1.9rem">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane"></i> Send message
+                                </button>
+                                <a class="btn btn-outline btn-lg" id="waDirect" href="#" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp instead
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <aside>
+                        <div class="sticky-card">
+                            <h3>Quick links</h3>
+                            <p>Some things are faster to answer yourself.</p>
+                            <ul class="spec-list">
+                                <li><span><i class="fas fa-rocket"></i> For Kids</span><strong><a href="kids.html"
+                                            style="color:var(--accent)">Browse</a></strong></li>
+                                <li><span><i class="fas fa-graduation-cap"></i> Academics</span><strong><a
+                                            href="academics.html" style="color:var(--accent)">Browse</a></strong></li>
+                                <li><span><i class="fas fa-list"></i> All courses</span><strong><a
+                                            href="courses.html?branch=kids"
+                                            style="color:var(--accent)">Catalogue</a></strong></li>
+                                <li><span><i class="fas fa-paper-plane"></i> Enquire</span><strong><a
+                                            href="enrollment.html" style="color:var(--accent)">Form</a></strong></li>
+                                <li><span><i class="fas fa-book"></i> Resources</span><strong><a href="resources.html"
+                                            style="color:var(--accent)">Free stuff</a></strong></li>
+                            </ul>
+                            <button class="btn btn-ghost btn-block" data-search-open>
+                                <i class="fas fa-magnifying-glass"></i> Search all courses
+                            </button>
+                            <p class="sticky-note">Prefer to talk it through? WhatsApp is genuinely the fastest way to
+                                reach us.</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- FAQ ---------- -->
+        <section class="section section--soft">
+            <div class="container">
+                <div class="section-head section-head--center reveal">
+                    <span class="eyebrow"><i class="fas fa-circle-question"></i> Quick answers</span>
+                    <h2>Asked often enough to put here</h2>
+                </div>
+                <div class="faq reveal">
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">How quickly will you reply?<i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-a">
+                            <div>
+                                <p>WhatsApp messages are usually answered within the hour during working hours (Mon–Sat,
+                                    10am–8pm PKT). Email and form messages within one working day.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Why are fees not listed on the site?<i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-a">
+                            <div>
+                                <p>Because a single number would be misleading. Fees depend on the subject, whether you
+                                    want a small group or one-to-one, and how many sessions per week. We would rather
+                                    quote you accurately for your actual plan than publish a figure that turns out not
+                                    to apply.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Can we try a session first?<i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-a">
+                            <div>
+                                <p>Ask us. For most courses we can arrange an introductory session so the student can
+                                    see the teaching style before committing to a full block.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">Do you take teaching applications?<i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-a">
+                            <div>
+                                <p>Yes. Choose “Teaching with Learning Bubble” in the subject dropdown and tell us what
+                                    you specialise in and which syllabuses you know well.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+
+    <script>
+        window.addEventListener('load', function () {
+            if (!window.LB_waLink) return;
+            ['waDirect', 'waCard'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.href = window.LB_waLink();
+            });
+        });
+    </script>
+</body>
+
+</html>
