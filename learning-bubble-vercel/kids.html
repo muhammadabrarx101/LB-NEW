@@ -68,7 +68,7 @@
                     <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
                 </button>
                 <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
-                <a class="btn btn-primary btn-sm" href="enrollment.html">Enquire</a>
+                <a class="btn btn-primary btn-sm" href="demo.html"><i class="fas fa-video"></i> Book a demo</a>
                 <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
                     aria-controls="navLinks"><span></span><span></span><span></span></button>
             </div>
@@ -78,8 +78,8 @@
     <main>
 
         <!-- ============ HERO ============ -->
-        <section class="hero">
-            <div class="hero-bg" aria-hidden="true"></div>
+        <section class="hero" data-liquid="kids" style="isolation:isolate">
+            <div class="liquid"></div>
             <div class="bubbles" aria-hidden="true"></div>
             <div class="container">
                 <div class="hero-grid">
@@ -363,12 +363,35 @@
                                 class="fas fa-chevron-down"></i></button>
                         <div class="faq-a">
                             <div>
-                                <p>If your child is approaching IGCSE, A-Levels, IELTS or the SAT, that is handled by
+                                <p>If your child is approaching IGCSE, IELTS or the SAT, that is handled by
                                     <a href="academics.html">Learning Bubble Academics</a> — a separate programme with
                                     its own teachers and structure. Plenty of students do one course from each side.
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BOOK A DEMO ============ -->
+        <section class="section section--tight" id="demo">
+            <div class="container">
+                <div class="demo-strip reveal" data-liquid="kids">
+                    <div class="liquid"></div>
+                    <div>
+                        <span class="eyebrow"><i class="fas fa-video"></i> Free · 30 minutes</span>
+                        <h3>Book a demo class now</h3>
+                        <p>Let your child sit in on a real session before you decide anything. Free, live, and taught
+                            by the teacher who would actually take the course.</p>
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-primary btn-lg" href="demo.html?branch=kids">
+                            <i class="fas fa-calendar-check"></i> Book a free demo
+                        </a>
+                        <a class="btn btn-outline btn-lg" data-demo-wa="kids" href="#" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i> On WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
@@ -382,7 +405,8 @@
                     <p>Tell us your child's age and what they are into. We will suggest one or two courses that fit —
                         and say so honestly if none of them do.</p>
                     <div class="cta-actions">
-                        <a class="btn btn-light btn-lg" href="enrollment.html"><i class="fas fa-paper-plane"></i> Send
+                        <a class="btn btn-light btn-lg" href="demo.html"><i class="fas fa-video"></i> Book a free demo</a>
+                        <a class="btn btn-onDark btn-lg" href="enrollment.html"><i class="fas fa-paper-plane"></i> Send
                             an enquiry</a>
                         <a class="btn btn-onDark btn-lg" id="ctaWhatsapp" href="#" target="_blank" rel="noopener"><i
                                 class="fab fa-whatsapp"></i> Ask on WhatsApp</a>

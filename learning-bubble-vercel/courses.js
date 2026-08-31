@@ -123,7 +123,7 @@
         if (els.intro) {
             els.intro.textContent = state.branch === 'kids'
                 ? 'Every course here is project-first and non-examined. Filter by category or age, or search for something specific.'
-                : 'IGCSE, A-Level, IELTS, SAT and English proficiency. Filter by track, or search for your subject.';
+                : 'IGCSE, IELTS, SAT and English proficiency. Filter by track, or search for your subject.';
         }
         if (els.crumbBranch) {
             els.crumbBranch.textContent = meta.short;

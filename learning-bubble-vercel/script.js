@@ -114,10 +114,16 @@
         if (links && !links.querySelector('.nav-cta')) {
             /* the header "Enquire" button is hidden on narrow screens —
                give the drawer its own call to action instead */
+            const enquire = document.createElement('a');
+            enquire.className = 'nav-link nav-secondary';
+            enquire.href = 'enrollment.html';
+            enquire.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Send an enquiry';
+            links.appendChild(enquire);
+
             const cta = document.createElement('a');
             cta.className = 'nav-link nav-cta';
-            cta.href = 'enrollment.html';
-            cta.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enquire now';
+            cta.href = 'demo.html';
+            cta.innerHTML = '<i class="fas fa-video" aria-hidden="true"></i> Book a free demo';
             links.appendChild(cta);
         }
 
@@ -198,6 +204,7 @@
               <li><a href="about.html">About us</a></li>
               <li><a href="resources.html">Resources</a></li>
               <li><a href="contact.html">Contact</a></li>
+              <li><a href="demo.html">Book a free demo</a></li>
               <li><a href="enrollment.html">Enquire / Enrol</a></li>
               <li><a href="courses.html?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
@@ -217,6 +224,7 @@
         <div class="footer-bottom">
           <p>&copy; ${new Date().getFullYear()} Learning Bubble. All rights reserved.</p>
           <nav>
+            <a href="demo.html">Book a demo</a>
             <a href="about.html">About</a>
             <a href="courses.html?branch=kids">Kids courses</a>
             <a href="courses.html?branch=academics">Academics</a>
@@ -232,7 +240,7 @@
     function waLink(msg) {
         const b = currentBranch();
         const fallback = b === 'academics'
-            ? 'Hi Learning Bubble! I would like to know more about your Academics programmes (IGCSE / A-Levels / IELTS / SAT).'
+            ? 'Hi Learning Bubble! I would like to know more about your Academics programmes (IGCSE / IELTS / SAT).'
             : b === 'kids'
                 ? 'Hi Learning Bubble! I would like to know more about your courses for kids.'
                 : 'Hi Learning Bubble! I would like to know more about your courses.';
@@ -690,6 +698,112 @@
     }
 
     /* ============================================================
+       LIQUID BACKGROUNDS
+       ------------------------------------------------------------
+       Any [data-liquid] element gets blobs + education motifs
+       injected. On the hub chooser the palette follows whichever
+       brand the visitor is engaging with — hover on desktop, and
+       whichever card is centred on touch.
+       ============================================================ */
+    const LQ_ICONS = {
+        kids: [
+            ['fa-rocket', 14, 24], ['fa-palette', 82, 30], ['fa-puzzle-piece', 24, 74],
+            ['fa-feather-pointed', 72, 76], ['fa-flask-vial', 50, 14]
+        ],
+        academics: [
+            ['fa-graduation-cap', 16, 28], ['fa-square-root-variable', 80, 26],
+            ['fa-flask', 26, 76], ['fa-bullseye', 74, 72], ['fa-book-open', 50, 16]
+        ]
+    };
+
+    function buildLiquid(host) {
+        if (host.childElementCount) return;
+        let html = '';
+        for (let i = 0; i < 5; i++) html += '<span class="lq"></span>';
+        Object.keys(LQ_ICONS).forEach(branch => {
+            LQ_ICONS[branch].forEach(([icon, x, y], i) => {
+                html += `<span class="lq-ico" data-for="${branch}"
+                     style="--x:${x}%;--y:${y}%;--fd:${10 + i * 2}s;--delay:${-i * 3}s">
+                     <i class="fas ${icon}" aria-hidden="true"></i></span>`;
+            });
+        });
+        host.innerHTML = html;
+    }
+
+    function initLiquid() {
+        $$('.liquid').forEach(buildLiquid);
+
+        const chooser = $('.chooser');
+        if (!chooser) return;
+
+        const scope = chooser.closest('[data-liquid]') || chooser.parentElement;
+        const worlds = $$('.world', chooser);
+        if (!scope || !worlds.length) return;
+
+        const base = scope.dataset.liquid || 'blend';
+
+        const light = world => {
+            worlds.forEach(w => w.classList.toggle('is-lit', w === world));
+            chooser.classList.toggle('is-engaged', !!world);
+            scope.dataset.liquid = world ? (world.dataset.world || base) : base;
+        };
+
+        if (window.matchMedia('(hover: hover)').matches) {
+            worlds.forEach(w => {
+                w.addEventListener('pointerenter', () => light(w));
+                w.addEventListener('focusin', () => light(w));
+            });
+            chooser.addEventListener('pointerleave', () => light(null));
+            chooser.addEventListener('focusout', e => {
+                if (!chooser.contains(e.relatedTarget)) light(null);
+            });
+        } else if ('IntersectionObserver' in window) {
+            /* touch: the card nearest the middle of the screen wins */
+            const seen = new Map();
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(en => seen.set(en.target, en.intersectionRatio));
+                let best = null, bestRatio = 0;
+                seen.forEach((ratio, el) => { if (ratio > bestRatio) { bestRatio = ratio; best = el; } });
+                light(bestRatio > 0.55 ? best : null);
+            }, { threshold: [0, 0.25, 0.55, 0.8, 1], rootMargin: '-25% 0px -25% 0px' });
+            worlds.forEach(w => io.observe(w));
+        }
+    }
+
+    /* ============================================================
+       POINTER-REACTIVE CARDS
+       ============================================================ */
+    function initPointerCards() {
+        if (!window.matchMedia('(hover: hover)').matches) return;
+        const sel = '.feature, .step, .quote, .res-card, .info-card, .world';
+
+        document.addEventListener('pointermove', e => {
+            const card = e.target.closest(sel);
+            if (!card) return;
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+            card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+        }, { passive: true });
+    }
+
+    /* ============================================================
+       DEMO LINKS
+       ============================================================ */
+    function demoWaLink(branch) {
+        const b = branch || currentBranch();
+        const what = b === 'academics'
+            ? 'an Academics demo class (IGCSE / IELTS / SAT)'
+            : b === 'kids' ? 'a demo class for my child' : 'a free demo class';
+        return `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(
+            `Hi Learning Bubble! I would like to book ${what}. When is the next available slot?`)}`;
+    }
+    window.LB_demoWaLink = demoWaLink;
+
+    function initDemoLinks() {
+        $$('[data-demo-wa]').forEach(a => { a.href = demoWaLink(a.dataset.demoWa || ''); });
+    }
+
+    /* ============================================================
        BOOT
        ============================================================ */
     function boot() {
@@ -704,6 +818,9 @@
         initCarousels();
         initCounters();
         initBubbles();
+        initLiquid();
+        initPointerCards();
+        initDemoLinks();
         initContactForm();
         initReveal();
         root.classList.remove('fouc-prevent');

@@ -25,7 +25,7 @@ const BRANCHES = {
         id: 'academics',
         name: 'Learning Bubble Academics',
         short: 'Academics',
-        tagline: 'IGCSE · A-Levels · IELTS · SAT',
+        tagline: 'IGCSE · IELTS · SAT · English',
         blurb: 'Structured, exam-focused tuition with small groups, past-paper drilling and measurable progress towards your target grade.',
         home: 'academics.html',
         icon: 'fa-graduation-cap',
@@ -96,14 +96,6 @@ const categoriesData = [
         icon: 'fa-flask',
         image: 'assets/images/categories/IGCSE Academics.jpeg',
         blurb: 'Concept clarity, past papers and exam technique across the full IGCSE subject list.'
-    },
-    {
-        name: 'A-Level Academics',
-        branch: 'academics',
-        short: 'A-Levels',
-        icon: 'fa-square-root-variable',
-        image: null,
-        blurb: 'AS and A2 support built around specification mastery, structured answers and mark-scheme fluency.'
     },
     {
         name: 'Test Preparation',
@@ -375,20 +367,6 @@ const coursesData = [
         subjects: ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'English', 'Islamiat', 'Pakistan Studies', 'Accounting', 'Economics', 'Business Studies'],
         highlights: ['Groups capped at 3–5 students', 'Full past-paper and mark-scheme drilling', 'Topic-wise diagnostics to find gaps', 'Flexible 1-to-1 option available']
     },
-
-    /* ========== ACADEMICS · A-Levels ========== */
-    {
-        id: 33, branch: 'academics', name: 'A-Level Academics',
-        category: 'A-Level Academics',
-        duration: '8–12 sessions per month', ages: 'AS & A2',
-        level: 'A-Level', format: 'Small group (3–5) or 1-to-1',
-        image: null, icon: 'fa-square-root-variable',
-        tagline: 'AS and A2 support built for the mark scheme.',
-        about: 'A-Level tuition focused on specification mastery and structured answering. We work through the syllabus in order, then move into full past-paper cycles — teaching students not just the content but exactly how examiners award marks. Available as small-group or one-to-one, across AS and A2.',
-        subjects: ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Further Mathematics', 'Economics', 'Business', 'Accounting', 'English Literature'],
-        highlights: ['Specification-mapped lesson sequence', 'Mark-scheme and command-word training', 'Structured long-answer technique', 'AS and A2 covered']
-    },
-
     /* ========== ACADEMICS · Test Preparation ========== */
     {
         id: 23, branch: 'academics', name: 'IELTS Academic',

@@ -140,7 +140,10 @@
             </ul>
 
             <div class="stack">
-              <a class="btn btn-primary btn-block" href="enrollment.html?id=${course.id}">
+              <a class="btn btn-primary btn-block" href="demo.html?course=${course.id}">
+                <i class="fas fa-video"></i> Book a free demo class
+              </a>
+              <a class="btn btn-outline btn-block" href="enrollment.html?id=${course.id}">
                 <i class="fas fa-plus"></i> Add to enquiry
               </a>
               <a class="btn btn-wa btn-block" id="detailWa" href="#" target="_blank" rel="noopener">
@@ -148,8 +151,8 @@
               </a>
             </div>
 
-            <p class="sticky-note">Fees vary by format and schedule, so we quote them personally rather than
-            publishing a number that would not apply to you.</p>
+            <p class="sticky-note">The demo is free and runs 30 minutes. Fees vary by format and schedule, so we
+            quote them personally rather than publishing a number that would not apply to you.</p>
           </div>
         </aside>
       </div>

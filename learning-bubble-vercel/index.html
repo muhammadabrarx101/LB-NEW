@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Learning Bubble — Creative Courses for Kids &amp; Exam Prep for Students</title>
     <meta name="description"
-        content="Learning Bubble runs two online learning programmes: creative, curiosity-led courses for kids aged 6–18, and structured IGCSE, A-Level, IELTS and SAT preparation for exam students.">
+        content="Learning Bubble runs two online learning programmes: creative, curiosity-led courses for kids aged 6–18, and structured IGCSE, IELTS and SAT preparation for exam students.">
     <meta name="keywords"
-        content="Learning Bubble, online courses for kids, IGCSE tuition, A-Level tuition, IELTS preparation, SAT prep, creative writing for kids, coding for kids, online learning Pakistan">
+        content="Learning Bubble, online courses for kids, IGCSE tuition, IELTS preparation, SAT prep, creative writing for kids, coding for kids, online learning Pakistan">
     <meta property="og:title" content="Learning Bubble — Two ways to learn">
     <meta property="og:description"
         content="Creative courses for kids and exam-focused academics, taught live online in small groups.">
@@ -89,7 +89,7 @@
                     <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
                 </button>
                 <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
-                <a class="btn btn-primary btn-sm" href="enrollment.html">Enquire</a>
+                <a class="btn btn-primary btn-sm" href="demo.html"><i class="fas fa-video"></i> Book a demo</a>
                 <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
                     aria-controls="navLinks">
                     <span></span><span></span><span></span>
@@ -113,21 +113,21 @@
                             for students who need results. Same teachers, same care — two very different jobs to do.</p>
 
                         <div class="hero-cta">
-                            <a class="btn btn-primary btn-lg" href="#choose">
+                            <a class="btn btn-primary btn-lg" href="demo.html">
+                                <i class="fas fa-video"></i> Book a free demo class
+                            </a>
+                            <a class="btn btn-outline btn-lg" href="#choose">
                                 Choose your path <i class="fas fa-arrow-down"></i>
                             </a>
-                            <button class="btn btn-outline btn-lg" data-search-open>
-                                <i class="fas fa-magnifying-glass"></i> Search courses
-                            </button>
                         </div>
 
                         <div class="hero-proof">
                             <div>
-                                <strong data-count="33" data-suffix="+">33+</strong>
+                                <strong data-count="32" data-suffix="+">32+</strong>
                                 <span>Courses &amp; programmes</span>
                             </div>
                             <div>
-                                <strong data-count="11" data-suffix="">11</strong>
+                                <strong data-count="10" data-suffix="">10</strong>
                                 <span>Subject areas</span>
                             </div>
                             <div>
@@ -159,7 +159,10 @@
         </section>
 
         <!-- ============ THE CHOOSER ============ -->
-        <section class="section section--soft" id="choose">
+        <!-- data-liquid drives the animated background; script.js flips it
+             to "kids" or "academics" as the visitor engages with a card -->
+        <section class="section section--soft" id="choose" data-liquid="blend" style="isolation:isolate">
+            <div class="liquid"></div>
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <span class="eyebrow"><i class="fas fa-signs-post"></i> Pick your side</span>
@@ -170,7 +173,7 @@
 
                 <div class="chooser">
                     <!-- KIDS -->
-                    <article class="world world--kids reveal" data-delay="1">
+                    <article class="world world--kids reveal" data-delay="1" data-world="kids">
                         <span class="world-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
                         <h3>Learning Bubble for Kids</h3>
                         <p class="world-ages">Ages 6–18 · Creative &amp; exploratory</p>
@@ -194,7 +197,7 @@
                     </article>
 
                     <!-- ACADEMICS -->
-                    <article class="world world--academics reveal" data-delay="2">
+                    <article class="world world--academics reveal" data-delay="2" data-world="academics">
                         <span class="world-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span>
                         <h3>Learning Bubble Academics</h3>
                         <p class="world-ages">Grades 9–12 &amp; adults · Exam focused</p>
@@ -202,7 +205,6 @@
                             past papers, mark schemes and timed practice until the technique is automatic.</p>
                         <ul class="world-list">
                             <li><i class="fas fa-circle"></i> IGCSE / O-Level — all core subjects</li>
-                            <li><i class="fas fa-circle"></i> A-Levels — AS &amp; A2</li>
                             <li><i class="fas fa-circle"></i> IELTS Academic &amp; General</li>
                             <li><i class="fas fa-circle"></i> SAT — full 4-month programme</li>
                             <li><i class="fas fa-circle"></i> English Language (A1 → C1)</li>
@@ -219,8 +221,72 @@
             </div>
         </section>
 
+        <!-- ============ BOOK A DEMO ============ -->
+        <section class="section" id="demo" data-tint="teal">
+            <div class="container">
+                <div class="demo-band reveal" data-liquid="blend">
+                    <div class="liquid"></div>
+                    <div class="demo-grid">
+
+                        <div class="demo-copy">
+                            <span class="eyebrow"><i class="fas fa-video"></i> Free 30-minute demo</span>
+                            <h2>Book a demo class now</h2>
+                            <p>Reading about a course only tells you so much. Sit in on a real one instead — free, live,
+                                and with the teacher who would actually take your sessions.</p>
+
+                            <ul class="demo-points">
+                                <li><i class="fas fa-check"></i> A short diagnostic, so we see where the student
+                                    genuinely is</li>
+                                <li><i class="fas fa-check"></i> A real slice of teaching from the course you pick</li>
+                                <li><i class="fas fa-check"></i> Your questions answered — schedule, pacing, fees</li>
+                                <li><i class="fas fa-check"></i> An honest verdict, including if we are not the right
+                                    fit</li>
+                            </ul>
+
+                            <div class="demo-actions">
+                                <a class="btn btn-primary btn-lg" href="demo.html">
+                                    <i class="fas fa-calendar-check"></i> Book my free demo
+                                </a>
+                                <a class="btn btn-wa btn-lg" data-demo-wa href="#" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="demo-pick">
+                            <h3>Who is the demo for?</h3>
+                            <p>Pick a side and we will match you with the right teacher.</p>
+
+                            <div class="demo-choice">
+                                <a href="demo.html?branch=kids" data-branch="kids">
+                                    <span class="demo-choice-ico"><i class="fas fa-rocket"></i></span>
+                                    <span class="demo-choice-body">
+                                        <strong>A demo for my child</strong>
+                                        <span>Ages 6–18 · creative courses</span>
+                                    </span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="demo.html?branch=academics" data-branch="academics">
+                                    <span class="demo-choice-ico"><i class="fas fa-graduation-cap"></i></span>
+                                    <span class="demo-choice-body">
+                                        <strong>A demo for exam prep</strong>
+                                        <span>IGCSE · IELTS · SAT · English</span>
+                                    </span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+
+                            <p class="demo-note">No card details and no payment at any point. If the demo is not right
+                                for you, that is a perfectly acceptable answer.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ WHY US ============ -->
-        <section class="section">
+        <section class="section" data-tint="violet">
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <span class="eyebrow"><i class="fas fa-heart"></i> Why families stay</span>
@@ -269,7 +335,7 @@
         </section>
 
         <!-- ============ HOW IT WORKS ============ -->
-        <section class="section section--soft">
+        <section class="section section--soft" data-tint="kids">
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <span class="eyebrow"><i class="fas fa-route"></i> Getting started</span>
@@ -326,7 +392,7 @@
         </section>
 
         <!-- ============ SPLIT PANEL ============ -->
-        <section class="section section--soft">
+        <section class="section section--soft" data-tint="academics">
             <div class="container">
                 <div class="split">
                     <div class="reveal">
@@ -356,7 +422,7 @@
         </section>
 
         <!-- ============ TESTIMONIALS ============ -->
-        <section class="section">
+        <section class="section" data-tint="teal">
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <span class="eyebrow"><i class="fas fa-quote-left"></i> What people say</span>
@@ -395,7 +461,7 @@
         </section>
 
         <!-- ============ FAQ ============ -->
-        <section class="section section--soft">
+        <section class="section section--soft" data-tint="violet">
             <div class="container">
                 <div class="section-head section-head--center reveal">
                     <span class="eyebrow"><i class="fas fa-circle-question"></i> Questions</span>
@@ -410,7 +476,7 @@
                             <div>
                                 <p><strong>Learning Bubble for Kids</strong> is about curiosity — creative, project-led
                                     courses for ages 6–18 with no exam attached. <strong>Learning Bubble
-                                        Academics</strong> is exam preparation: IGCSE, A-Levels, IELTS, SAT and English
+                                        Academics</strong> is exam preparation: IGCSE, IELTS, SAT and English
                                     proficiency. They run independently, so kids courses never appear in Academics and
                                     vice versa.</p>
                             </div>
@@ -473,7 +539,8 @@
                     <p>Send us a message. Tell us the student's age and what you are hoping for, and we will point you
                         at the right course — even if that turns out to be none of ours.</p>
                     <div class="cta-actions">
-                        <a class="btn btn-light btn-lg" href="enrollment.html"><i class="fas fa-paper-plane"></i> Send
+                        <a class="btn btn-light btn-lg" href="demo.html"><i class="fas fa-video"></i> Book a free demo</a>
+                        <a class="btn btn-onDark btn-lg" href="enrollment.html"><i class="fas fa-paper-plane"></i> Send
                             an enquiry</a>
                         <a class="btn btn-onDark btn-lg" id="ctaWhatsapp" href="#" target="_blank" rel="noopener"><i
                                 class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
