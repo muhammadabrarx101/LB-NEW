@@ -804,6 +804,115 @@
     }
 
     /* ============================================================
+       STRUCTURED DATA
+       ------------------------------------------------------------
+       Breadcrumbs and FAQs are built from what is already on the
+       page, so the markup can never drift from the visible content
+       (which is exactly what Google penalises).
+       ============================================================ */
+    const SITE = 'https://learningbubble.org/';
+
+    function addJsonLd(obj) {
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify(obj);
+        document.head.appendChild(s);
+    }
+    window.LB_jsonLd = addJsonLd;
+
+    function absUrl(href) {
+        try { return new URL(href, SITE).href; } catch (e) { return SITE; }
+    }
+
+    function breadcrumbLd() {
+        const crumbs = $$('.crumbs > *').filter(el => el.tagName === 'A' || el.tagName === 'SPAN');
+        if (crumbs.length < 2) return;
+        addJsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: crumbs.map((el, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: el.textContent.trim(),
+                item: el.tagName === 'A' ? absUrl(el.getAttribute('href')) : absUrl(location.pathname.slice(1))
+            }))
+        });
+    }
+
+    function faqLd() {
+        const items = $$('.faq-item');
+        if (items.length < 2) return;
+        const qas = items.map(item => {
+            const q = $('.faq-q', item);
+            const a = $('.faq-a', item);
+            if (!q || !a) return null;
+            return {
+                '@type': 'Question',
+                name: q.textContent.replace(/\s+/g, ' ').trim(),
+                acceptedAnswer: { '@type': 'Answer', text: a.textContent.replace(/\s+/g, ' ').trim() }
+            };
+        }).filter(Boolean);
+        if (!qas.length) return;
+        addJsonLd({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qas });
+    }
+
+    /** Course list markup for a branch landing page or the catalogue. */
+    function courseListLd(branch, name) {
+        const list = LB.byBranch(branch === 'all' ? null : branch);
+        if (!list.length) return;
+        addJsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: name,
+            numberOfItems: list.length,
+            itemListElement: list.map((c, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                item: {
+                    '@type': 'Course',
+                    name: c.name,
+                    description: c.tagline || (c.about || '').slice(0, 160),
+                    url: SITE + 'course-detail.html?id=' + c.id,
+                    provider: { '@type': 'Organization', name: 'Learning Bubble', sameAs: SITE }
+                }
+            }))
+        });
+    }
+    window.LB_courseListLd = courseListLd;
+
+    function initSeo() {
+        breadcrumbLd();
+        faqLd();
+
+        const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+        if (page === 'index.html' || page === '') {
+            addJsonLd({
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'Learning Bubble',
+                url: SITE,
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: { '@type': 'EntryPoint', urlTemplate: SITE + 'courses.html?q={search_term_string}' },
+                    'query-input': 'required name=search_term_string'
+                }
+            });
+            courseListLd('all', 'Learning Bubble courses and programmes');
+        }
+
+        if (page === 'kids.html') courseListLd('kids', 'Online courses for kids, ages 6–18');
+        if (page === 'academics.html') courseListLd('academics', 'Online exam preparation programmes');
+
+        if (page === 'courses.html') {
+            const b = currentBranch() === 'academics' ? 'academics' : 'kids';
+            courseListLd(b, b === 'kids'
+                ? 'Online courses for kids, ages 6–18'
+                : 'Online exam preparation programmes');
+        }
+    }
+
+    /* ============================================================
        BOOT
        ============================================================ */
     function boot() {
@@ -823,6 +932,13 @@
         initDemoLinks();
         initContactForm();
         initReveal();
+
+        /* Deferred scripts all execute before DOMContentLoaded, so boot()
+           fires while readyState is already "interactive" — i.e. BEFORE
+           courses.js / course-detail.js have rendered their markup. The
+           SEO pass reads that markup, so it has to wait for the event. */
+        if (document.readyState === 'complete') initSeo();
+        else document.addEventListener('DOMContentLoaded', initSeo, { once: true });
         root.classList.remove('fouc-prevent');
     }
 

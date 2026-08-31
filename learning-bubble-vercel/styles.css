@@ -2118,3 +2118,60 @@ body { padding-top: 72px; }
 @media (prefers-reduced-motion: reduce) {
     .lq, .lq-ico { animation: none !important; }
 }
+
+/* ============================================================
+   37. COURSE SYLLABUS + INLINE FAQ
+   ============================================================ */
+.syllabus {
+    counter-reset: syl;
+    display: grid;
+    gap: .85rem;
+    margin-top: 1.25rem;
+    list-style: none;
+}
+
+.syllabus li {
+    position: relative;
+    padding: 1.1rem 1.25rem 1.15rem 3.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    transition: border-color var(--t), box-shadow var(--t);
+}
+.syllabus li:hover { border-color: var(--accent); box-shadow: var(--sh-sm); }
+
+.syllabus li::before {
+    counter-increment: syl;
+    content: counter(syl);
+    position: absolute;
+    left: 1.1rem;
+    top: 1.15rem;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.syllabus h3 {
+    font-size: 1rem;
+    margin-bottom: .35rem;
+    font-family: var(--font-body);
+    font-weight: 650;
+    letter-spacing: -.01em;
+}
+.syllabus p { font-size: .92rem; line-height: 1.65; }
+
+.prose .faq--inline { max-width: none; margin-top: 1.25rem; }
+.prose .faq--inline .faq-q { font-size: .95rem; }
+.prose .faq--inline .faq-a p { font-size: .91rem; padding-bottom: 1.15rem; }
+
+@media (max-width: 620px) {
+    .syllabus li { padding: 1rem 1rem 1.05rem 2.9rem; }
+    .syllabus li::before { left: .85rem; top: 1.05rem; }
+}

@@ -63,6 +63,10 @@
 
     const waMessage = `Hi Learning Bubble! I'm interested in "${course.name}". Could you share the schedule and fee details?`;
 
+    /* extended content lives in course-content.js so the rest of the site
+       does not have to download it */
+    const extra = (typeof courseContent !== 'undefined' && courseContent[course.id]) || {};
+
     /* ---------- render ---------- */
     host.innerHTML = `
     <section class="detail-hero">
@@ -118,12 +122,43 @@
               ${course.subjects.map(s => `<span class="chip chip--accent">${s}</span>`).join('')}
             </div>` : ''}
 
+          ${extra.whoFor ? `
+            <h2>Who this ${branch === 'academics' ? 'programme' : 'course'} is for</h2>
+            <p>${extra.whoFor}</p>` : ''}
+
+          ${extra.outcomes && extra.outcomes.length ? `
+            <h2>What you will be able to do</h2>
+            <ul class="check-list">
+              ${extra.outcomes.map(o => `<li><i class="fas fa-check"></i>${o}</li>`).join('')}
+            </ul>` : ''}
+
+          ${extra.structure && extra.structure.length ? `
+            <h2>How the ${branch === 'academics' ? 'programme' : 'course'} is structured</h2>
+            <ol class="syllabus">
+              ${extra.structure.map(s => `
+                <li>
+                  <h3>${s.t}</h3>
+                  <p>${s.d}</p>
+                </li>`).join('')}
+            </ol>` : ''}
+
           <h2>How it runs</h2>
           <p>${course.format || 'Live online sessions'} — taught live, never pre-recorded, with sessions recorded
           afterwards so students can revisit anything they missed. Timings are arranged around school and time zones,
           and we reschedule when exams or travel get in the way.</p>
-          <p>You will need a laptop or tablet with a working camera and a reasonably stable connection. If a course
-          requires any materials at home, we send the list before the first session.</p>
+          <p>Learning Bubble teaches online to students across Pakistan — Karachi, Lahore and Islamabad — as well as the
+          Gulf, the UK and North America. You will need a laptop or tablet with a working camera and a reasonably
+          stable connection. If a course requires any materials at home, we send the list before the first session.</p>
+
+          ${extra.faqs && extra.faqs.length ? `
+            <h2>Frequently asked questions</h2>
+            <div class="faq faq--inline">
+              ${extra.faqs.map(f => `
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">${f.q}<i class="fas fa-chevron-down"></i></button>
+                  <div class="faq-a"><div><p>${f.a}</p></div></div>
+                </div>`).join('')}
+            </div>` : ''}
         </div>
 
         <aside>
@@ -163,6 +198,60 @@
     /* ---------- WhatsApp CTA ---------- */
     const wa = $('#detailWa');
     if (wa) wa.href = `https://wa.me/${(window.LB_CFG || {}).whatsapp || '923212481610'}?text=${encodeURIComponent(waMessage)}`;
+
+    /* ---------- structured data ---------- */
+    if (window.LB_jsonLd) {
+        const SITE = 'https://learningbubble.org/';
+        const url = SITE + 'course-detail.html?id=' + course.id;
+
+        /* keep the canonical honest — every course shares one HTML file */
+        let canon = document.querySelector('link[rel="canonical"]');
+        if (!canon) {
+            canon = document.createElement('link');
+            canon.rel = 'canonical';
+            document.head.appendChild(canon);
+        }
+        canon.href = url;
+
+        const og = (prop, val) => {
+            let m = document.querySelector(`meta[property="${prop}"]`);
+            if (!m) {
+                m = document.createElement('meta');
+                m.setAttribute('property', prop);
+                document.head.appendChild(m);
+            }
+            m.setAttribute('content', val);
+        };
+        og('og:title', `${course.name} — ${meta.name}`);
+        og('og:description', course.tagline || (course.about || '').slice(0, 160));
+        og('og:url', url);
+        if (course.image) og('og:image', SITE + course.image);
+
+        window.LB_jsonLd({
+            '@context': 'https://schema.org',
+            '@type': 'Course',
+            name: course.name,
+            description: (course.about || course.tagline || '').slice(0, 500),
+            url: url,
+            inLanguage: 'en',
+            educationalLevel: course.level || undefined,
+            teaches: (course.subjects || course.highlights || []).join(', ') || undefined,
+            typicalAgeRange: course.ages || undefined,
+            provider: {
+                '@type': 'EducationalOrganization',
+                name: 'Learning Bubble',
+                url: SITE,
+                sameAs: SITE
+            },
+            hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: 'online',
+                courseWorkload: course.duration,
+                location: { '@type': 'VirtualLocation', url: SITE },
+                instructor: { '@type': 'Organization', name: 'Learning Bubble' }
+            }
+        });
+    }
 
     /* ---------- related ---------- */
     const related = LB.byBranch(branch)

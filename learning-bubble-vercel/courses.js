@@ -110,20 +110,22 @@
     /* ---------- chrome ---------- */
     function paintChrome() {
         const meta = LB.branches[state.branch];
-        document.title = `${meta.short === 'For Kids' ? 'Kids Courses' : 'Academics Programmes'} — Learning Bubble`;
+        document.title = meta.short === 'For Kids'
+            ? 'Online Courses for Kids, Ages 6–18 | Learning Bubble'
+            : 'IGCSE, IELTS & SAT Exam Preparation | Learning Bubble';
 
         if (els.eyebrow) {
             els.eyebrow.innerHTML = `<i class="fas ${meta.icon}"></i> ${meta.name}`;
         }
         if (els.title) {
             els.title.textContent = state.branch === 'kids'
-                ? 'Creative courses for ages 6–18'
-                : 'Exam-focused programmes';
+                ? 'Online courses for kids, ages 6–18'
+                : 'Online exam preparation programmes';
         }
         if (els.intro) {
             els.intro.textContent = state.branch === 'kids'
-                ? 'Every course here is project-first and non-examined. Filter by category or age, or search for something specific.'
-                : 'IGCSE, IELTS, SAT and English proficiency. Filter by track, or search for your subject.';
+                ? 'Creative online learning for kids — every course is project-first and non-examined. Filter by category or age, or search for something specific.'
+                : 'IGCSE tuition, IELTS test preparation, SAT test preparation and English proficiency. Filter by track, or search for your subject.';
         }
         if (els.crumbBranch) {
             els.crumbBranch.textContent = meta.short;
