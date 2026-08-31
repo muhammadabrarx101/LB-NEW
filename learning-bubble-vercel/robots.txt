@@ -5,6 +5,9 @@ Allow: /
 # Private form pages — no search value, and they carry personal data
 Disallow: /enrollment.html
 
+# Source tooling, not part of the site
+Disallow: /tools/
+
 # Filtered catalogue views duplicate courses.html; let Google keep its budget
 # for the course pages themselves.
 Disallow: /*?*cat=

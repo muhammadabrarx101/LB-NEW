@@ -2175,3 +2175,30 @@ body { padding-top: 72px; }
     .syllabus li { padding: 1rem 1rem 1.05rem 2.9rem; }
     .syllabus li::before { left: .85rem; top: 1.05rem; }
 }
+
+/* ============================================================
+   38. ARTICLE PAGES
+   ============================================================ */
+.article-body {
+    max-width: 46rem;
+    margin-inline: auto;
+}
+.article-body h2 { margin-top: 2.5rem; margin-bottom: .85rem; }
+.article-body h2:first-child { margin-top: 0; }
+.article-body p { font-size: 1.03rem; line-height: 1.8; }
+.article-body p + p { margin-top: 1.05rem; }
+.article-body .check-list { margin: 1.35rem 0; gap: 1rem; }
+.article-body .check-list li { font-size: 1rem; line-height: 1.7; }
+.article-body strong { color: var(--text); font-weight: 640; }
+
+.article-rule {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 2.75rem 0 1.5rem;
+}
+.article-foot { font-size: .92rem; color: var(--text-mute); }
+.article-foot a { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 620px) {
+    .article-body p { font-size: 1rem; line-height: 1.75; }
+}

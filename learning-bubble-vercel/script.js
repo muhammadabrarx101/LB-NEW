@@ -202,6 +202,7 @@
             <h4>Learning Bubble</h4>
             <ul>
               <li><a href="about.html">About us</a></li>
+              <li><a href="blog.html">Learning guides</a></li>
               <li><a href="resources.html">Resources</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li><a href="demo.html">Book a free demo</a></li>
@@ -585,7 +586,7 @@
         <a class="cat-card reveal" data-delay="${i % 4 + 1}" href="courses.html?branch=${cat.branch}&cat=${encodeURIComponent(cat.name)}">
           <div class="cat-media">
             ${cat.image
-                    ? `<img src="${cat.image}" alt="" loading="lazy" width="400" height="225" onerror="this.style.display='none'">`
+                    ? `<img src="${cat.image}" alt="${cat.name} — online courses at Learning Bubble" loading="lazy" width="400" height="225" onerror="this.style.display='none'">`
                     : `<span class="media-art"><i class="fas ${cat.icon}" aria-hidden="true"></i></span>`}
             <span class="cat-ico"><i class="fas ${cat.icon}"></i></span>
           </div>

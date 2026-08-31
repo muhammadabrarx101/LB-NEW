@@ -14,6 +14,7 @@
 # ============================================================
 use strict;
 use warnings;
+use utf8;            # the template below contains non-ASCII (·, —)
 
 my $SITE = 'https://learningbubble.org/';
 
