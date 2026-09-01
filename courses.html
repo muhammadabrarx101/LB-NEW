@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-branch="kids">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Courses — Kids Learning & Exam Preparation</title>
+    <meta name="description"
+        content="Browse every Learning Bubble course: creative online courses for kids aged 6–18, plus IGCSE, IELTS and SAT exam preparation. Filter by category, age and level.">
+    <meta property="og:title" content="Online Courses — Kids Learning & Exam Preparation">
+    <meta property="og:description" content="Browse every Learning Bubble course: creative online courses for kids aged 6–18, plus IGCSE, IELTS and SAT exam preparation. Filter by category, age and level.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://learningbubble.org/courses.html">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="author" content="Learning Bubble">
+    <meta name="theme-color" content="#1c2f72">
+    <meta property="og:site_name" content="Learning Bubble">
+    <meta property="og:locale" content="en">
+    <meta property="og:image" content="https://learningbubble.org/assets/images/heroSectionImage1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Online Courses — Kids Learning & Exam Preparation">
+    <meta name="twitter:description" content="Browse every Learning Bubble course: creative online courses for kids aged 6–18, plus IGCSE, IELTS and SAT exam preparation. Filter by category, age and level.">
+    <meta name="twitter:image" content="https://learningbubble.org/assets/images/heroSectionImage1.jpg">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        /* resolve the branch before first paint so the right tokens apply */
+        (function () {
+            var d = document.documentElement, b = 'kids';
+            try {
+                var u = new URLSearchParams(location.search).get('branch');
+                b = (u === 'kids' || u === 'academics') ? u : (localStorage.getItem('lb-branch') || 'kids');
+                if (localStorage.getItem('lb-theme') === 'dark') d.classList.add('dark-theme');
+            } catch (e) { }
+            d.setAttribute('data-branch', b);
+        })();
+    </script>
+
+    <script defer src="courses-data.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="courses.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="container nav-inner">
+            <a class="brand" href="kids.html" data-branch-home>
+                <img class="brand-logo" src="assets/images/logo.png" alt="Learning Bubble" width="40" height="40">
+                <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub"
+                        id="brandSub">Courses</em></span>
+            </a>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main">
+                <a class="nav-link" href="kids.html" data-branch-home>Home</a>
+                <a class="nav-link is-active" href="courses.html">Courses</a>
+                <a class="nav-link" href="blog.html">Guides</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="resources.html">Resources</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="branch-switch" role="group" aria-label="Choose programme">
+                    <a href="courses.html?branch=kids" data-branch="kids" data-set-branch="kids"><i
+                            class="fas fa-rocket"></i><span>Kids</span></a>
+                    <a href="courses.html?branch=academics" data-branch="academics" data-set-branch="academics"><i
+                            class="fas fa-graduation-cap"></i><span>Academics</span></a>
+                </div>
+                <button class="icon-btn" data-search-open aria-label="Search courses" title="Search (Ctrl+K)">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
+                <a class="btn btn-primary btn-sm" href="demo.html"><i class="fas fa-video"></i> Book a demo</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
+                    aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ PAGE HEAD ============ -->
+        <section class="page-head">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a id="crumbBranch" href="kids.html">For Kids</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Courses</span>
+                </nav>
+                <span class="eyebrow" id="catalogEyebrow"><i class="fas fa-rocket"></i> Learning Bubble</span>
+                <h1 id="catalogTitle">Online courses for kids and exam preparation</h1>
+                <p id="catalogIntro">Browse creative online courses for kids aged 6–18 and IGCSE, IELTS and SAT exam preparation.</p>
+            </div>
+        </section>
+
+        <!-- ============ FILTERS ============ -->
+        <div class="filter-bar">
+            <div class="container">
+                <div class="filter-row">
+                    <div class="field-search">
+                        <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                        <label class="sr-only" for="catalogSearch">Search courses</label>
+                        <input type="search" id="catalogSearch" placeholder="Search by name, subject or skill…"
+                            autocomplete="off">
+                        <button class="field-clear" id="catalogClear" aria-label="Clear search"><i
+                                class="fas fa-xmark"></i></button>
+                    </div>
+
+                    <div class="select-wrap" id="ageWrap">
+                        <label class="sr-only" for="ageFilter">Filter by age</label>
+                        <select id="ageFilter"></select>
+                    </div>
+
+                    <div class="select-wrap">
+                        <label class="sr-only" for="levelFilter">Filter by level</label>
+                        <select id="levelFilter"></select>
+                    </div>
+
+                    <div class="select-wrap">
+                        <label class="sr-only" for="sortFilter">Sort</label>
+                        <select id="sortFilter">
+                            <option value="featured">Recommended</option>
+                            <option value="az">Name A–Z</option>
+                            <option value="za">Name Z–A</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-outline btn-sm" id="resetFilters"><i class="fas fa-rotate-left"></i>
+                        Reset</button>
+                </div>
+
+                <div class="chip-scroll" id="catChips" style="margin-top:.75rem"></div>
+            </div>
+        </div>
+
+        <!-- ============ RESULTS ============ -->
+        <section class="section section--tight">
+            <div class="container">
+                <p class="result-line" id="resultCount"></p>
+                <div id="courseGrid" class="course-grid"></div>
+            </div>
+        </section>
+
+        <!-- ============ CROSS-SELL ============ -->
+        <section class="section section--soft">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2>Cannot decide?</h2>
+                    <p>Send us the student's age and what they are trying to achieve. We will recommend one or two
+                        courses that genuinely fit — and tell you if none of them do.</p>
+                    <div class="cta-actions">
+                        <a class="btn btn-light btn-lg" href="demo.html"><i class="fas fa-video"></i> Book a free demo</a>
+                        <a class="btn btn-onDark btn-lg" href="enrollment.html"><i class="fas fa-paper-plane"></i> Send
+                            an enquiry</a>
+                        <a class="btn btn-onDark btn-lg" id="ctaWhatsapp" href="#" target="_blank" rel="noopener"><i
+                                class="fab fa-whatsapp"></i> Ask on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+
+    <script>
+        window.addEventListener('load', function () {
+            var w = document.getElementById('ctaWhatsapp');
+            if (w && window.LB_waLink) w.href = window.LB_waLink();
+        });
+    </script>
+</body>
+
+</html>
