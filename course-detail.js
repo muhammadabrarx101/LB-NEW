@@ -23,8 +23,8 @@
           <h3>We could not find that course</h3>
           <p>It may have been renamed or retired. Browse the full catalogue instead.</p>
           <div class="row" style="justify-content:center;margin-top:1.5rem">
-            <a class="btn btn-primary" href="courses.html?branch=kids">Kids courses</a>
-            <a class="btn btn-outline" href="courses.html?branch=academics">Academics programmes</a>
+            <a class="btn btn-primary" href="courses?branch=kids">Kids courses</a>
+            <a class="btn btn-outline" href="courses?branch=academics">Academics programmes</a>
           </div>
         </div>
       </div>`;
@@ -43,7 +43,7 @@
     if (desc) desc.setAttribute('content', (course.tagline || course.about || '').slice(0, 155));
 
     $$('[data-branch-home]').forEach(a => { a.href = meta.home; });
-    $$('[data-branch-courses]').forEach(a => { a.href = `courses.html?branch=${branch}`; });
+    $$('[data-branch-courses]').forEach(a => { a.href = `courses?branch=${branch}`; });
     $$('.branch-switch a').forEach(a => a.classList.toggle('is-on', a.dataset.branch === branch));
     const sub = $('#brandSub');
     if (sub) sub.textContent = branch === 'kids' ? 'for Kids' : 'Academics';
@@ -72,11 +72,11 @@
     <section class="detail-hero">
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
+          <a href="index">Home</a>
           <i class="fas fa-chevron-right"></i>
           <a href="${meta.home}">${meta.short}</a>
           <i class="fas fa-chevron-right"></i>
-          <a href="courses.html?branch=${branch}&cat=${encodeURIComponent(course.category)}">${course.category}</a>
+          <a href="courses?branch=${branch}&cat=${encodeURIComponent(course.category)}">${course.category}</a>
           <i class="fas fa-chevron-right"></i>
           <span>${course.name}</span>
         </nav>
@@ -175,10 +175,10 @@
             </ul>
 
             <div class="stack">
-              <a class="btn btn-primary btn-block" href="demo.html?course=${course.id}">
+              <a class="btn btn-primary btn-block" href="demo?course=${course.id}">
                 <i class="fas fa-video"></i> Book a free demo class
               </a>
-              <a class="btn btn-outline btn-block" href="enrollment.html?id=${course.id}">
+              <a class="btn btn-outline btn-block" href="enrollment?id=${course.id}">
                 <i class="fas fa-plus"></i> Add to enquiry
               </a>
               <a class="btn btn-wa btn-block" id="detailWa" href="#" target="_blank" rel="noopener">
@@ -202,7 +202,7 @@
     /* ---------- structured data ---------- */
     if (window.LB_jsonLd) {
         const SITE = 'https://learningbubble.org/';
-        const url = SITE + 'course-detail.html?id=' + course.id;
+        const url = SITE + 'course-detail?id=' + course.id;
 
         /* keep the canonical honest — every course shares one HTML file */
         let canon = document.querySelector('link[rel="canonical"]');
@@ -267,7 +267,7 @@
             <span class="eyebrow"><i class="fas fa-shuffle"></i> Keep looking</span>
             <h2>You might also like</h2>
           </div>
-          <a class="btn btn-outline" href="courses.html?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
+          <a class="btn btn-outline" href="courses?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
         </div>
         <div class="course-grid">
           ${related.map((c, i) => window.LB_courseCard(c, i)).join('')}

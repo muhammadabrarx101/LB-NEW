@@ -1,7 +1,7 @@
 /* ============================================================
    LEARNING BUBBLE — Course catalogue
    ------------------------------------------------------------
-   Drives courses.html. Reads state from the URL so every filter
+   Drives courses. Reads state from the URL so every filter
    combination is a shareable link:
      ?branch=kids|academics &cat=… &q=… &age=6-10 &level=…
    ============================================================ */
@@ -135,6 +135,33 @@
         const sub = $('#brandSub');
         if (sub) sub.textContent = state.branch === 'kids' ? 'for Kids' : 'Academics';
 
+        /* The two branch views are genuinely different pages targeting
+           different queries, so each canonicalises to itself rather than
+           collapsing into a single /courses page. */
+        const canonUrl = `https://learningbubble.org/courses?branch=${state.branch}`;
+        let canon = document.querySelector('link[rel="canonical"]');
+        if (!canon) {
+            canon = document.createElement('link');
+            canon.rel = 'canonical';
+            document.head.appendChild(canon);
+        }
+        canon.href = canonUrl;
+
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', canonUrl);
+
+        /* a filtered permutation is a near-duplicate — keep it out of the index */
+        const filtered = state.cat !== 'all' || state.q.trim() || state.age !== 'all' || state.level !== 'all';
+        let rob = document.querySelector('meta[name="robots"]');
+        if (!rob) {
+            rob = document.createElement('meta');
+            rob.setAttribute('name', 'robots');
+            document.head.appendChild(rob);
+        }
+        rob.setAttribute('content', filtered
+            ? 'noindex,follow'
+            : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
+
         /* branch links elsewhere on the page */
         $$('[data-branch-home]').forEach(a => { a.href = meta.home; });
         $$('.branch-switch a').forEach(a => a.classList.toggle('is-on', a.dataset.branch === state.branch));
@@ -193,7 +220,7 @@
           <p>Try clearing a filter, or search for something broader.</p>
           <div class="row" style="justify-content:center;margin-top:1.5rem">
             <button class="btn btn-primary" id="emptyReset">Clear all filters</button>
-            <a class="btn btn-outline" href="contact.html">Ask us what fits</a>
+            <a class="btn btn-outline" href="contact">Ask us what fits</a>
           </div>
         </div>`;
             const b = $('#emptyReset');

@@ -1,7 +1,7 @@
 /* ============================================================
    Learning Bubble — Extended course content
    ------------------------------------------------------------
-   Loaded only by course-detail.html, so the rest of the site
+   Loaded only by course-detail, so the rest of the site
    does not pay for it. Keyed by the course id in courses-data.js.
 
      whoFor    — one paragraph, plain language

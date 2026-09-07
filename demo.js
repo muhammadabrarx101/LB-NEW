@@ -264,7 +264,7 @@ Here are the slots we can offer:
            href="https://wa.me/${WA}?text=${encodeURIComponent('Hi Learning Bubble! I just requested a free demo class through the website.')}">
           <i class="fab fa-whatsapp"></i> Message us now
         </a>
-        <a class="btn btn-outline btn-block" href="index.html">Back to the homepage</a>
+        <a class="btn btn-outline btn-block" href="index">Back to the homepage</a>
       </div>`;
         successModal.classList.add('is-open');
         document.body.style.overflow = 'hidden';

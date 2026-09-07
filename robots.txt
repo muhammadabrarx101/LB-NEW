@@ -8,8 +8,8 @@ Disallow: /enrollment.html
 # Source tooling, not part of the site
 Disallow: /tools/
 
-# Filtered catalogue views duplicate courses.html; let Google keep its budget
-# for the course pages themselves.
+# Filtered catalogue views duplicate /courses; let Google spend its crawl
+# budget on the 32 individual course pages instead.
 Disallow: /*?*cat=
 Disallow: /*?*q=
 Disallow: /*?*sort=

@@ -16,7 +16,7 @@ const BRANCHES = {
         short: 'For Kids',
         tagline: 'Curiosity-led courses for ages 6–18',
         blurb: 'Playful, project-first courses in storytelling, coding, art, writing and logic — built to make children fall in love with learning.',
-        home: 'kids.html',
+        home: 'kids',
         icon: 'fa-rocket',
         emoji: '🚀',
         ctaLabel: 'Explore Kids Courses'
@@ -27,7 +27,7 @@ const BRANCHES = {
         short: 'Academics',
         tagline: 'IGCSE · IELTS · SAT · English',
         blurb: 'Structured, exam-focused tuition with small groups, past-paper drilling and measurable progress towards your target grade.',
-        home: 'academics.html',
+        home: 'academics',
         icon: 'fa-graduation-cap',
         emoji: '🎓',
         ctaLabel: 'Explore Academics'
@@ -130,7 +130,7 @@ const coursesData = [
 
     /* ========== KIDS · Literature, History & Storytelling ========== */
     {
-        id: 1, branch: 'kids', name: 'The World of Sherlock Holmes',
+        id: 1, branch: 'kids', name: 'The World of Sherlock Holmes', slug: 'the-world-of-sherlock-holmes',
         category: 'Literature, History & Storytelling',
         duration: '4 sessions · 1 month', ages: '12–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-1.jpg', icon: 'fa-magnifying-glass',
@@ -139,7 +139,7 @@ const coursesData = [
         highlights: ['Close-reading of original Conan Doyle cases', 'Deduction and evidence-mapping activities', 'Group case-solving with guided debate', 'Builds observation and logical reasoning']
     },
     {
-        id: 2, branch: 'kids', name: 'History Mystery',
+        id: 2, branch: 'kids', name: 'History Mystery', slug: 'history-mystery',
         category: 'Literature, History & Storytelling',
         duration: '6 sessions · 1.5 months', ages: '12–16', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-2.jpg', icon: 'fa-landmark',
@@ -148,7 +148,7 @@ const coursesData = [
         highlights: ['Inquiry-led rather than date-led', 'Primary-source investigation', 'Connects past events to present-day life', 'Builds argument and evidence skills']
     },
     {
-        id: 3, branch: 'kids', name: 'Tales and Telling',
+        id: 3, branch: 'kids', name: 'Tales and Telling', slug: 'tales-and-telling',
         category: 'Literature, History & Storytelling',
         duration: '4 sessions · 1 month', ages: '8–14', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-3.jpg', icon: 'fa-book',
@@ -159,7 +159,7 @@ const coursesData = [
 
     /* ========== KIDS · Technology & Coding ========== */
     {
-        id: 4, branch: 'kids', name: 'Artificial Intelligence for Kids',
+        id: 4, branch: 'kids', name: 'Artificial Intelligence for Kids', slug: 'artificial-intelligence-for-kids',
         category: 'Technology & Coding',
         duration: '8 sessions · 1.5 months', ages: '12–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-4.jpg', icon: 'fa-robot',
@@ -168,7 +168,7 @@ const coursesData = [
         highlights: ['How AI systems actually work, explained simply', 'Build your own simple AI bot', 'Data literacy and bias basics', 'Online safety and digital responsibility']
     },
     {
-        id: 5, branch: 'kids', name: 'Fun with Coding',
+        id: 5, branch: 'kids', name: 'Fun with Coding', slug: 'fun-coding',
         category: 'Technology & Coding',
         duration: '5 sessions · 1 month', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-5.jpg', icon: 'fa-gamepad',
@@ -177,7 +177,7 @@ const coursesData = [
         highlights: ['No prior experience needed', 'Learn through drawing, animation and games', 'Loops, variables and logic made visual', 'Finish with projects you can show off']
     },
     {
-        id: 6, branch: 'kids', name: 'Learn Python',
+        id: 6, branch: 'kids', name: 'Learn Python', slug: 'learn-python',
         category: 'Technology & Coding',
         duration: '6 sessions · 1.5 months', ages: '12–18', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-6.jpg', icon: 'fa-terminal',
@@ -186,7 +186,7 @@ const coursesData = [
         highlights: ['Python fundamentals from zero', 'Working with real data using pandas', 'Charts and visualisation with matplotlib', 'A launchpad into serious programming']
     },
     {
-        id: 7, branch: 'kids', name: 'Graphic Design with Canva & Illustrator',
+        id: 7, branch: 'kids', name: 'Graphic Design with Canva & Illustrator', slug: 'graphic-design-canva-and-illustrator',
         category: 'Technology & Coding',
         duration: '6 sessions · 2 months', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-7.jpg', icon: 'fa-pen-nib',
@@ -195,7 +195,7 @@ const coursesData = [
         highlights: ['Layout, colour and typography fundamentals', 'Hands-on Canva and Illustrator work', 'Real design briefs, not just exercises', 'Build a small personal portfolio']
     },
     {
-        id: 8, branch: 'kids', name: 'MS Office for Kids',
+        id: 8, branch: 'kids', name: 'MS Office for Kids', slug: 'ms-office-for-kids',
         category: 'Technology & Coding',
         duration: '7 sessions · 1.5 months', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-8.jpg', icon: 'fa-file-lines',
@@ -206,7 +206,7 @@ const coursesData = [
 
     /* ========== KIDS · Creative Writing & Literature Development ========== */
     {
-        id: 9, branch: 'kids', name: "Poet's Corner",
+        id: 9, branch: 'kids', name: "Poet's Corner", slug: 'poets-corner',
         category: 'Creative Writing & Literature Development',
         duration: '4 sessions · 1 month', ages: '10–14', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-9.jpg', icon: 'fa-feather',
@@ -215,7 +215,7 @@ const coursesData = [
         highlights: ['Read and recite with confidence', 'Poetic devices, taught through examples', 'Write and revise your own poems', 'Small, supportive workshop setting']
     },
     {
-        id: 10, branch: 'kids', name: "Poet's Corner — Advanced",
+        id: 10, branch: 'kids', name: "Poet's Corner — Advanced", slug: 'poets-corner-advanced',
         category: 'Creative Writing & Literature Development',
         duration: '6 sessions · 1 month', ages: '15–20', level: 'Advanced', format: 'Live online · workshop',
         image: 'assets/images/courses/course-10.jpg', icon: 'fa-feather-pointed',
@@ -224,7 +224,7 @@ const coursesData = [
         highlights: ['Led by a practising writer/poet', 'Full draft → critique → revision cycle', 'Advanced form and technique', 'Develop a distinct personal voice']
     },
     {
-        id: 11, branch: 'kids', name: 'Creative Writing — Ages 8–10',
+        id: 11, branch: 'kids', name: 'Creative Writing — Ages 8–10', slug: 'creative-writing-ages-8-10',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '8–10', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-11.jpg', icon: 'fa-pencil',
@@ -233,7 +233,7 @@ const coursesData = [
         highlights: ['Playful prompts that unlock ideas', 'Descriptive writing made concrete', 'Short stories from start to finish', 'Confidence before correctness']
     },
     {
-        id: 12, branch: 'kids', name: 'Creative Writing — Ages 11–14',
+        id: 12, branch: 'kids', name: 'Creative Writing — Ages 11–14', slug: 'creative-writing-ages-11-14',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '11–14', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-12.jpg', icon: 'fa-pen-fancy',
@@ -242,7 +242,7 @@ const coursesData = [
         highlights: ['Plot structure that actually holds up', 'Characters readers care about', 'Writing believable dialogue', 'Try multiple genres and styles']
     },
     {
-        id: 13, branch: 'kids', name: 'Creative Writing — Ages 15–18',
+        id: 13, branch: 'kids', name: 'Creative Writing — Ages 15–18', slug: 'creative-writing-ages-15-18',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '15–18', level: 'Advanced', format: 'Live online · workshop',
         image: 'assets/images/courses/course-13.jpg', icon: 'fa-scroll',
@@ -251,7 +251,7 @@ const coursesData = [
         highlights: ['Advanced narrative technique', 'Individual written feedback', 'Multi-genre experimentation', 'Portfolio-ready finished pieces']
     },
     {
-        id: 14, branch: 'kids', name: 'Vocabulary Quest',
+        id: 14, branch: 'kids', name: 'Vocabulary Quest', slug: 'vocabulary-quest',
         category: 'Creative Writing & Literature Development',
         duration: '10 sessions · 1.5 months', ages: '14–18', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-14.jpg', icon: 'fa-spell-check',
@@ -262,7 +262,7 @@ const coursesData = [
 
     /* ========== KIDS · Arts & Creativity ========== */
     {
-        id: 15, branch: 'kids', name: 'Art Rebels',
+        id: 15, branch: 'kids', name: 'Art Rebels', slug: 'art-rebels',
         category: 'Arts & Creativity',
         duration: '4 sessions · 1 month', ages: '12–18', level: 'All levels', format: 'Live online · studio style',
         image: 'assets/images/courses/course-15.jpg', icon: 'fa-paintbrush',
@@ -271,7 +271,7 @@ const coursesData = [
         highlights: ['A different technique every session', 'Sketching, painting, mixed media', 'Experiment-first, theory-light', 'Builds real creative independence']
     },
     {
-        id: 16, branch: 'kids', name: 'Bubbles & Beakers Science Club',
+        id: 16, branch: 'kids', name: 'Bubbles & Beakers Science Club', slug: 'bubbles-and-beakers-science-club',
         category: 'Arts & Creativity',
         duration: '5 sessions · 1 month', ages: '10–16', level: 'Beginner', format: 'Live online · at-home experiments',
         image: 'assets/images/courses/course-16.jpg', icon: 'fa-flask-vial',
@@ -282,7 +282,7 @@ const coursesData = [
 
     /* ========== KIDS · Math, Logic & Skills ========== */
     {
-        id: 17, branch: 'kids', name: 'Math Magic!',
+        id: 17, branch: 'kids', name: 'Math Magic!', slug: 'math-magic',
         category: 'Math, Logic & Skills',
         duration: '6 sessions · 2 months', ages: '6–10', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-17.jpg', icon: 'fa-calculator',
@@ -291,7 +291,7 @@ const coursesData = [
         highlights: ['Mental-maths strategies and shortcuts', 'Pattern spotting and number sense', 'Puzzle and challenge based', 'Kills maths anxiety early']
     },
     {
-        id: 18, branch: 'kids', name: 'Young Entrepreneurs',
+        id: 18, branch: 'kids', name: 'Young Entrepreneurs', slug: 'young-entrepreneurs',
         category: 'Math, Logic & Skills',
         duration: '6 sessions · 1.5 months', ages: '10–14', level: 'Beginner', format: 'Live online · project based',
         image: 'assets/images/courses/course-18.jpg', icon: 'fa-lightbulb',
@@ -300,7 +300,7 @@ const coursesData = [
         highlights: ['Spot a real opportunity', 'Build a product or service idea', 'Pricing, pitching and customers', 'Complete an actual first sale']
     },
     {
-        id: 19, branch: 'kids', name: 'Financial Literacy — Ages 8–12',
+        id: 19, branch: 'kids', name: 'Financial Literacy — Ages 8–12', slug: 'financial-literacy-ages-8-12',
         category: 'Math, Logic & Skills',
         duration: '5 sessions · 1 month', ages: '8–12', level: 'Beginner', format: 'Live online · simulation',
         image: 'assets/images/courses/course-19.jpg', icon: 'fa-piggy-bank',
@@ -309,7 +309,7 @@ const coursesData = [
         highlights: ['Saving vs spending, made concrete', 'Guided in-game money simulation', 'See consequences of real decisions', 'Early financial responsibility']
     },
     {
-        id: 20, branch: 'kids', name: 'Financial Literacy — Ages 13–18',
+        id: 20, branch: 'kids', name: 'Financial Literacy — Ages 13–18', slug: 'financial-literacy-ages-13-18',
         category: 'Math, Logic & Skills',
         duration: '5 sessions · 1 month', ages: '13–18', level: 'Intermediate', format: 'Live online · simulation',
         image: 'assets/images/courses/course-20.jpg', icon: 'fa-chart-line',
@@ -318,7 +318,7 @@ const coursesData = [
         highlights: ['Budgeting that survives real life', 'How compounding and returns work', 'Realistic investment simulation', 'Long-term financial thinking']
     },
     {
-        id: 21, branch: 'kids', name: 'Become a Climate Activist',
+        id: 21, branch: 'kids', name: 'Become a Climate Activist', slug: 'become-a-climate-activist',
         category: 'Math, Logic & Skills',
         duration: '2 months', ages: '8–12', level: 'Beginner', format: 'Live online · discussion & worksheets',
         image: 'assets/images/courses/course-21.jpg', icon: 'fa-leaf',
@@ -329,7 +329,7 @@ const coursesData = [
 
     /* ========== KIDS · Workshops ========== */
     {
-        id: 29, branch: 'kids', name: 'Poetry Writing Workshop',
+        id: 29, branch: 'kids', name: 'Poetry Writing Workshop', slug: 'poetry-writing-workshop',
         category: 'Workshops',
         duration: '2 days', ages: '10–18', level: 'All levels', format: 'Live online · intensive',
         image: 'assets/images/courses/course-29.jpg', icon: 'fa-feather',
@@ -338,7 +338,7 @@ const coursesData = [
         highlights: ['Two-day intensive format', 'Imagery, rhythm and form', 'Guided writing time', 'Leave with finished work']
     },
     {
-        id: 30, branch: 'kids', name: 'Explore Shakespeare',
+        id: 30, branch: 'kids', name: 'Explore Shakespeare', slug: 'explore-shakespeare',
         category: 'Workshops',
         duration: '1 day', ages: '12–18', level: 'All levels', format: 'Live online · intensive',
         image: 'assets/images/courses/course-30.jpg', icon: 'fa-masks-theater',
@@ -347,7 +347,7 @@ const coursesData = [
         highlights: ['One-day, low-commitment', 'Language decoded, not translated away', 'Performance and discussion based', 'Great prep for school set texts']
     },
     {
-        id: 31, branch: 'kids', name: 'Creative Writing Workshop',
+        id: 31, branch: 'kids', name: 'Creative Writing Workshop', slug: 'creative-writing-workshop',
         category: 'Workshops',
         duration: '2 days', ages: '10–18', level: 'All levels', format: 'Live online · intensive',
         image: 'assets/images/courses/course-31.jpg', icon: 'fa-pen-clip',
@@ -358,7 +358,7 @@ const coursesData = [
 
     /* ========== ACADEMICS · IGCSE ========== */
     {
-        id: 22, branch: 'academics', name: 'IGCSE Academics',
+        id: 22, branch: 'academics', name: 'IGCSE Academics', slug: 'igcse-academics',
         category: 'IGCSE Academics',
         duration: '8–12 sessions per month', ages: 'Grades 9–11', level: 'IGCSE / O-Level', format: 'Small group (3–5) or 1-to-1',
         image: 'assets/images/courses/course-22.jpg', icon: 'fa-flask',
@@ -369,7 +369,7 @@ const coursesData = [
     },
     /* ========== ACADEMICS · Test Preparation ========== */
     {
-        id: 23, branch: 'academics', name: 'IELTS Academic',
+        id: 23, branch: 'academics', name: 'IELTS Academic', slug: 'ielts-academic',
         category: 'Test Preparation',
         duration: 'Flexible · hourly or module based', ages: '15+', level: 'Band 6.0 → 8.0+', format: '1-to-1 or group of 3–5',
         image: 'assets/images/courses/course-23.jpg', icon: 'fa-bullseye',
@@ -379,7 +379,7 @@ const coursesData = [
         highlights: ['Diagnostic band assessment first', 'Detailed Writing Task 1 & 2 feedback', 'Timed, exam-condition practice', 'Speaking mocks with an examiner mindset']
     },
     {
-        id: 24, branch: 'academics', name: 'IELTS General Training',
+        id: 24, branch: 'academics', name: 'IELTS General Training', slug: 'ielts-general-training',
         category: 'Test Preparation',
         duration: 'Flexible · hourly or module based', ages: '16+', level: 'Band 5.5 → 8.0+', format: '1-to-1 or group of 3–5',
         image: 'assets/images/courses/course-24.jpg', icon: 'fa-passport',
@@ -389,7 +389,7 @@ const coursesData = [
         highlights: ['Letter-writing task specialisation', 'Everyday-English reading strategy', 'Band-targeted study plan', 'Small groups or 1-to-1']
     },
     {
-        id: 25, branch: 'academics', name: 'SAT Preparation',
+        id: 25, branch: 'academics', name: 'SAT Preparation', slug: 'sat-preparation',
         category: 'Test Preparation',
         duration: '4 months · 3 sessions per week (~48 sessions)', ages: '15–18', level: 'Digital SAT', format: 'Group tuition or per session',
         image: 'assets/images/courses/course-25.jpg', icon: 'fa-chart-simple',
@@ -401,7 +401,7 @@ const coursesData = [
 
     /* ========== ACADEMICS · English Language ========== */
     {
-        id: 26, branch: 'academics', name: 'English Language — Basic',
+        id: 26, branch: 'academics', name: 'English Language — Basic', slug: 'english-language-basic',
         category: 'English Language',
         duration: '10 sessions', ages: 'All ages', level: 'A1 – A2', format: 'Live online · small group',
         image: 'assets/images/courses/course-26.jpg', icon: 'fa-comment',
@@ -410,7 +410,7 @@ const coursesData = [
         highlights: ['Core grammar taught in plain language', 'Everyday, high-frequency vocabulary', 'Low-pressure speaking practice', 'Clear progress checkpoints']
     },
     {
-        id: 27, branch: 'academics', name: 'English Language — Intermediate',
+        id: 27, branch: 'academics', name: 'English Language — Intermediate', slug: 'english-language-intermediate',
         category: 'English Language',
         duration: '10 sessions', ages: 'All ages', level: 'B1 – B2', format: 'Live online · small group',
         image: 'assets/images/courses/course-27.jpg', icon: 'fa-comments',
@@ -419,7 +419,7 @@ const coursesData = [
         highlights: ['Fluency and accuracy developed together', 'Tenses, connectors and register', 'Structured writing practice', 'Extended conversation work']
     },
     {
-        id: 28, branch: 'academics', name: 'English Language — Advanced',
+        id: 28, branch: 'academics', name: 'English Language — Advanced', slug: 'english-language-advanced',
         category: 'English Language',
         duration: '8 sessions', ages: 'All ages', level: 'C1+', format: 'Live online · small group',
         image: 'assets/images/courses/course-28.jpg', icon: 'fa-graduation-cap',
@@ -430,7 +430,7 @@ const coursesData = [
 
     /* ========== ACADEMICS · Professional Skills ========== */
     {
-        id: 32, branch: 'academics', name: 'Professional Email Writing',
+        id: 32, branch: 'academics', name: 'Professional Email Writing', slug: 'professional-email-writing',
         category: 'Professional Skills',
         duration: '2 days', ages: '16+', level: 'All levels', format: 'Live online · intensive',
         image: 'assets/images/courses/course-32.jpg', icon: 'fa-envelope-open-text',

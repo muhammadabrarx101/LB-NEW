@@ -27,7 +27,7 @@
           <span class="eyebrow"><i class="fas fa-graduation-cap"></i> Mentioned in this guide</span>
           <h2>Courses that go with this</h2>
         </div>
-        <a class="btn btn-outline" href="courses.html?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
+        <a class="btn btn-outline" href="courses?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
       </div>
       <div class="course-grid">
         ${courses.map((c, i) => window.LB_courseCard(c, i)).join('')}

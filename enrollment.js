@@ -342,7 +342,7 @@ Here are the available schedules and fee options:
       <div class="stack" style="margin-top:1.75rem">
         <a class="btn btn-wa btn-block" href="https://wa.me/${WA}?text=${encodeURIComponent('Hi Learning Bubble! I just submitted an enquiry through the website.')}"
            target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Message us now</a>
-        <a class="btn btn-outline btn-block" href="courses.html?branch=${pickBranch}">Keep browsing courses</a>
+        <a class="btn btn-outline btn-block" href="courses?branch=${pickBranch}">Keep browsing courses</a>
       </div>`;
         openModal(els.success);
     }

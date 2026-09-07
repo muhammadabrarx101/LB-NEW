@@ -1,0 +1,6 @@
+# Legacy course URLs -> static per-course pages
+# (query strings are matched with a splat, so /course-detail?id=N lands on the catalogue
+#  and course-detail.html's inline script forwards to the exact course)
+/course-detail  /courses?branch=kids  302
+
+# .html requests are already 308'd to the clean path by Pages itself.
