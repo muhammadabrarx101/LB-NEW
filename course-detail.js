@@ -23,8 +23,8 @@
           <h3>We could not find that course</h3>
           <p>It may have been renamed or retired. Browse the full catalogue instead.</p>
           <div class="row" style="justify-content:center;margin-top:1.5rem">
-            <a class="btn btn-primary" href="courses?branch=kids">Kids courses</a>
-            <a class="btn btn-outline" href="courses?branch=academics">Academics programmes</a>
+            <a class="btn btn-primary" href="courses.html?branch=kids">Kids courses</a>
+            <a class="btn btn-outline" href="courses.html?branch=academics">Academics programmes</a>
           </div>
         </div>
       </div>`;
@@ -38,12 +38,85 @@
     document.body.dataset.branch = branch;
     try { localStorage.setItem('lb-branch', branch); } catch (e) { /* noop */ }
 
-    document.title = `${course.name} — ${meta.name}`;
+    const isKids = branch === 'kids';
+    const kidsSuffix = / kids$/i.test(course.name) ? '' : ' for Kids';
+    document.title = isKids
+        ? `${course.name}${kidsSuffix} — Online Learning for Kids | Learning Bubble`
+        : `${course.name} — Academic Learning Online | Learning Bubble Academics`;
+
+    const descText = (course.tagline ? course.tagline + ' ' : '') + (course.about || '');
+    const descContent = descText.slice(0, 155);
     const desc = $('meta[name="description"]');
-    if (desc) desc.setAttribute('content', (course.tagline || course.about || '').slice(0, 155));
+    if (desc) desc.setAttribute('content', descContent);
+
+    /* ---------- SEO: keywords, canonical, Open Graph, structured data ---------- */
+    const setMeta = (selector, attr, value, createTag) => {
+        let el = $(selector);
+        if (!el && createTag) { el = document.createElement('meta'); document.head.appendChild(el); createTag(el); }
+        if (el) el.setAttribute(attr === 'content' ? 'content' : attr, value);
+        return el;
+    };
+
+    const kwParts = [course.name, course.category, isKids ? 'online learning for kids' : 'academic learning',
+        isKids ? 'elearning for kids' : 'academics', isKids ? course.name + ' for kids' : course.name,
+        `${course.name} in Pakistan`,
+        isKids ? 'online learning for kids in Pakistan' : 'academic learning in Pakistan',
+        isKids ? 'elearning for kids in Pakistan' : `${course.name} Pakistan`,
+        'Learning Bubble'];
+    setMeta('meta[name="keywords"]', 'content', kwParts.join(', '), el => el.setAttribute('name', 'keywords'));
+
+    const canonicalHref = `https://learningbubble.org/course-detail.html?id=${course.id}`;
+    let canon = $('link[rel="canonical"]');
+    if (!canon) { canon = document.createElement('link'); canon.setAttribute('rel', 'canonical'); document.head.appendChild(canon); }
+    canon.setAttribute('href', canonicalHref);
+
+    const ogTitle = $('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', document.title);
+    else { const m = document.createElement('meta'); m.setAttribute('property', 'og:title'); m.setAttribute('content', document.title); document.head.appendChild(m); }
+
+    const ogDesc = $('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', descContent);
+    else { const m = document.createElement('meta'); m.setAttribute('property', 'og:description'); m.setAttribute('content', descContent); document.head.appendChild(m); }
+
+    const ogUrl = document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url'); ogUrl.setAttribute('content', canonicalHref);
+    document.head.appendChild(ogUrl);
+
+    if (course.image) {
+        const ogImg = document.createElement('meta');
+        ogImg.setAttribute('property', 'og:image');
+        ogImg.setAttribute('content', `https://learningbubble.org/${course.image}`);
+        document.head.appendChild(ogImg);
+    }
+
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: course.name,
+        description: descText.slice(0, 300) || course.name,
+        url: canonicalHref,
+        provider: {
+            '@type': 'EducationalOrganization',
+            name: 'Learning Bubble',
+            sameAs: 'https://learningbubble.org/',
+            areaServed: { '@type': 'Country', name: 'Pakistan' }
+        },
+        image: course.image ? `https://learningbubble.org/${course.image}` : undefined,
+        educationalLevel: course.level || undefined,
+        audience: course.ages ? { '@type': 'Audience', audienceType: `Ages ${course.ages}` } : undefined,
+        hasCourseInstance: {
+            '@type': 'CourseInstance',
+            courseMode: 'online',
+            courseWorkload: course.duration || undefined,
+            location: { '@type': 'VirtualLocation', url: canonicalHref }
+        }
+    });
+    document.head.appendChild(ld);
 
     $$('[data-branch-home]').forEach(a => { a.href = meta.home; });
-    $$('[data-branch-courses]').forEach(a => { a.href = `courses?branch=${branch}`; });
+    $$('[data-branch-courses]').forEach(a => { a.href = `courses.html?branch=${branch}`; });
     $$('.branch-switch a').forEach(a => a.classList.toggle('is-on', a.dataset.branch === branch));
     const sub = $('#brandSub');
     if (sub) sub.textContent = branch === 'kids' ? 'for Kids' : 'Academics';
@@ -63,20 +136,16 @@
 
     const waMessage = `Hi Learning Bubble! I'm interested in "${course.name}". Could you share the schedule and fee details?`;
 
-    /* extended content lives in course-content.js so the rest of the site
-       does not have to download it */
-    const extra = (typeof courseContent !== 'undefined' && courseContent[course.id]) || {};
-
     /* ---------- render ---------- */
     host.innerHTML = `
     <section class="detail-hero">
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="index">Home</a>
+          <a href="index.html">Home</a>
           <i class="fas fa-chevron-right"></i>
           <a href="${meta.home}">${meta.short}</a>
           <i class="fas fa-chevron-right"></i>
-          <a href="courses?branch=${branch}&cat=${encodeURIComponent(course.category)}">${course.category}</a>
+          <a href="courses.html?branch=${branch}&cat=${encodeURIComponent(course.category)}">${course.category}</a>
           <i class="fas fa-chevron-right"></i>
           <span>${course.name}</span>
         </nav>
@@ -122,43 +191,12 @@
               ${course.subjects.map(s => `<span class="chip chip--accent">${s}</span>`).join('')}
             </div>` : ''}
 
-          ${extra.whoFor ? `
-            <h2>Who this ${branch === 'academics' ? 'programme' : 'course'} is for</h2>
-            <p>${extra.whoFor}</p>` : ''}
-
-          ${extra.outcomes && extra.outcomes.length ? `
-            <h2>What you will be able to do</h2>
-            <ul class="check-list">
-              ${extra.outcomes.map(o => `<li><i class="fas fa-check"></i>${o}</li>`).join('')}
-            </ul>` : ''}
-
-          ${extra.structure && extra.structure.length ? `
-            <h2>How the ${branch === 'academics' ? 'programme' : 'course'} is structured</h2>
-            <ol class="syllabus">
-              ${extra.structure.map(s => `
-                <li>
-                  <h3>${s.t}</h3>
-                  <p>${s.d}</p>
-                </li>`).join('')}
-            </ol>` : ''}
-
           <h2>How it runs</h2>
           <p>${course.format || 'Live online sessions'} — taught live, never pre-recorded, with sessions recorded
           afterwards so students can revisit anything they missed. Timings are arranged around school and time zones,
           and we reschedule when exams or travel get in the way.</p>
-          <p>Learning Bubble teaches online to students across Pakistan — Karachi, Lahore and Islamabad — as well as the
-          Gulf, the UK and North America. You will need a laptop or tablet with a working camera and a reasonably
-          stable connection. If a course requires any materials at home, we send the list before the first session.</p>
-
-          ${extra.faqs && extra.faqs.length ? `
-            <h2>Frequently asked questions</h2>
-            <div class="faq faq--inline">
-              ${extra.faqs.map(f => `
-                <div class="faq-item">
-                  <button class="faq-q" aria-expanded="false">${f.q}<i class="fas fa-chevron-down"></i></button>
-                  <div class="faq-a"><div><p>${f.a}</p></div></div>
-                </div>`).join('')}
-            </div>` : ''}
+          <p>You will need a laptop or tablet with a working camera and a reasonably stable connection. If a course
+          requires any materials at home, we send the list before the first session.</p>
         </div>
 
         <aside>
@@ -175,10 +213,7 @@
             </ul>
 
             <div class="stack">
-              <a class="btn btn-primary btn-block" href="demo?course=${course.id}">
-                <i class="fas fa-video"></i> Book a free demo class
-              </a>
-              <a class="btn btn-outline btn-block" href="enrollment?id=${course.id}">
+              <a class="btn btn-primary btn-block" href="enrollment.html?id=${course.id}">
                 <i class="fas fa-plus"></i> Add to enquiry
               </a>
               <a class="btn btn-wa btn-block" id="detailWa" href="#" target="_blank" rel="noopener">
@@ -186,8 +221,8 @@
               </a>
             </div>
 
-            <p class="sticky-note">The demo is free and runs 30 minutes. Fees vary by format and schedule, so we
-            quote them personally rather than publishing a number that would not apply to you.</p>
+            <p class="sticky-note">Fees vary by format and schedule, so we quote them personally rather than
+            publishing a number that would not apply to you.</p>
           </div>
         </aside>
       </div>
@@ -198,60 +233,6 @@
     /* ---------- WhatsApp CTA ---------- */
     const wa = $('#detailWa');
     if (wa) wa.href = `https://wa.me/${(window.LB_CFG || {}).whatsapp || '923212481610'}?text=${encodeURIComponent(waMessage)}`;
-
-    /* ---------- structured data ---------- */
-    if (window.LB_jsonLd) {
-        const SITE = 'https://learningbubble.org/';
-        const url = SITE + 'course-detail?id=' + course.id;
-
-        /* keep the canonical honest — every course shares one HTML file */
-        let canon = document.querySelector('link[rel="canonical"]');
-        if (!canon) {
-            canon = document.createElement('link');
-            canon.rel = 'canonical';
-            document.head.appendChild(canon);
-        }
-        canon.href = url;
-
-        const og = (prop, val) => {
-            let m = document.querySelector(`meta[property="${prop}"]`);
-            if (!m) {
-                m = document.createElement('meta');
-                m.setAttribute('property', prop);
-                document.head.appendChild(m);
-            }
-            m.setAttribute('content', val);
-        };
-        og('og:title', `${course.name} — ${meta.name}`);
-        og('og:description', course.tagline || (course.about || '').slice(0, 160));
-        og('og:url', url);
-        if (course.image) og('og:image', SITE + course.image);
-
-        window.LB_jsonLd({
-            '@context': 'https://schema.org',
-            '@type': 'Course',
-            name: course.name,
-            description: (course.about || course.tagline || '').slice(0, 500),
-            url: url,
-            inLanguage: 'en',
-            educationalLevel: course.level || undefined,
-            teaches: (course.subjects || course.highlights || []).join(', ') || undefined,
-            typicalAgeRange: course.ages || undefined,
-            provider: {
-                '@type': 'EducationalOrganization',
-                name: 'Learning Bubble',
-                url: SITE,
-                sameAs: SITE
-            },
-            hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: 'online',
-                courseWorkload: course.duration,
-                location: { '@type': 'VirtualLocation', url: SITE },
-                instructor: { '@type': 'Organization', name: 'Learning Bubble' }
-            }
-        });
-    }
 
     /* ---------- related ---------- */
     const related = LB.byBranch(branch)
@@ -267,7 +248,7 @@
             <span class="eyebrow"><i class="fas fa-shuffle"></i> Keep looking</span>
             <h2>You might also like</h2>
           </div>
-          <a class="btn btn-outline" href="courses?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
+          <a class="btn btn-outline" href="courses.html?branch=${branch}">All ${meta.short.toLowerCase()} courses</a>
         </div>
         <div class="course-grid">
           ${related.map((c, i) => window.LB_courseCard(c, i)).join('')}

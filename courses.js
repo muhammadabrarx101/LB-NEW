@@ -1,7 +1,7 @@
 /* ============================================================
    LEARNING BUBBLE — Course catalogue
    ------------------------------------------------------------
-   Drives courses. Reads state from the URL so every filter
+   Drives courses.html. Reads state from the URL so every filter
    combination is a shareable link:
      ?branch=kids|academics &cat=… &q=… &age=6-10 &level=…
    ============================================================ */
@@ -110,22 +110,20 @@
     /* ---------- chrome ---------- */
     function paintChrome() {
         const meta = LB.branches[state.branch];
-        document.title = meta.short === 'For Kids'
-            ? 'Online Courses for Kids, Ages 6–18 | Learning Bubble'
-            : 'IGCSE, IELTS & SAT Exam Preparation | Learning Bubble';
+        document.title = `${meta.short === 'For Kids' ? 'Kids Courses' : 'Academics Programmes'} — Learning Bubble`;
 
         if (els.eyebrow) {
             els.eyebrow.innerHTML = `<i class="fas ${meta.icon}"></i> ${meta.name}`;
         }
         if (els.title) {
             els.title.textContent = state.branch === 'kids'
-                ? 'Online courses for kids, ages 6–18'
-                : 'Online exam preparation programmes';
+                ? 'Creative courses for ages 6–18'
+                : 'Exam-focused programmes';
         }
         if (els.intro) {
             els.intro.textContent = state.branch === 'kids'
-                ? 'Creative online learning for kids — every course is project-first and non-examined. Filter by category or age, or search for something specific.'
-                : 'IGCSE tuition, IELTS test preparation, SAT test preparation and English proficiency. Filter by track, or search for your subject.';
+                ? 'Every course here is project-first and non-examined. Filter by category or age, or search for something specific.'
+                : 'IGCSE, A-Level, IELTS, SAT and English proficiency. Filter by track, or search for your subject.';
         }
         if (els.crumbBranch) {
             els.crumbBranch.textContent = meta.short;
@@ -134,33 +132,6 @@
 
         const sub = $('#brandSub');
         if (sub) sub.textContent = state.branch === 'kids' ? 'for Kids' : 'Academics';
-
-        /* The two branch views are genuinely different pages targeting
-           different queries, so each canonicalises to itself rather than
-           collapsing into a single /courses page. */
-        const canonUrl = `https://learningbubble.org/courses?branch=${state.branch}`;
-        let canon = document.querySelector('link[rel="canonical"]');
-        if (!canon) {
-            canon = document.createElement('link');
-            canon.rel = 'canonical';
-            document.head.appendChild(canon);
-        }
-        canon.href = canonUrl;
-
-        const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute('content', canonUrl);
-
-        /* a filtered permutation is a near-duplicate — keep it out of the index */
-        const filtered = state.cat !== 'all' || state.q.trim() || state.age !== 'all' || state.level !== 'all';
-        let rob = document.querySelector('meta[name="robots"]');
-        if (!rob) {
-            rob = document.createElement('meta');
-            rob.setAttribute('name', 'robots');
-            document.head.appendChild(rob);
-        }
-        rob.setAttribute('content', filtered
-            ? 'noindex,follow'
-            : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
 
         /* branch links elsewhere on the page */
         $$('[data-branch-home]').forEach(a => { a.href = meta.home; });
@@ -220,7 +191,7 @@
           <p>Try clearing a filter, or search for something broader.</p>
           <div class="row" style="justify-content:center;margin-top:1.5rem">
             <button class="btn btn-primary" id="emptyReset">Clear all filters</button>
-            <a class="btn btn-outline" href="contact">Ask us what fits</a>
+            <a class="btn btn-outline" href="contact.html">Ask us what fits</a>
           </div>
         </div>`;
             const b = $('#emptyReset');

@@ -1,21 +1,4 @@
-# Secrets — never commit these
-.env
 .env.*
 *.env
-
-# Vercel
-.vercel
-
-# Dependencies (none today, but keep it safe)
-node_modules/
-
-# OS / editor noise
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-.DS_Store
-*.swp
-
-# Source documents — not part of the deployed site
-*.docx
 *.pdf
+Learning-Bubble-Courses-List.pdf

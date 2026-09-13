@@ -114,16 +114,10 @@
         if (links && !links.querySelector('.nav-cta')) {
             /* the header "Enquire" button is hidden on narrow screens —
                give the drawer its own call to action instead */
-            const enquire = document.createElement('a');
-            enquire.className = 'nav-link nav-secondary';
-            enquire.href='enrollment';
-            enquire.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Send an enquiry';
-            links.appendChild(enquire);
-
             const cta = document.createElement('a');
             cta.className = 'nav-link nav-cta';
-            cta.href='demo';
-            cta.innerHTML = '<i class="fas fa-video" aria-hidden="true"></i> Book a free demo';
+            cta.href = 'enrollment.html';
+            cta.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enquire now';
             links.appendChild(cta);
         }
 
@@ -143,7 +137,7 @@
         }
 
         /* mark the active nav item */
-        const file = (location.pathname.split('/').pop() || 'index').toLowerCase();
+        const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
         $$('.nav-link').forEach(a => {
             const href = (a.getAttribute('href') || '').split('?')[0].toLowerCase();
             if (href && href === file) a.classList.add('is-active');
@@ -169,11 +163,18 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a class="brand" href="index">
+            <a class="brand" href="index.html">
               <img class="brand-logo" src="assets/images/logo.png" alt="" width="40" height="40">
               <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Kids &amp; Academics</em></span>
             </a>
-            <p>An online learning community built on two ideas: children learn best when they are genuinely curious, and exam students deserve teaching that is structured, honest and measurable.</p>
+            <p>Learning Bubble is an online learning and elearning platform for online learning for kids in Pakistan
+            and academic learning in Pakistan. Our creative courses for kids cover AI for kids, coding for kids,
+            history mystery for kids, poetry for kids and creative writing for kids, while our academic learning
+            programmes cover IGCSE in Pakistan, IELTS in Pakistan (Academic &amp; General), SAT in Pakistan and
+            English Language courses — plus practical skills like Professional Email Writing. Every session is live
+            online, taught in small groups, for students in Pakistan and worldwide. Our approach blends personalized,
+            project-based learning with STEM &amp; STEAM thinking, building the 21st-century skills, critical thinking
+            and study skills that carry students through exams and beyond.</p>
             <div class="footer-social">
               <a href="${CFG.facebook}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
               <a href="${CFG.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -185,29 +186,27 @@
           <div class="footer-col">
             <h4>For Kids</h4>
             <ul>
-              <li><a href="kids">Kids home</a></li>
-              ${kidsCats.map(c => `<li><a href="courses?branch=kids&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
+              <li><a href="kids.html">Kids home</a></li>
+              ${kidsCats.map(c => `<li><a href="courses.html?branch=kids&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Academics</h4>
             <ul>
-              <li><a href="academics">Academics home</a></li>
-              ${acadCats.map(c => `<li><a href="courses?branch=academics&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
+              <li><a href="academics.html">Academics home</a></li>
+              ${acadCats.map(c => `<li><a href="courses.html?branch=academics&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Learning Bubble</h4>
             <ul>
-              <li><a href="about">About us</a></li>
-              <li><a href="blog">Learning guides</a></li>
-              <li><a href="resources">Resources</a></li>
-              <li><a href="contact">Contact</a></li>
-              <li><a href="demo">Book a free demo</a></li>
-              <li><a href="enrollment">Enquire / Enrol</a></li>
-              <li><a href="courses?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="enrollment.html">Enquire / Enrol</a></li>
+              <li><a href="courses.html?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
           </div>
 
@@ -222,14 +221,34 @@
           </div>
         </div>
 
+        <div class="footer-bottom footer-bottom--links">
+          <p style="width:100%;margin:0 0 .6rem"><strong>Popular:</strong>
+            <a href="course-detail.html?id=4">AI for Kids</a> ·
+            <a href="course-detail.html?id=5">Coding for Kids</a> ·
+            <a href="course-detail.html?id=2">History Mystery for Kids</a> ·
+            <a href="course-detail.html?id=9">Poetry for Kids</a> ·
+            <a href="courses.html?branch=kids&amp;cat=Creative%20Writing%20%26%20Literature%20Development">Creative Writing for Kids</a> ·
+            <a href="course-detail.html?id=22">IGCSE Academics</a> ·
+            <a href="course-detail.html?id=23">IELTS Academics</a> ·
+            <a href="course-detail.html?id=24">IELTS General</a> ·
+            <a href="course-detail.html?id=25">SAT Preparation</a> ·
+            <a href="courses.html?branch=academics&amp;cat=English%20Language">English Language Courses</a> ·
+            <a href="course-detail.html?id=32">Professional Email Writing</a> ·
+            <a href="kids.html">Online Learning for Kids in Pakistan</a> ·
+            <a href="course-detail.html?id=22">IGCSE in Pakistan</a> ·
+            <a href="course-detail.html?id=23">IELTS in Pakistan</a> ·
+            <a href="course-detail.html?id=25">SAT in Pakistan</a> ·
+            <a href="academics.html">Academic Learning in Pakistan</a>
+          </p>
+        </div>
+
         <div class="footer-bottom">
           <p>&copy; ${new Date().getFullYear()} Learning Bubble. All rights reserved.</p>
           <nav>
-            <a href="demo">Book a demo</a>
-            <a href="about">About</a>
-            <a href="courses?branch=kids">Kids courses</a>
-            <a href="courses?branch=academics">Academics</a>
-            <a href="contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="courses.html?branch=kids">Kids courses</a>
+            <a href="courses.html?branch=academics">Academics</a>
+            <a href="contact.html">Contact</a>
           </nav>
         </div>
       </div>`;
@@ -241,7 +260,7 @@
     function waLink(msg) {
         const b = currentBranch();
         const fallback = b === 'academics'
-            ? 'Hi Learning Bubble! I would like to know more about your Academics programmes (IGCSE / IELTS / SAT).'
+            ? 'Hi Learning Bubble! I would like to know more about your Academics programmes (IGCSE / A-Levels / IELTS / SAT).'
             : b === 'kids'
                 ? 'Hi Learning Bubble! I would like to know more about your courses for kids.'
                 : 'Hi Learning Bubble! I would like to know more about your courses.';
@@ -327,7 +346,7 @@
                 return;
             }
             results.innerHTML = list.slice(0, 10).map(c => `
-        <a class="search-item" href="course-${c.slug}">
+        <a class="search-item" href="course-detail.html?id=${c.id}">
           <span class="search-item-ico"><i class="fas ${c.icon || 'fa-book'}"></i></span>
           <span class="search-item-body">
             <strong>${c.name}</strong>
@@ -356,7 +375,7 @@
             const first = $('.search-item', results);
             if (first) { location.href = first.getAttribute('href'); return; }
             const branch = scope === 'all' ? rememberedBranch() : scope;
-            location.href = `courses?branch=${branch}&q=${encodeURIComponent(input.value.trim())}`;
+            location.href = `courses.html?branch=${branch}&q=${encodeURIComponent(input.value.trim())}`;
         });
 
         paintScope();
@@ -541,21 +560,21 @@
         const d = delay ? ` data-delay="${delay % 4 + 1}"` : '';
         return `
       <article class="course-card reveal"${d}>
-        <a class="course-media" href="course-${c.slug}" aria-label="${c.name}">
+        <a class="course-media" href="course-detail.html?id=${c.id}" aria-label="${c.name}">
           ${media(c)}
           <span class="course-tag">${c.category}</span>
           <span class="course-level" title="${c.level || ''}"><i class="fas ${c.icon || 'fa-book'}"></i></span>
         </a>
         <div class="course-body">
-          <h3><a href="course-${c.slug}">${c.name}</a></h3>
+          <h3><a href="course-detail.html?id=${c.id}">${c.name}</a></h3>
           <p class="course-tagline">${c.tagline || ''}</p>
           <div class="course-meta">
             ${c.ages ? `<span class="chip"><i class="fas fa-child-reaching"></i>${c.ages}</span>` : ''}
             <span class="chip"><i class="fas fa-clock"></i>${c.duration}</span>
           </div>
           <div class="course-foot">
-            <a class="course-more" href="course-${c.slug}">View course <i class="fas fa-arrow-right"></i></a>
-            <a class="course-enrol" href="enrollment?id=${c.id}" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
+            <a class="course-more" href="course-detail.html?id=${c.id}">View course <i class="fas fa-arrow-right"></i></a>
+            <a class="course-enrol" href="enrollment.html?id=${c.id}" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
               <i class="fas fa-plus"></i>
             </a>
           </div>
@@ -583,10 +602,10 @@
         $$('[data-categories]').forEach(host => {
             const branch = host.dataset.categories;
             host.innerHTML = LB.categoriesFor(branch === 'all' ? null : branch).map((cat, i) => `
-        <a class="cat-card reveal" data-delay="${i % 4 + 1}" href="courses?branch=${cat.branch}&cat=${encodeURIComponent(cat.name)}">
+        <a class="cat-card reveal" data-delay="${i % 4 + 1}" href="courses.html?branch=${cat.branch}&cat=${encodeURIComponent(cat.name)}">
           <div class="cat-media">
             ${cat.image
-                    ? `<img src="${cat.image}" alt="${cat.name} — online courses at Learning Bubble" loading="lazy" width="400" height="225" onerror="this.style.display='none'">`
+                    ? `<img src="${cat.image}" alt="" loading="lazy" width="400" height="225" onerror="this.style.display='none'">`
                     : `<span class="media-art"><i class="fas ${cat.icon}" aria-hidden="true"></i></span>`}
             <span class="cat-ico"><i class="fas ${cat.icon}"></i></span>
           </div>
@@ -699,221 +718,6 @@
     }
 
     /* ============================================================
-       LIQUID BACKGROUNDS
-       ------------------------------------------------------------
-       Any [data-liquid] element gets blobs + education motifs
-       injected. On the hub chooser the palette follows whichever
-       brand the visitor is engaging with — hover on desktop, and
-       whichever card is centred on touch.
-       ============================================================ */
-    const LQ_ICONS = {
-        kids: [
-            ['fa-rocket', 14, 24], ['fa-palette', 82, 30], ['fa-puzzle-piece', 24, 74],
-            ['fa-feather-pointed', 72, 76], ['fa-flask-vial', 50, 14]
-        ],
-        academics: [
-            ['fa-graduation-cap', 16, 28], ['fa-square-root-variable', 80, 26],
-            ['fa-flask', 26, 76], ['fa-bullseye', 74, 72], ['fa-book-open', 50, 16]
-        ]
-    };
-
-    function buildLiquid(host) {
-        if (host.childElementCount) return;
-        let html = '';
-        for (let i = 0; i < 5; i++) html += '<span class="lq"></span>';
-        Object.keys(LQ_ICONS).forEach(branch => {
-            LQ_ICONS[branch].forEach(([icon, x, y], i) => {
-                html += `<span class="lq-ico" data-for="${branch}"
-                     style="--x:${x}%;--y:${y}%;--fd:${10 + i * 2}s;--delay:${-i * 3}s">
-                     <i class="fas ${icon}" aria-hidden="true"></i></span>`;
-            });
-        });
-        host.innerHTML = html;
-    }
-
-    function initLiquid() {
-        $$('.liquid').forEach(buildLiquid);
-
-        const chooser = $('.chooser');
-        if (!chooser) return;
-
-        const scope = chooser.closest('[data-liquid]') || chooser.parentElement;
-        const worlds = $$('.world', chooser);
-        if (!scope || !worlds.length) return;
-
-        const base = scope.dataset.liquid || 'blend';
-
-        const light = world => {
-            worlds.forEach(w => w.classList.toggle('is-lit', w === world));
-            chooser.classList.toggle('is-engaged', !!world);
-            scope.dataset.liquid = world ? (world.dataset.world || base) : base;
-        };
-
-        if (window.matchMedia('(hover: hover)').matches) {
-            worlds.forEach(w => {
-                w.addEventListener('pointerenter', () => light(w));
-                w.addEventListener('focusin', () => light(w));
-            });
-            chooser.addEventListener('pointerleave', () => light(null));
-            chooser.addEventListener('focusout', e => {
-                if (!chooser.contains(e.relatedTarget)) light(null);
-            });
-        } else if ('IntersectionObserver' in window) {
-            /* touch: the card nearest the middle of the screen wins */
-            const seen = new Map();
-            const io = new IntersectionObserver(entries => {
-                entries.forEach(en => seen.set(en.target, en.intersectionRatio));
-                let best = null, bestRatio = 0;
-                seen.forEach((ratio, el) => { if (ratio > bestRatio) { bestRatio = ratio; best = el; } });
-                light(bestRatio > 0.55 ? best : null);
-            }, { threshold: [0, 0.25, 0.55, 0.8, 1], rootMargin: '-25% 0px -25% 0px' });
-            worlds.forEach(w => io.observe(w));
-        }
-    }
-
-    /* ============================================================
-       POINTER-REACTIVE CARDS
-       ============================================================ */
-    function initPointerCards() {
-        if (!window.matchMedia('(hover: hover)').matches) return;
-        const sel = '.feature, .step, .quote, .res-card, .info-card, .world';
-
-        document.addEventListener('pointermove', e => {
-            const card = e.target.closest(sel);
-            if (!card) return;
-            const r = card.getBoundingClientRect();
-            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-            card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-        }, { passive: true });
-    }
-
-    /* ============================================================
-       DEMO LINKS
-       ============================================================ */
-    function demoWaLink(branch) {
-        const b = branch || currentBranch();
-        const what = b === 'academics'
-            ? 'an Academics demo class (IGCSE / IELTS / SAT)'
-            : b === 'kids' ? 'a demo class for my child' : 'a free demo class';
-        return `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(
-            `Hi Learning Bubble! I would like to book ${what}. When is the next available slot?`)}`;
-    }
-    window.LB_demoWaLink = demoWaLink;
-
-    function initDemoLinks() {
-        $$('[data-demo-wa]').forEach(a => { a.href = demoWaLink(a.dataset.demoWa || ''); });
-    }
-
-    /* ============================================================
-       STRUCTURED DATA
-       ------------------------------------------------------------
-       Breadcrumbs and FAQs are built from what is already on the
-       page, so the markup can never drift from the visible content
-       (which is exactly what Google penalises).
-       ============================================================ */
-    const SITE = 'https://learningbubble.org/';
-
-    function addJsonLd(obj) {
-        const s = document.createElement('script');
-        s.type = 'application/ld+json';
-        s.textContent = JSON.stringify(obj);
-        document.head.appendChild(s);
-    }
-    window.LB_jsonLd = addJsonLd;
-
-    function absUrl(href) {
-        try { return new URL(href, SITE).href; } catch (e) { return SITE; }
-    }
-
-    function breadcrumbLd() {
-        const crumbs = $$('.crumbs > *').filter(el => el.tagName === 'A' || el.tagName === 'SPAN');
-        if (crumbs.length < 2) return;
-        addJsonLd({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: crumbs.map((el, i) => ({
-                '@type': 'ListItem',
-                position: i + 1,
-                name: el.textContent.trim(),
-                item: el.tagName === 'A' ? absUrl(el.getAttribute('href')) : absUrl(location.pathname.slice(1))
-            }))
-        });
-    }
-
-    function faqLd() {
-        const items = $$('.faq-item');
-        if (items.length < 2) return;
-        const qas = items.map(item => {
-            const q = $('.faq-q', item);
-            const a = $('.faq-a', item);
-            if (!q || !a) return null;
-            return {
-                '@type': 'Question',
-                name: q.textContent.replace(/\s+/g, ' ').trim(),
-                acceptedAnswer: { '@type': 'Answer', text: a.textContent.replace(/\s+/g, ' ').trim() }
-            };
-        }).filter(Boolean);
-        if (!qas.length) return;
-        addJsonLd({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qas });
-    }
-
-    /** Course list markup for a branch landing page or the catalogue. */
-    function courseListLd(branch, name) {
-        const list = LB.byBranch(branch === 'all' ? null : branch);
-        if (!list.length) return;
-        addJsonLd({
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            name: name,
-            numberOfItems: list.length,
-            itemListElement: list.map((c, i) => ({
-                '@type': 'ListItem',
-                position: i + 1,
-                item: {
-                    '@type': 'Course',
-                    name: c.name,
-                    description: c.tagline || (c.about || '').slice(0, 160),
-                    url: SITE + 'course-' + c.slug,
-                    provider: { '@type': 'Organization', name: 'Learning Bubble', sameAs: SITE }
-                }
-            }))
-        });
-    }
-    window.LB_courseListLd = courseListLd;
-
-    function initSeo() {
-        breadcrumbLd();
-        faqLd();
-
-        const page = (location.pathname.split('/').pop() || 'index').toLowerCase();
-
-        if (page === 'index' || page === '') {
-            addJsonLd({
-                '@context': 'https://schema.org',
-                '@type': 'WebSite',
-                name: 'Learning Bubble',
-                url: SITE,
-                potentialAction: {
-                    '@type': 'SearchAction',
-                    target: { '@type': 'EntryPoint', urlTemplate: SITE + 'courses?q={search_term_string}' },
-                    'query-input': 'required name=search_term_string'
-                }
-            });
-            courseListLd('all', 'Learning Bubble courses and programmes');
-        }
-
-        if (page === 'kids') courseListLd('kids', 'Online courses for kids, ages 6–18');
-        if (page === 'academics') courseListLd('academics', 'Online exam preparation programmes');
-
-        if (page === 'courses') {
-            const b = currentBranch() === 'academics' ? 'academics' : 'kids';
-            courseListLd(b, b === 'kids'
-                ? 'Online courses for kids, ages 6–18'
-                : 'Online exam preparation programmes');
-        }
-    }
-
-    /* ============================================================
        BOOT
        ============================================================ */
     function boot() {
@@ -928,18 +732,8 @@
         initCarousels();
         initCounters();
         initBubbles();
-        initLiquid();
-        initPointerCards();
-        initDemoLinks();
         initContactForm();
         initReveal();
-
-        /* Deferred scripts all execute before DOMContentLoaded, so boot()
-           fires while readyState is already "interactive" — i.e. BEFORE
-           courses.js / course-detail.js have rendered their markup. The
-           SEO pass reads that markup, so it has to wait for the event. */
-        if (document.readyState === 'complete') initSeo();
-        else document.addEventListener('DOMContentLoaded', initSeo, { once: true });
         root.classList.remove('fouc-prevent');
     }
 
