@@ -116,7 +116,7 @@
                give the drawer its own call to action instead */
             const cta = document.createElement('a');
             cta.className = 'nav-link nav-cta';
-            cta.href = 'enrollment.html';
+            cta.href = 'enrollment';
             cta.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enquire now';
             links.appendChild(cta);
         }
@@ -137,7 +137,7 @@
         }
 
         /* mark the active nav item */
-        const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        const file = (location.pathname.split('/').pop() || 'index').toLowerCase();
         $$('.nav-link').forEach(a => {
             const href = (a.getAttribute('href') || '').split('?')[0].toLowerCase();
             if (href && href === file) a.classList.add('is-active');
@@ -163,7 +163,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a class="brand" href="index.html">
+            <a class="brand" href="index">
               <img class="brand-logo" src="assets/images/logo.png" alt="" width="40" height="40">
               <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Kids &amp; Academics</em></span>
             </a>
@@ -186,27 +186,27 @@
           <div class="footer-col">
             <h4>For Kids</h4>
             <ul>
-              <li><a href="kids.html">Kids home</a></li>
-              ${kidsCats.map(c => `<li><a href="courses.html?branch=kids&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
+              <li><a href="kids">Kids home</a></li>
+              ${kidsCats.map(c => `<li><a href="courses?branch=kids&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Academics</h4>
             <ul>
-              <li><a href="academics.html">Academics home</a></li>
-              ${acadCats.map(c => `<li><a href="courses.html?branch=academics&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
+              <li><a href="academics">Academics home</a></li>
+              ${acadCats.map(c => `<li><a href="courses?branch=academics&amp;cat=${encodeURIComponent(c.name)}">${c.short}</a></li>`).join('')}
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Learning Bubble</h4>
             <ul>
-              <li><a href="about.html">About us</a></li>
-              <li><a href="resources.html">Resources</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="enrollment.html">Enquire / Enrol</a></li>
-              <li><a href="courses.html?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
+              <li><a href="about">About us</a></li>
+              <li><a href="resources">Resources</a></li>
+              <li><a href="contact">Contact</a></li>
+              <li><a href="enrollment">Enquire / Enrol</a></li>
+              <li><a href="courses?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
           </div>
 
@@ -223,32 +223,32 @@
 
         <div class="footer-bottom footer-bottom--links">
           <p style="width:100%;margin:0 0 .6rem"><strong>Popular:</strong>
-            <a href="course-detail.html?id=4">AI for Kids</a> ·
-            <a href="course-detail.html?id=5">Coding for Kids</a> ·
-            <a href="course-detail.html?id=2">History Mystery for Kids</a> ·
-            <a href="course-detail.html?id=9">Poetry for Kids</a> ·
-            <a href="courses.html?branch=kids&amp;cat=Creative%20Writing%20%26%20Literature%20Development">Creative Writing for Kids</a> ·
-            <a href="course-detail.html?id=22">IGCSE Academics</a> ·
-            <a href="course-detail.html?id=23">IELTS Academics</a> ·
-            <a href="course-detail.html?id=24">IELTS General</a> ·
-            <a href="course-detail.html?id=25">SAT Preparation</a> ·
-            <a href="courses.html?branch=academics&amp;cat=English%20Language">English Language Courses</a> ·
-            <a href="course-detail.html?id=32">Professional Email Writing</a> ·
-            <a href="kids.html">Online Learning for Kids in Pakistan</a> ·
-            <a href="course-detail.html?id=22">IGCSE in Pakistan</a> ·
-            <a href="course-detail.html?id=23">IELTS in Pakistan</a> ·
-            <a href="course-detail.html?id=25">SAT in Pakistan</a> ·
-            <a href="academics.html">Academic Learning in Pakistan</a>
+            <a href="course-artificial-intelligence-for-kids">AI for Kids</a> ·
+            <a href="course-fun-coding">Coding for Kids</a> ·
+            <a href="course-history-mystery">History Mystery for Kids</a> ·
+            <a href="course-poets-corner">Poetry for Kids</a> ·
+            <a href="courses?branch=kids&amp;cat=Creative%20Writing%20%26%20Literature%20Development">Creative Writing for Kids</a> ·
+            <a href="course-igcse-academics">IGCSE Academics</a> ·
+            <a href="course-ielts-academic">IELTS Academics</a> ·
+            <a href="course-ielts-general-training">IELTS General</a> ·
+            <a href="course-sat-preparation">SAT Preparation</a> ·
+            <a href="courses?branch=academics&amp;cat=English%20Language">English Language Courses</a> ·
+            <a href="course-professional-email-writing">Professional Email Writing</a> ·
+            <a href="kids">Online Learning for Kids in Pakistan</a> ·
+            <a href="course-igcse-academics">IGCSE in Pakistan</a> ·
+            <a href="course-ielts-academic">IELTS in Pakistan</a> ·
+            <a href="course-sat-preparation">SAT in Pakistan</a> ·
+            <a href="academics">Academic Learning in Pakistan</a>
           </p>
         </div>
 
         <div class="footer-bottom">
           <p>&copy; ${new Date().getFullYear()} Learning Bubble. All rights reserved.</p>
           <nav>
-            <a href="about.html">About</a>
-            <a href="courses.html?branch=kids">Kids courses</a>
-            <a href="courses.html?branch=academics">Academics</a>
-            <a href="contact.html">Contact</a>
+            <a href="about">About</a>
+            <a href="courses?branch=kids">Kids courses</a>
+            <a href="courses?branch=academics">Academics</a>
+            <a href="contact">Contact</a>
           </nav>
         </div>
       </div>`;
@@ -346,7 +346,7 @@
                 return;
             }
             results.innerHTML = list.slice(0, 10).map(c => `
-        <a class="search-item" href="course-detail.html?id=${c.id}">
+        <a class="search-item" href="${courseUrl(c)}">
           <span class="search-item-ico"><i class="fas ${c.icon || 'fa-book'}"></i></span>
           <span class="search-item-body">
             <strong>${c.name}</strong>
@@ -375,7 +375,7 @@
             const first = $('.search-item', results);
             if (first) { location.href = first.getAttribute('href'); return; }
             const branch = scope === 'all' ? rememberedBranch() : scope;
-            location.href = `courses.html?branch=${branch}&q=${encodeURIComponent(input.value.trim())}`;
+            location.href = `courses?branch=${branch}&q=${encodeURIComponent(input.value.trim())}`;
         });
 
         paintScope();
@@ -556,25 +556,32 @@
     }
     window.LB_media = media;
 
+    /** Canonical link for a course: clean static-page slug when one exists,
+        otherwise fall back to the branch catalogue (e.g. A-Level Academics). */
+    function courseUrl(c) {
+        return c && c.slug ? c.slug : `courses?branch=${(c && c.branch) || 'kids'}`;
+    }
+    window.LB_courseUrl = courseUrl;
+
     function courseCard(c, delay) {
         const d = delay ? ` data-delay="${delay % 4 + 1}"` : '';
         return `
       <article class="course-card reveal"${d}>
-        <a class="course-media" href="course-detail.html?id=${c.id}" aria-label="${c.name}">
+        <a class="course-media" href="${courseUrl(c)}" aria-label="${c.name}">
           ${media(c)}
           <span class="course-tag">${c.category}</span>
           <span class="course-level" title="${c.level || ''}"><i class="fas ${c.icon || 'fa-book'}"></i></span>
         </a>
         <div class="course-body">
-          <h3><a href="course-detail.html?id=${c.id}">${c.name}</a></h3>
+          <h3><a href="${courseUrl(c)}">${c.name}</a></h3>
           <p class="course-tagline">${c.tagline || ''}</p>
           <div class="course-meta">
             ${c.ages ? `<span class="chip"><i class="fas fa-child-reaching"></i>${c.ages}</span>` : ''}
             <span class="chip"><i class="fas fa-clock"></i>${c.duration}</span>
           </div>
           <div class="course-foot">
-            <a class="course-more" href="course-detail.html?id=${c.id}">View course <i class="fas fa-arrow-right"></i></a>
-            <a class="course-enrol" href="enrollment.html?id=${c.id}" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
+            <a class="course-more" href="${courseUrl(c)}">View course <i class="fas fa-arrow-right"></i></a>
+            <a class="course-enrol" href="enrollment?id=${c.id}" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
               <i class="fas fa-plus"></i>
             </a>
           </div>
@@ -602,7 +609,7 @@
         $$('[data-categories]').forEach(host => {
             const branch = host.dataset.categories;
             host.innerHTML = LB.categoriesFor(branch === 'all' ? null : branch).map((cat, i) => `
-        <a class="cat-card reveal" data-delay="${i % 4 + 1}" href="courses.html?branch=${cat.branch}&cat=${encodeURIComponent(cat.name)}">
+        <a class="cat-card reveal" data-delay="${i % 4 + 1}" href="courses?branch=${cat.branch}&cat=${encodeURIComponent(cat.name)}">
           <div class="cat-media">
             ${cat.image
                     ? `<img src="${cat.image}" alt="" loading="lazy" width="400" height="225" onerror="this.style.display='none'">`

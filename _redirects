@@ -1,6 +1,9 @@
-# Legacy course URLs -> static per-course pages
-# (query strings are matched with a splat, so /course-detail?id=N lands on the catalogue
-#  and course-detail.html's inline script forwards to the exact course)
-/course-detail  /courses?branch=kids  302
+# Legacy course URLs (?id=N) -> static per-course pages
+# /course-detail is served normally (Pages serves course-detail.html at the
+# clean path automatically); course-detail.js reads ?id=N client-side and
+# forwards straight to the matching static course page's clean URL. A
+# missing/unknown id falls back to the course catalogue. Do NOT add a
+# blanket redirect for /course-detail here — it would strip the ?id
+# before course-detail.js ever runs.
 
 # .html requests are already 308'd to the clean path by Pages itself.
