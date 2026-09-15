@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /enrollment.html
+
+Sitemap: https://learningbubble.org/sitemap.xml
