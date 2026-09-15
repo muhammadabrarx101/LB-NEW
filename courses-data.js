@@ -84,7 +84,7 @@ const categoriesData = [
         branch: 'kids',
         short: 'Short Workshops',
         icon: 'fa-bolt',
-        image: 'assets/images/categories/workshopCollection.png',
+        image: 'assets/images/categories/workshopCollection.jpg',
         blurb: 'One and two-day intensives — a fast, low-commitment way to try something new.'
     },
 
@@ -110,7 +110,7 @@ const categoriesData = [
         branch: 'academics',
         short: 'Test Prep',
         icon: 'fa-bullseye',
-        image: 'assets/images/categories/testPreparation.png',
+        image: 'assets/images/categories/testPreparation.jpg',
         blurb: 'IELTS and SAT programmes with diagnostics, timed practice and targeted weak-area work.'
     },
     {
@@ -126,7 +126,7 @@ const categoriesData = [
         branch: 'academics',
         short: 'Professional',
         icon: 'fa-briefcase',
-        image: 'assets/images/categories/workshopCollection.png',
+        image: 'assets/images/categories/workshopCollection.jpg',
         blurb: 'Short, practical courses in the communication skills university and workplaces actually ask for.'
     }
 ];
