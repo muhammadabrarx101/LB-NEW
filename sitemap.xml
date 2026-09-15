@@ -3,12 +3,14 @@
   <url><loc>https://learningbubble.org/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://learningbubble.org/kids</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://learningbubble.org/academics</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://learningbubble.org/courses</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://learningbubble.org/courses?branch=kids</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://learningbubble.org/courses?branch=academics</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://learningbubble.org/about</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://learningbubble.org/resources</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://learningbubble.org/contact</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://learningbubble.org/demo</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://learningbubble.org/enrollment</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
 
   <!-- Kids courses -->
   <url><loc>https://learningbubble.org/course-the-world-of-sherlock-holmes</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
