@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-branch="hub">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Not Found | Learning Bubble</title>
+    <meta name="description" content="That page doesn't exist on Learning Bubble. Browse our live online courses for kids and IGCSE, IELTS & SAT preparation in Pakistan instead.">
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <script>
+        (function () {
+            try { if (localStorage.getItem('lb-theme') === 'dark') document.documentElement.classList.add('dark-theme'); }
+            catch (e) { }
+        })();
+    </script>
+
+    <script defer src="/courses-data.js"></script>
+    <script defer src="/script.js"></script>
+</head>
+
+<body data-branch="hub">
+
+    <header class="site-header" id="siteHeader">
+        <div class="container nav-inner">
+            <a class="brand" href="/">
+                <img class="brand-logo" src="/assets/images/logo.png" alt="Learning Bubble" width="40" height="40">
+                <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Kids &amp;
+                        Academics</em></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Main">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/kids">For Kids</a>
+                <a class="nav-link" href="/academics">Academics</a>
+                <a class="nav-link" href="/about">About</a>
+                <a class="nav-link" href="/resources">Resources</a>
+                <a class="nav-link" href="/contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn" data-search-open aria-label="Search courses" title="Search (Ctrl+K)">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
+                <a class="btn btn-primary btn-sm" href="/enrollment">Enquire</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
+                    aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="min-height:60vh;display:flex;align-items:center;">
+            <div class="container" style="text-align:center;max-width:640px;">
+                <p class="eyebrow">Error 404</p>
+                <h1 style="margin-bottom:.5em;">That page has floated away</h1>
+                <p style="font-size:1.1rem;margin-bottom:2rem;">The link you followed doesn't exist or has moved. Try one
+                    of these instead:</p>
+                <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+                    <a class="btn btn-primary" href="/courses">Browse all courses</a>
+                    <a class="btn btn-outline" href="/kids">Courses for kids</a>
+                    <a class="btn btn-outline" href="/academics">IGCSE, IELTS &amp; SAT</a>
+                </div>
+                <p style="margin-top:2rem;"><a href="/">&larr; Back to the home page</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+</body>
+
+</html>
