@@ -238,7 +238,14 @@
             <a href="course-igcse-academics">IGCSE in Pakistan</a> ·
             <a href="course-ielts-academic">IELTS in Pakistan</a> ·
             <a href="course-sat-preparation">SAT in Pakistan</a> ·
-            <a href="academics">Academic Learning in Pakistan</a>
+            <a href="academics">Academic Learning in Pakistan</a> ·
+            <a href="courses">Online Courses in Pakistan</a> ·
+            <a href="demo">Book a Free Demo Class</a> ·
+            <a href="contact">Online Tutor in Pakistan</a> ·
+            <a href="index">Online Academy in Pakistan</a> ·
+            <a href="course-learn-python">Python for Kids</a> ·
+            <a href="courses?branch=academics&amp;cat=A-Level%20Academics">A-Level Academics</a> ·
+            <a href="course-financial-literacy-ages-8-12">Financial Literacy for Kids</a>
           </p>
         </div>
 

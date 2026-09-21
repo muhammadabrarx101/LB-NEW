@@ -10,7 +10,6 @@
   <url><loc>https://learningbubble.org/resources</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://learningbubble.org/contact</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://learningbubble.org/demo</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://learningbubble.org/enrollment</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
 
   <!-- Kids courses -->
   <url><loc>https://learningbubble.org/course-the-world-of-sherlock-holmes</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
