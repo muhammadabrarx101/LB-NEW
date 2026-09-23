@@ -16,7 +16,6 @@
         whatsappDisplay: '+92 321 2481610',
         email: 'info@learningbubble.org',
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
-        instagram: 'https://www.instagram.com/learningbubbleofficial?igsh=c210OHA3cjZnZ2Nh',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
         themeKey: 'lb-theme',
@@ -35,19 +34,25 @@
         return root.getAttribute('data-branch') || 'hub';
     }
 
-    /* Which Instagram profile to show in the footer: kids-branch pages get
-       the Kids account, academics-branch pages get the Academics account,
-       everything else (home, demo, contact/enquiry, enrollment/checkout,
-       courses hub, blog, about, resources) gets the main account. A page
-       can force this regardless of its data-branch via data-ig-branch="hub"
-       on <html> (used by demo.html, contact.html, enrollment.html so those
-       stay on the main account even when their own branch is kids/academics). */
-    function igLink() {
+    /* Which Instagram profile(s) to show in the footer: kids-branch pages get
+       only the Kids account, academics-branch pages get only the Academics
+       account. Everything else (home, demo, contact/enquiry,
+       enrollment/checkout, courses hub, blog, about, resources) shows BOTH,
+       since those pages represent the whole brand rather than one section.
+       There is no general/official account any more — it was retired in
+       favour of these two. A page can force the "show both" hub behaviour
+       regardless of its own data-branch via data-ig-branch="hub" on <html>
+       (used by demo.html, contact.html, enrollment.html so those show both
+       accounts even when their own branch is kids/academics). */
+    function igLinks() {
         const forced = root.getAttribute('data-ig-branch');
         const b = forced || currentBranch();
-        if (b === 'kids') return CFG.instagramKids;
-        if (b === 'academics') return CFG.instagramAcademics;
-        return CFG.instagram;
+        if (b === 'kids') return [{ url: CFG.instagramKids, label: 'Instagram — Learning Bubble Kids' }];
+        if (b === 'academics') return [{ url: CFG.instagramAcademics, label: 'Instagram — Learning Bubble Academics' }];
+        return [
+            { url: CFG.instagramKids, label: 'Instagram — Learning Bubble Kids' },
+            { url: CFG.instagramAcademics, label: 'Instagram — Learning Bubble Academics' }
+        ];
     }
 
     function initBranch() {
@@ -194,7 +199,7 @@
             and study skills that carry students through exams and beyond.</p>
             <div class="footer-social">
               <a href="${CFG.facebook}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="${igLink()}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              ${igLinks().map(ig => `<a href="${ig.url}" target="_blank" rel="noopener" aria-label="${ig.label}" title="${ig.label}"><i class="fab fa-instagram"></i></a>`).join('')}
               <a href="${waLink()}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
               <a href="mailto:${CFG.email}" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
