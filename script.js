@@ -17,6 +17,8 @@
         email: 'info@learningbubble.org',
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagram: 'https://www.instagram.com/learningbubbleofficial?igsh=c210OHA3cjZnZ2Nh',
+        instagramKids: 'https://www.instagram.com/learningbubblekids',
+        instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
         themeKey: 'lb-theme',
         branchKey: 'lb-branch'
     };
@@ -31,6 +33,21 @@
        ============================================================ */
     function currentBranch() {
         return root.getAttribute('data-branch') || 'hub';
+    }
+
+    /* Which Instagram profile to show in the footer: kids-branch pages get
+       the Kids account, academics-branch pages get the Academics account,
+       everything else (home, demo, contact/enquiry, enrollment/checkout,
+       courses hub, blog, about, resources) gets the main account. A page
+       can force this regardless of its data-branch via data-ig-branch="hub"
+       on <html> (used by demo.html, contact.html, enrollment.html so those
+       stay on the main account even when their own branch is kids/academics). */
+    function igLink() {
+        const forced = root.getAttribute('data-ig-branch');
+        const b = forced || currentBranch();
+        if (b === 'kids') return CFG.instagramKids;
+        if (b === 'academics') return CFG.instagramAcademics;
+        return CFG.instagram;
     }
 
     function initBranch() {
@@ -177,7 +194,7 @@
             and study skills that carry students through exams and beyond.</p>
             <div class="footer-social">
               <a href="${CFG.facebook}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="${CFG.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="${igLink()}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
               <a href="${waLink()}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
               <a href="mailto:${CFG.email}" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
