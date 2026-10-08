@@ -2,6 +2,9 @@
    Learning Bubble — Guides index
    Renders the article list and its branch filter, and emits an
    ItemList so Google can see the whole set from one page.
+   Links use the clean URL (no .html) — the host 308-redirects
+   .html requests, and linking to a redirect shows up in Search
+   Console as "Page with redirect".
    ============================================================ */
 (function () {
     'use strict';
@@ -50,9 +53,9 @@
           <span class="chip">${a.category}</span>
           <span class="chip"><i class="fas fa-clock"></i>${a.readMins} min read</span>
         </div>
-        <h3><a href="blog-${a.slug}.html">${a.title}</a></h3>
+        <h3><a href="blog-${a.slug}">${a.title}</a></h3>
         <p>${a.excerpt}</p>
-        <a class="course-more" href="blog-${a.slug}.html">Read the guide <i class="fas fa-arrow-right"></i></a>
+        <a class="course-more" href="blog-${a.slug}">Read the guide <i class="fas fa-arrow-right"></i></a>
       </article>`).join('');
 
         requestAnimationFrame(() => $$('.reveal', grid).forEach(el => el.classList.add('is-in')));
@@ -84,7 +87,7 @@
             itemListElement: articlesData.map((a, i) => ({
                 '@type': 'ListItem',
                 position: i + 1,
-                url: SITE + 'blog-' + a.slug + '.html',
+                url: SITE + 'blog-' + a.slug,
                 name: a.title
             }))
         });

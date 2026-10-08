@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /enrollment.html
+
+# /enrollment and /course-detail are kept out of the index with a
+# <meta name="robots" content="noindex"> tag on the pages themselves.
+# Do NOT Disallow them here — a robots.txt block stops Google from
+# ever reading that noindex tag (GSC: "Blocked by robots.txt").
 
 Sitemap: https://learningbubble.org/sitemap.xml

@@ -8,6 +8,18 @@
 
 const articlesData = [
     {
+        slug: 'free-online-workshops-for-kids-pakistan',
+        title: 'Free online workshops for kids in Pakistan: coding, AI and creative writing (2026)',
+        excerpt: 'Three free live workshops on Zoom for ages 7–12 — StoryCraft, AI Explorers and Code Quest. What each one covers, who it suits and how to register.',
+        date: '2026-10-08',
+        readMins: 8,
+        branch: 'kids',
+        category: 'Free workshops',
+        icon: 'fa-ticket',
+        related: [11, 4, 5],
+        keywords: 'free online workshops for kids, free online classes for kids Pakistan, kids coding workshop, AI workshop for kids, creative writing workshop for kids'
+    },
+    {
         slug: 'how-long-does-ielts-preparation-take',
         title: 'How long does IELTS preparation actually take?',
         excerpt: 'How long the IELTS exam lasts, how long results take, and an honest preparation timeline based on where you are starting.',

@@ -2,9 +2,9 @@
    LEARNING BUBBLE — Core shell
    ------------------------------------------------------------
    Runs on every page. Handles:
-     theme · branch memory · nav · search overlay · footer
-     WhatsApp FAB · back-to-top · reveal-on-scroll · FAQ
-     carousels · counters · contact form
+     analytics · theme · branch memory · nav · search overlay
+     footer · WhatsApp FAB · back-to-top · reveal-on-scroll · FAQ
+     carousels · counters · contact form · clean internal links
    Requires courses-data.js to be loaded first.
    ============================================================ */
 (function () {
@@ -18,6 +18,10 @@
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
+        /* Google Analytics 4 — paste the Measurement ID from
+           GA → Admin → Data streams → (your web stream), e.g. 'G-AB12CD34EF'.
+           Leave empty to keep analytics switched off. */
+        gaMeasurementId: '',
         themeKey: 'lb-theme',
         branchKey: 'lb-branch'
     };
@@ -26,6 +30,98 @@
     const root = document.documentElement;
     const $ = (sel, ctx) => (ctx || document).querySelector(sel);
     const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+    /* ============================================================
+       ANALYTICS (Google Analytics 4)
+       Loaded from here so one ID switches it on for every page.
+       ============================================================ */
+    function initAnalytics() {
+        const id = String(CFG.gaMeasurementId || '').trim();
+        if (!/^G-[A-Z0-9]{4,}$/i.test(id) || window.__lbGa) return;
+        window.__lbGa = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', id);
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+        document.head.appendChild(s);
+    }
+    initAnalytics();
+
+    function track(name, params) {
+        try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) { /* noop */ }
+    }
+    window.LB_track = track;
+
+    /* Key clicks worth measuring: workshop registrations, WhatsApp and email. */
+    function initTracking() {
+        document.addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href') || '';
+            const where = pageName();
+            if (a.dataset.register) {
+                track('workshop_register_click', { workshop: a.dataset.register, page: where });
+            }
+            if (/wa\.me\//.test(href)) {
+                track('whatsapp_click', { page: where, link_text: (a.textContent || '').trim().slice(0, 60) });
+            } else if (/^mailto:/i.test(href)) {
+                track('email_click', { page: where });
+            }
+        }, true);
+    }
+
+    /* ============================================================
+       CLEAN INTERNAL LINKS
+       The host 308-redirects /index and /*.html to the clean URL.
+       Links that point at a redirect are reported in Search
+       Console as "Page with redirect", so rewrite any that slip
+       through (static markup or script-rendered) to the final URL.
+       ============================================================ */
+    function cleanHref(href) {
+        if (!href || /^(https?:|mailto:|tel:|#|javascript:|\/\/)/i.test(href)) return null;
+        const m = href.match(/^(\.?\/)?([^?#]*)(\?[^#]*)?(#.*)?$/);
+        if (!m) return null;
+        const lead = m[1] === '/' ? '/' : '';
+        let path = m[2] || '';
+        const query = m[3] || '';
+        const hash = m[4] || '';
+        let changed = false;
+        if (/^index(\.html?)?$/i.test(path)) { path = ''; changed = true; }
+        else if (/\.html?$/i.test(path) && !/\//.test(path)) { path = path.replace(/\.html?$/i, ''); changed = true; }
+        if (!changed) return null;
+        if (!path) return '/' + query + hash;
+        return lead + path + query + hash;
+    }
+
+    function cleanLinks(scope) {
+        $$('a[href]', scope).forEach(a => {
+            const next = cleanHref(a.getAttribute('href'));
+            if (next !== null) a.setAttribute('href', next);
+        });
+    }
+
+    function watchLinks() {
+        cleanLinks();
+        if (!('MutationObserver' in window)) return;
+        let queued = false;
+        new MutationObserver(() => {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(() => { queued = false; cleanLinks(); });
+        }).observe(document.body, { childList: true, subtree: true });
+    }
+
+    /* courses-data.js still carries 'kids.html' / 'academics.html' as branch homes */
+    function cleanBranchHomes() {
+        if (typeof LB === 'undefined' || !LB.branches) return;
+        Object.keys(LB.branches).forEach(k => {
+            const b = LB.branches[k];
+            if (b && typeof b.home === 'string') b.home = b.home.replace(/\.html?$/i, '');
+        });
+    }
 
     /* ============================================================
        BRANCH
@@ -185,7 +281,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a class="brand" href="index">
+            <a class="brand" href="/">
               <img class="brand-logo" src="assets/images/logo.png" alt="" width="40" height="40">
               <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Kids &amp; Academics</em></span>
             </a>
@@ -266,10 +362,11 @@
             <a href="courses">Online Courses in Pakistan</a> ·
             <a href="demo">Book a Free Demo Class</a> ·
             <a href="contact">Online Tutor in Pakistan</a> ·
-            <a href="index">Online Academy in Pakistan</a> ·
+            <a href="/">Online Academy in Pakistan</a> ·
             <a href="course-learn-python">Python for Kids</a> ·
             <a href="courses?branch=academics&amp;cat=A-Level%20Academics">A-Level Academics</a> ·
-            <a href="course-financial-literacy-ages-8-12">Financial Literacy for Kids</a>
+            <a href="course-financial-literacy-ages-8-12">Financial Literacy for Kids</a> ·
+            <a href="blog-free-online-workshops-for-kids-pakistan">Free Online Workshops for Kids</a>
           </p>
         </div>
 
@@ -594,6 +691,9 @@
     }
     window.LB_courseUrl = courseUrl;
 
+    /* The "add to enquiry" link is nofollow: enrollment?id=N is a noindex
+       form page, and one crawlable variant per course only adds noise to
+       Search Console's "Excluded by noindex" list. */
     function courseCard(c, delay) {
         const d = delay ? ` data-delay="${delay % 4 + 1}"` : '';
         return `
@@ -612,7 +712,7 @@
           </div>
           <div class="course-foot">
             <a class="course-more" href="${courseUrl(c)}">View course <i class="fas fa-arrow-right"></i></a>
-            <a class="course-enrol" href="enrollment?id=${c.id}" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
+            <a class="course-enrol" href="enrollment?id=${c.id}" rel="nofollow" title="Add to enquiry" aria-label="Add ${c.name} to enquiry">
               <i class="fas fa-plus"></i>
             </a>
           </div>
@@ -728,6 +828,7 @@
                 .then(async res => {
                     if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Request failed');
                     toast('Thank you! Your message is on its way — we usually reply within a day.', 'success');
+                    track('generate_lead', { form: 'contact', subject: subject, interest: interest || 'not set' });
                     form.reset();
                 })
                 .catch(err => {
@@ -819,14 +920,14 @@
         const page = pageName();
         if (['demo', 'enrollment', 'contact', '404', 'course-detail'].includes(page)) return;
         if ($('.mobile-cta')) return;
-        const isWs = page === 'workshops';
+        const isWs = page === 'workshops' || page === 'blog-free-online-workshops-for-kids-pakistan';
         const bar = document.createElement('div');
         bar.className = 'mobile-cta';
         bar.innerHTML = `
       <a class="btn btn-primary mobile-cta-main" href="${isWs ? 'contact' : 'demo'}"${isWs ? ' data-register="sticky"' : ''}>
         <i class="fas ${isWs ? 'fa-ticket' : 'fa-video'}" aria-hidden="true"></i> ${isWs ? 'Register free' : 'Book a free demo'}
       </a>
-      <a class="btn btn-wa mobile-cta-wa" href="${waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <a class="btn btn-wa mobile-cta-wa" href="${isWs ? waLink('Hi Learning Bubble! I would like to register my child for a free workshop.') : waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
       </a>`;
         document.body.appendChild(bar);
@@ -849,6 +950,7 @@
        BOOT
        ============================================================ */
     function boot() {
+        cleanBranchHomes();
         initBranch();
         initTheme();
         initHeader();
@@ -865,6 +967,8 @@
         initBubbles();
         initContactForm();
         initReveal();
+        initTracking();
+        watchLinks();
         root.classList.remove('fouc-prevent');
     }
 
