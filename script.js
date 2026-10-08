@@ -225,6 +225,8 @@
             <h4>Learning Bubble</h4>
             <ul>
               <li><a href="about">About us</a></li>
+              <li><a href="workshops">Free kids workshops</a></li>
+              <li><a href="blog">Parent &amp; student guides</a></li>
               <li><a href="resources">Resources</a></li>
               <li><a href="contact">Contact</a></li>
               <li><a href="enrollment">Enquire / Enrol</a></li>
@@ -754,6 +756,96 @@
     }
 
     /* ============================================================
+       PAGE CONTEXT, WHATSAPP LINKS, ANNOUNCEMENT BAR, MOBILE CTA
+       ============================================================ */
+    function pageName() {
+        const f = (location.pathname.split('/').pop() || 'index').toLowerCase();
+        return f.replace(/\.html$/, '') || 'index';
+    }
+
+    /* Anchors marked data-demo-wa / data-wa get a real WhatsApp link.
+       demo.js (loaded only on the demo page) overrides data-demo-wa with its
+       own message; everywhere else — notably the six guide pages, whose CTA
+       used to point at "#" — this fills the link in. */
+    function initWaLinks() {
+        $$('a[data-demo-wa], a[data-wa]').forEach(a => {
+            const href = a.getAttribute('href');
+            if (href && href !== '#') return;
+            const msg = a.dataset.wa || (pageName() === 'workshops'
+                ? 'Hi Learning Bubble! I would like to register my child for a free workshop.'
+                : 'Hi Learning Bubble! I would like to book a free demo class.');
+            a.href = waLink(msg);
+        });
+    }
+
+    /* Free-workshops announcement bar. Sits just under the fixed header, scrolls
+       away with the page, can be dismissed, and retires itself after the last
+       workshop day (Code Quest, 1 Nov 2026): ends 2 Nov 00:00 PKT = 1 Nov 19:00 UTC. */
+    const WORKSHOPS_END = Date.UTC(2026, 10, 1, 19, 0, 0);
+    const ANN_KEY = 'lb-ann-workshops-2026-10';
+
+    function initAnnounce() {
+        const page = pageName();
+        if (['workshops', 'enrollment', 'demo', 'contact', '404', 'course-detail'].includes(page)) return;
+        if (Date.now() >= WORKSHOPS_END) return;
+        try { if (localStorage.getItem(ANN_KEY) === '1') return; } catch (e) { }
+        const header = $('#siteHeader');
+        if (!header || $('.announce')) return;
+
+        const bar = document.createElement('div');
+        bar.className = 'announce';
+        bar.setAttribute('role', 'region');
+        bar.setAttribute('aria-label', 'Announcement');
+        bar.innerHTML = `
+      <a class="announce-link" href="workshops">
+        <span class="announce-badge">Free</span>
+        <span class="announce-text"><strong>Free kids workshops on Zoom</strong>
+          <span class="announce-dates">· StoryCraft 24 Oct · AI Explorers 25 Oct · Code Quest 1 Nov</span></span>
+        <span class="announce-go">Register <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <button type="button" class="announce-x" aria-label="Dismiss announcement"><i class="fas fa-xmark" aria-hidden="true"></i></button>`;
+        header.after(bar);
+        root.classList.add('has-announce');
+
+        $('.announce-x', bar).addEventListener('click', () => {
+            bar.remove();
+            root.classList.remove('has-announce');
+            try { localStorage.setItem(ANN_KEY, '1'); } catch (e) { }
+        });
+    }
+
+    /* Sticky call-to-action for phones (CSS shows it at <=640px only). */
+    function initMobileCta() {
+        const page = pageName();
+        if (['demo', 'enrollment', 'contact', '404', 'course-detail'].includes(page)) return;
+        if ($('.mobile-cta')) return;
+        const isWs = page === 'workshops';
+        const bar = document.createElement('div');
+        bar.className = 'mobile-cta';
+        bar.innerHTML = `
+      <a class="btn btn-primary mobile-cta-main" href="${isWs ? 'contact' : 'demo'}"${isWs ? ' data-register="sticky"' : ''}>
+        <i class="fas ${isWs ? 'fa-ticket' : 'fa-video'}" aria-hidden="true"></i> ${isWs ? 'Register free' : 'Book a free demo'}
+      </a>
+      <a class="btn btn-wa mobile-cta-wa" href="${waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      </a>`;
+        document.body.appendChild(bar);
+        root.classList.add('has-mcta');
+
+        let ticking = false;
+        const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                bar.classList.toggle('is-on', window.scrollY > 400);
+                ticking = false;
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    /* ============================================================
        BOOT
        ============================================================ */
     function boot() {
@@ -762,6 +854,9 @@
         initHeader();
         renderFooter();
         renderFabs();
+        initAnnounce();
+        initMobileCta();
+        initWaLinks();
         initSearch();
         fillDynamic();
         initFaq();

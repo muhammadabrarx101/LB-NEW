@@ -10,26 +10,26 @@ const articlesData = [
     {
         slug: 'how-long-does-ielts-preparation-take',
         title: 'How long does IELTS preparation actually take?',
-        excerpt: 'An honest timeline based on where you are starting, not on what a course wants to sell you.',
+        excerpt: 'How long the IELTS exam lasts, how long results take, and an honest preparation timeline based on where you are starting.',
         date: '2026-08-12',
-        readMins: 6,
+        readMins: 7,
         branch: 'academics',
         category: 'Test Preparation',
         icon: 'fa-bullseye',
         related: [23, 24],
-        keywords: 'IELTS test preparation, how long IELTS preparation, IELTS study plan'
+        keywords: 'how long is the IELTS exam, IELTS test duration, IELTS preparation time, IELTS study plan'
     },
     {
         slug: 'igcse-vs-o-level-difference',
-        title: 'IGCSE vs O-Level: what actually differs',
-        excerpt: 'The two qualifications get used interchangeably. They are not the same, and the difference matters when you choose.',
+        title: 'IGCSE vs O Level: what actually differs',
+        excerpt: 'The two qualifications get used interchangeably. They are not the same, and the difference matters when you choose subjects, switch schools or apply abroad.',
         date: '2026-08-05',
-        readMins: 5,
+        readMins: 7,
         branch: 'academics',
         category: 'IGCSE Academics',
         icon: 'fa-flask',
         related: [22],
-        keywords: 'IGCSE, O-Level, IGCSE vs O Level, exam preparation'
+        keywords: 'IGCSE vs O Level, difference between IGCSE and O Level, IGCSE equivalent to O Level, IBCC equivalence'
     },
     {
         slug: 'sat-preparation-timeline',

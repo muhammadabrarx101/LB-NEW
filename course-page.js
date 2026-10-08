@@ -2,10 +2,11 @@
    Learning Bubble — static course page runtime
    ------------------------------------------------------------
    The page already carries its own title, description, canonical,
-   H1, about text, highlights and Course schema in the raw HTML —
-   that is what gets indexed. This only appends the richer blocks
-   (who it is for, outcomes, syllabus, FAQs, related courses),
-   which are nice for readers but not needed for the first crawl.
+   H1, about text, highlights, Course schema AND the richer blocks
+   (who it is for, outcomes, syllabus, FAQs) in the raw HTML — that
+   is what gets indexed. This script wires the WhatsApp CTA, falls
+   back to rendering those blocks if a page lacks them, and builds
+   the related-courses rail.
    ============================================================ */
 (function () {
     'use strict';
@@ -32,7 +33,10 @@
 
     /* ---------- richer prose blocks ---------- */
     const host = $('#courseExtra');
-    if (host) {
+    // Pages ship this block pre-rendered in the raw HTML (data-prerendered), so
+    // crawlers and visitors get it without waiting on JS and the FAQ accordion
+    // (bound once at boot) works. Only render client-side if it is missing.
+    if (host && !host.hasAttribute('data-prerendered')) {
         let html = '';
 
         if (extra.whoFor) {

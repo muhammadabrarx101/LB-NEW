@@ -384,7 +384,7 @@ p { color: var(--text-soft); text-wrap: pretty; }
     background: color-mix(in srgb, var(--bg) 92%, transparent);
 }
 
-body { padding-top: 72px; }
+body { padding-top: calc(72px + var(--ann-h, 0px)); }
 
 .nav-inner {
     display: flex;
@@ -1642,7 +1642,7 @@ body { padding-top: 72px; }
 }
 
 @media (max-width: 620px) {
-    body { padding-top: 64px; }
+    body { padding-top: calc(64px + var(--ann-h, 0px)); }
     .nav-inner { height: 64px; }
     .nav-links { inset-block-start: 64px; }
     .filter-bar { top: 64px; }
@@ -1680,6 +1680,187 @@ body { padding-top: 72px; }
 }
 
 @media print {
-    .site-header, .floatbtn-stack, .filter-bar, .site-footer, .search-overlay { display: none !important; }
+    .site-header, .floatbtn-stack, .filter-bar, .site-footer, .search-overlay, .announce, .mobile-cta { display: none !important; }
     body { padding-top: 0; }
+}
+
+/* ============================================================
+   SESSION 13 ADDITIONS
+   compare tables · quick-answer box · workshops page ·
+   announcement bar · mobile sticky CTA · guides strip
+   ============================================================ */
+
+/* ---------- Quick answer + comparison table (guides) ---------- */
+.quick-answer {
+    background: var(--accent-wash);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-left: 5px solid var(--accent);
+    border-radius: var(--r-md, 14px);
+    padding: 1.1rem 1.3rem 1.2rem;
+    margin-bottom: 1.8rem;
+}
+.quick-answer > strong {
+    display: block; margin-bottom: .35rem;
+    font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+.quick-answer p { font-size: 1.02rem; line-height: 1.7; margin: 0; }
+
+.compare-wrap {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--border); border-radius: var(--r-md, 14px);
+    background: var(--bg);
+    margin-block: 1rem .5rem;
+}
+.compare-table { width: 100%; border-collapse: collapse; font-size: .93rem; min-width: 34rem; }
+.compare-table th, .compare-table td {
+    padding: .8rem 1rem; text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--border); line-height: 1.5;
+}
+.compare-table thead th {
+    background: var(--bg-soft); font-size: .78rem; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--text); white-space: nowrap;
+}
+.compare-table tbody th { font-weight: 650; color: var(--text); width: 26%; background: color-mix(in srgb, var(--bg-soft) 55%, transparent); }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: 0; }
+.compare-table td { color: var(--text-soft); }
+.table-note { font-size: .82rem; color: var(--text-mute, var(--text-soft)); margin-top: .5rem; }
+.prose .article-body h3, .article-body h3 { font-size: 1.1rem; margin: 1.4rem 0 .5rem; }
+
+/* ---------- Workshops page ---------- */
+.ws-quick { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.ws-pill {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .55rem 1rem; border-radius: var(--r-pill);
+    background: var(--bg); border: 1px solid var(--border);
+    font-size: .88rem; color: var(--text); text-decoration: none;
+    transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+.ws-pill strong { color: var(--accent); }
+.ws-pill span { color: var(--text-soft); font-size: .8rem; }
+.ws-pill:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--sh-sm); }
+
+.ws-list { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); }
+.ws-card {
+    display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+    gap: clamp(1.2rem, 3vw, 2.4rem); align-items: start;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: clamp(18px, 2.5vw, 28px); padding: clamp(1rem, 2.5vw, 1.8rem);
+    box-shadow: var(--sh-sm);
+    scroll-margin-top: 96px;
+}
+.ws-card:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); }
+.ws-card:nth-child(even) .ws-media { order: 2; }
+.ws-media img { width: 100%; height: auto; display: block; border-radius: clamp(12px, 2vw, 20px); aspect-ratio: 4 / 5; object-fit: cover; box-shadow: var(--sh-md); }
+.ws-body h3 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: .7rem 0 .2rem; }
+.ws-tag { font-weight: 600; color: var(--accent); margin-bottom: .9rem; }
+.ws-facts { display: flex; flex-wrap: wrap; gap: .5rem .5rem; margin-bottom: 1rem; }
+.ws-facts li {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .4rem .8rem; border-radius: var(--r-pill);
+    background: var(--bg-soft); font-size: .86rem; color: var(--text);
+}
+.ws-facts i { color: var(--accent); font-size: .8rem; }
+.ws-facts s { opacity: .6; }
+.ws-free { color: #0b7a4f; }
+.dark-theme .ws-free { color: #5be3a6; }
+.ws-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
+.ws-fine { font-size: .85rem; margin-top: 1rem; color: var(--text-soft); }
+.ws-note { max-width: 46rem; margin: 2rem auto 0; text-align: center; font-size: .95rem; color: var(--text-soft); }
+.ws-note a, .ws-fine a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 820px) {
+    .ws-card, .ws-card:nth-child(even) { grid-template-columns: 1fr; }
+    .ws-card:nth-child(even) .ws-media { order: 0; }
+    .ws-media { max-width: 24rem; margin-inline: auto; }
+}
+
+/* ---------- Announcement bar ---------- */
+:root { --ann-h: 0px; }
+html.has-announce { --ann-h: 42px; }
+.announce {
+    position: absolute; top: 72px; left: 0; right: 0; height: 42px; z-index: 40;
+    display: flex; align-items: center; justify-content: center; gap: .4rem;
+    background: var(--navy, #1c2f72); color: #fff; font-size: .86rem;
+}
+.announce-link {
+    display: flex; align-items: center; justify-content: center; gap: .7rem;
+    flex: 1; min-width: 0; height: 100%; padding-inline: 2.6rem 1rem;
+    color: #fff; text-decoration: none;
+}
+.announce-badge {
+    flex: none; background: #ffd23f; color: #3a2a00; font-weight: 800; font-size: .68rem;
+    letter-spacing: .1em; text-transform: uppercase; padding: .2rem .55rem; border-radius: var(--r-pill);
+}
+.announce-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.announce-dates { opacity: .88; }
+.announce-go { flex: none; font-weight: 700; display: inline-flex; gap: .4rem; align-items: center; }
+.announce-link:hover .announce-go i { transform: translateX(3px); }
+.announce-go i { transition: transform var(--t); font-size: .75rem; }
+.announce-x {
+    position: absolute; right: .4rem; top: 50%; transform: translateY(-50%);
+    width: 32px; height: 32px; display: grid; place-items: center;
+    color: rgba(255, 255, 255, .8); border-radius: 50%; font-size: .85rem;
+}
+.announce-x:hover { background: rgba(255, 255, 255, .15); color: #fff; }
+@media (max-width: 620px) {
+    .announce { top: 64px; font-size: .8rem; }
+    .announce-dates { display: none; }
+    .announce-link { padding-inline: 1rem 2.6rem; justify-content: flex-start; }
+    .announce-text { flex: 1; }
+}
+
+/* ---------- Mobile sticky CTA ---------- */
+.mobile-cta { display: none; }
+@media (max-width: 620px) {
+    .mobile-cta {
+        display: flex; gap: .6rem; align-items: center;
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 860;
+        padding: .6rem .9rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+        background: color-mix(in srgb, var(--bg) 94%, transparent);
+        backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px);
+        border-top: 1px solid var(--border); box-shadow: 0 -10px 30px -18px rgba(0, 0, 0, .35);
+        transform: translateY(110%); transition: transform .3s var(--ease, ease);
+    }
+    .mobile-cta.is-on { transform: none; }
+    .mobile-cta-main { flex: 1; justify-content: center; }
+    .mobile-cta-wa { width: 48px; height: 48px; padding: 0; justify-content: center; flex: none; }
+    .mobile-cta-wa i { font-size: 1.3rem; }
+    html.has-mcta body { padding-bottom: 68px; }
+    html.has-mcta .floatbtn-wa { display: none; }
+    html.has-mcta .floatbtn-stack { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ---------- Homepage: workshop promo + guides strip ---------- */
+.promo-strip {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1.2rem; align-items: center;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 22px;
+    padding: 1.1rem 1.4rem; box-shadow: var(--sh-sm);
+}
+.promo-strip .promo-ico {
+    width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center;
+    background: var(--grad); color: #fff; font-size: 1.3rem;
+}
+.promo-strip h2 { font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin: 0; }
+.promo-strip p { margin: .2rem 0 0; font-size: .92rem; color: var(--text-soft); }
+@media (max-width: 720px) {
+    .promo-strip { grid-template-columns: auto 1fr; }
+    .promo-strip .btn { grid-column: 1 / -1; justify-content: center; }
+}
+.guide-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.3rem 1.4rem; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; color: var(--text); text-decoration: none; transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
+.guide-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); border-color: var(--accent); }
+.guide-card h3 { font-size: 1.05rem; line-height: 1.35; }
+.guide-card p { font-size: .88rem; color: var(--text-soft); margin: 0; }
+.guide-card .guide-more { margin-top: auto; font-size: .85rem; font-weight: 650; color: var(--accent); }
+
+/* ---------- Course page: guides worth reading ---------- */
+.course-guides { margin-block: 2rem; padding: 1.2rem 1.4rem; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 18px; }
+.course-guides h3 { font-size: 1rem; margin-bottom: .6rem; }
+.course-guides ul { display: grid; gap: .45rem; }
+.course-guides a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 620px) {
+    .compare-table { min-width: 0; font-size: .84rem; }
+    .compare-table th, .compare-table td { padding: .6rem .6rem; }
+    .compare-table thead th { white-space: normal; font-size: .72rem; letter-spacing: .04em; }
+    .compare-table tbody th { width: 28%; }
 }
