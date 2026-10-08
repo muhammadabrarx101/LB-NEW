@@ -21,7 +21,7 @@
         /* Google Analytics 4 — paste the Measurement ID from
            GA → Admin → Data streams → (your web stream), e.g. 'G-AB12CD34EF'.
            Leave empty to keep analytics switched off. */
-        gaMeasurementId: '',
+        gaMeasurementId: 'G-8DJWL0RS9P',
         themeKey: 'lb-theme',
         branchKey: 'lb-branch'
     };
