@@ -110,7 +110,9 @@
     /* ---------- chrome ---------- */
     function paintChrome() {
         const meta = LB.branches[state.branch];
-        document.title = `${meta.short === 'For Kids' ? 'Kids Courses' : 'Academics Programmes'} — Learning Bubble`;
+        document.title = meta.short === 'For Kids'
+            ? 'Online Courses for Kids in Pakistan | Learning Bubble'
+            : 'IGCSE, A-Level, IELTS & SAT Classes Online | Learning Bubble';
 
         if (els.eyebrow) {
             els.eyebrow.innerHTML = `<i class="fas ${meta.icon}"></i> ${meta.name}`;
