@@ -366,7 +366,12 @@
             <a href="course-learn-python">Python for Kids</a> ·
             <a href="courses?branch=academics&amp;cat=A-Level%20Academics">A-Level Academics</a> ·
             <a href="course-financial-literacy-ages-8-12">Financial Literacy for Kids</a> ·
-            <a href="blog-free-online-workshops-for-kids-pakistan">Free Online Workshops for Kids</a>
+            <a href="blog-free-online-workshops-for-kids-pakistan">Free Online Workshops for Kids</a> ·
+            <a href="igcse-o-level-subjects">IGCSE &amp; O Level Tuition</a> ·
+            <a href="ielts-sat-english-guides">IELTS, SAT &amp; English Guides</a> ·
+            <a href="coding-and-ai-for-kids">Coding &amp; AI for Kids</a> ·
+            <a href="free-activities-for-kids">Free Activities for Kids</a> ·
+            <a href="free-demo-classes">Free Demo Classes</a>
           </p>
         </div>
 

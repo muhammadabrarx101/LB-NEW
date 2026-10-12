@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-branch="kids">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How Machine Learning Works, Explained Simply for Kids</title>
+    <meta name="description" content="Machine learning explained simply for children and parents: learning from examples, training data, predictions and mistakes, with an activity to try at home.">
+    <meta name="keywords" content="machine learning for kids, how AI learns explained, machine learning explained simply, AI for children explained, training data for kids, teach kids AI">
+    <meta name="geo.region" content="PK">
+    <meta name="geo.placename" content="Pakistan">
+    <link rel="canonical" href="https://learningbubble.org/blog-how-machine-learning-works-explained-for-kids">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="author" content="Learning Bubble">
+    <meta name="theme-color" content="#1c2f72">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Learning Bubble">
+    <meta property="og:locale" content="en">
+    <meta property="og:url" content="https://learningbubble.org/blog-how-machine-learning-works-explained-for-kids">
+    <meta property="og:title" content="How machine learning works — explained simply for kids">
+    <meta property="og:description" content="Machine learning explained simply for children and parents: learning from examples, training data, predictions and mistakes, with an activity to try at home.">
+    <meta property="og:image" content="https://learningbubble.org/assets/images/courses/course-4.jpg">
+    <meta property="article:published_time" content="2026-10-12">
+    <meta property="article:modified_time" content="2026-10-12">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How machine learning works — explained simply for kids">
+    <meta name="twitter:description" content="Machine learning explained simply for children and parents: learning from examples, training data, predictions and mistakes, with an activity to try at home.">
+    <meta name="twitter:image" content="https://learningbubble.org/assets/images/courses/course-4.jpg">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+        .article-body ol.lb-steps { list-style: decimal; padding-left: 1.4rem; display: grid; gap: .6rem; margin: 1.2rem 0; }
+        .article-body ol.lb-steps li { padding-left: .3rem; }
+        .article-body .check-list + p, .article-body .compare-wrap + p { margin-top: 1.2rem; }
+    </style>
+
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.setAttribute('data-branch', 'kids');
+            try {
+                if (localStorage.getItem('lb-theme') === 'dark') d.classList.add('dark-theme');
+                localStorage.setItem('lb-branch', 'kids');
+            } catch (e) { }
+        })();
+    </script>
+
+    <script defer src="courses-data.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="article.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How machine learning works — explained simply for kids",
+      "description": "Machine learning explained simply for children and parents: learning from examples, training data, predictions and mistakes, with an activity to try at home.",
+      "datePublished": "2026-10-12",
+      "dateModified": "2026-10-12",
+      "inLanguage": "en",
+      "keywords": "machine learning for kids, how AI learns explained, machine learning explained simply, AI for children explained, training data for kids, teach kids AI",
+      "wordCount": 406,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://learningbubble.org/blog-how-machine-learning-works-explained-for-kids"
+      },
+      "image": "https://learningbubble.org/assets/images/courses/course-4.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Learning Bubble",
+        "url": "https://learningbubble.org/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Learning Bubble",
+        "url": "https://learningbubble.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://learningbubble.org/assets/images/logo.png"
+        }
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is machine learning in simple words?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A way for computers to learn patterns from many examples and use them to make predictions about new things."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is machine learning the same as AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Machine learning is one of the main ways modern AI is built. AI is the broader idea of computers doing tasks that seem intelligent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does AI make mistakes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because it learns from examples, which can be incomplete, unbalanced or misleading. It predicts — it does not truly understand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I teach my child about machine learning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With simple sorting and guessing games that show how examples lead to predictions, like our free sorting activity."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://learningbubble.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "For Kids",
+          "item": "https://learningbubble.org/kids"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Coding & AI for kids",
+          "item": "https://learningbubble.org/coding-and-ai-for-kids"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "How machine learning works — explained simply for kids"
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body data-branch="kids">
+
+    <header class="site-header" id="siteHeader">
+        <div class="container nav-inner">
+            <a class="brand" href="kids">
+                <img class="brand-logo" src="assets/images/logo.png" alt="Learning Bubble" width="40" height="40">
+                <span class="brand-text"><strong>Learning Bubble</strong><em class="brand-sub">Guides</em></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Main">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="kids">For Kids</a>
+                <a class="nav-link" href="academics">Academics</a>
+                <a class="nav-link" href="workshops">Workshops</a>
+                <a class="nav-link" href="blog">Guides</a>
+                <a class="nav-link" href="contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="branch-switch" role="group" aria-label="Choose programme">
+                    <a href="kids" data-branch="kids"><i class="fas fa-rocket"></i><span>Kids</span></a>
+                    <a href="academics" data-branch="academics"><i class="fas fa-graduation-cap"></i><span>Academics</span></a>
+                </div>
+                <button class="icon-btn" data-search-open aria-label="Search courses" title="Search (Ctrl+K)">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
+                <a class="btn btn-primary btn-sm" href="demo"><i class="fas fa-video"></i> Book a demo</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
+                    aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head">
+            <div class="container">
+                <nav class="crumbs" aria-label="Breadcrumb">
+                    <a href="/">Home</a><i class="fas fa-chevron-right"></i><a href="kids">For Kids</a><i class="fas fa-chevron-right"></i><a href="coding-and-ai-for-kids">Coding &amp; AI for kids</a><i class="fas fa-chevron-right"></i><span>How machine learning works — explained simply for kids</span>
+                </nav>
+                <span class="eyebrow"><i class="fas fa-diagram-project"></i> Technology &amp; Coding · 4 min read · Updated 12 Oct 2026</span>
+                <h1>How machine learning works — explained simply for kids</h1>
+                <p>Machine learning is how computers learn from examples instead of being told every rule. It is easier to explain than it sounds, and a great way into AI.</p>
+            </div>
+        </section>
+
+        <section class="section section--tight">
+            <div class="container">
+                <article class="prose article-body">
+                    <div class="quick-answer">
+                        <strong>Quick answer</strong>
+                        <p><strong>Machine learning</strong> means a computer learns patterns from <strong>lots of examples</strong>, instead of being given every rule. It then uses those patterns to make <strong>predictions</strong> about new things — and, like any learner, it sometimes gets them wrong.</p>
+                    </div>
+                    <h2>Explain it like this</h2>
+                    <p>Imagine teaching a younger sibling to recognise cats. You do not give them a rulebook. You show them lots of pictures — <em>cat, cat, not a cat, cat</em> — until they can spot one on their own. Machine learning works in a similar way, with far more examples and maths instead of eyes.</p>
+                    <h2>The three big ideas</h2>
+                    <div class="compare-wrap">
+                        <table class="compare-table">
+                            <thead><tr><th scope="col">Idea</th><th scope="col">Simple explanation</th></tr></thead>
+                            <tbody>
+                                <tr><th scope="row">Training data</th><td>The examples the computer learns from</td></tr>
+                                <tr><th scope="row">Model</th><td>The patterns it has learned</td></tr>
+                                <tr><th scope="row">Prediction</th><td>Its best guess about something new</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2>Why it makes mistakes</h2>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i> <span><strong>Not enough examples.</strong> It never saw anything like this before.</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>Unbalanced examples.</strong> If it only saw orange cats, it might miss a black one.</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>Misleading patterns.</strong> If every cat photo had a sofa in it, it might start thinking sofas mean cats.</span></li>
+                    </ul>
+                    <p>This is why AI can be confidently wrong — and why children should always question it.</p>
+                    <h2>Where children see machine learning</h2>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i> <span>Video and music recommendations</span></li>
+                        <li><i class="fas fa-check"></i> <span>Photo apps that recognise faces</span></li>
+                        <li><i class="fas fa-check"></i> <span>Spam filters in email</span></li>
+                        <li><i class="fas fa-check"></i> <span>Voice assistants understanding speech</span></li>
+                        <li><i class="fas fa-check"></i> <span>Chatbots predicting the next words in a sentence</span></li>
+                    </ul>
+                    <h2>Try it at home</h2>
+                    <p>Our free <a href="activity-sort-it-like-a-computer">sort it like a computer</a> activity lets children play the role of a machine learning model with everyday objects — and discover how bad examples lead to bad predictions.</p>
+                    <h2>Going further</h2>
+                    <p>Teenagers who want to understand AI properly can take our <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> course, and those who enjoy coding can later work with real data in <a href="course-learn-python">Learn Python</a>.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <h2 id="faq">Frequently asked questions</h2>
+                    <p><strong>What is machine learning in simple words?</strong><br>
+                        A way for computers to learn patterns from many examples and use them to make predictions about new things.</p>
+                    <p><strong>Is machine learning the same as AI?</strong><br>
+                        Machine learning is one of the main ways modern AI is built. AI is the broader idea of computers doing tasks that seem intelligent.</p>
+                    <p><strong>Why does AI make mistakes?</strong><br>
+                        Because it learns from examples, which can be incomplete, unbalanced or misleading. It predicts — it does not truly understand.</p>
+                    <p><strong>How can I teach my child about machine learning?</strong><br>
+                        With simple sorting and guessing games that show how examples lead to predictions, like our free sorting activity.</p>
+                    <div class="course-guides">
+                        <h3>More coding &amp; AI guides for parents</h3>
+                        <ul>
+                            <li><a href="blog-graphic-design-for-kids-canva">Graphic design for kids: getting started with Canva</a></li>
+                            <li><a href="blog-ms-office-skills-kids-need-for-school">The MS Office skills kids need for school: Word, PowerPoint and Excel</a></li>
+                            <li><a href="blog-screen-time-vs-creative-screen-time">Creative vs passive screen time: a guide for parents</a></li>
+                            <li><a href="blog-encouraging-girls-in-coding">Encouraging girls in coding: a practical guide for parents</a></li>
+                            <li><a href="blog-tech-careers-explained-for-teens">Tech careers explained for teens: what people actually do</a></li>
+                            <li><a href="blog-online-coding-classes-pakistan-what-to-look-for">Online coding classes for kids in Pakistan: what to look for</a></li>
+                            <li><a href="coding-and-ai-for-kids">All coding &amp; AI guides for parents →</a></li>
+                        </ul>
+                    </div>
+                    <hr class="article-rule">
+                    <p class="article-foot">Written by the Learning Bubble teaching team. If something here does not match your situation, <a href="contact">ask us</a> — we would rather give you a straight answer than have you guess.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section--soft" id="articleRelated" data-related="4,6"></section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2>See it for yourself</h2>
+                    <p>A free 30-minute demo class tells you more than any guide. Meet the teacher, watch a real session, then decide.</p>
+                    <div class="cta-actions">
+                        <a class="btn btn-light btn-lg" href="demo?branch=kids"><i class="fas fa-video"></i> Book a free demo</a>
+                        <a class="btn btn-onDark btn-lg" data-wa="Hi Learning Bubble! I read your guide and would like to ask about AI for kids." href="#" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Ask on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+</body>
+
+</html>
