@@ -15,6 +15,8 @@
         whatsapp: '923212481610',
         whatsappDisplay: '+92 321 2481610',
         email: 'info@learningbubble.org',
+        workshopFormUrl: 'https://forms.gle/j92nP6vbupRPAbBF8',
+        courseFormUrl: 'https://forms.gle/eax44SUcWNHex4BLA',
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
@@ -64,6 +66,9 @@
             const where = pageName();
             if (a.dataset.register) {
                 track('workshop_register_click', { workshop: a.dataset.register, page: where });
+            }
+            if (a.dataset.courseForm) {
+                track('course_register_click', { course: a.dataset.courseForm, page: where });
             }
             if (/wa\.me\//.test(href)) {
                 track('whatsapp_click', { page: where, link_text: (a.textContent || '').trim().slice(0, 60) });
@@ -326,6 +331,8 @@
               <li><a href="resources">Resources</a></li>
               <li><a href="contact">Contact</a></li>
               <li><a href="enrollment">Enquire / Enrol</a></li>
+              <li><a href="${CFG.courseFormUrl}" target="_blank" rel="noopener" data-course-form="footer">Course registration form</a></li>
+              <li><a href="${CFG.workshopFormUrl}" target="_blank" rel="noopener" data-register="footer">Free workshop registration</a></li>
               <li><a href="courses?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
           </div>
@@ -925,11 +932,11 @@
         const page = pageName();
         if (['demo', 'enrollment', 'contact', '404', 'course-detail'].includes(page)) return;
         if ($('.mobile-cta')) return;
-        const isWs = page === 'workshops' || page === 'blog-free-online-workshops-for-kids-pakistan';
+        const isWs = page === 'workshops' || page === 'blog-free-online-workshops-for-kids-pakistan' || page.indexOf('workshop-') === 0;
         const bar = document.createElement('div');
         bar.className = 'mobile-cta';
         bar.innerHTML = `
-      <a class="btn btn-primary mobile-cta-main" href="${isWs ? 'contact' : 'demo'}"${isWs ? ' data-register="sticky"' : ''}>
+      <a class="btn btn-primary mobile-cta-main" href="${isWs ? CFG.workshopFormUrl : 'demo'}"${isWs ? ' target="_blank" rel="noopener" data-register="sticky"' : ''}>
         <i class="fas ${isWs ? 'fa-ticket' : 'fa-video'}" aria-hidden="true"></i> ${isWs ? 'Register free' : 'Book a free demo'}
       </a>
       <a class="btn btn-wa mobile-cta-wa" href="${isWs ? waLink('Hi Learning Bubble! I would like to register my child for a free workshop.') : waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
