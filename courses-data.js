@@ -378,7 +378,7 @@ const coursesData = [
 
     /* ========== ACADEMICS · A-Levels ========== */
     {
-        id: 33, branch: 'academics', slug: null, name: 'A-Level Academics',
+        id: 33, branch: 'academics', slug: 'course-a-level-academics', name: 'A-Level Academics',
         category: 'A-Level Academics',
         duration: '8–12 sessions per month', ages: 'AS & A2',
         level: 'A-Level', format: 'Small group (3–5) or 1-to-1',

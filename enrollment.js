@@ -309,17 +309,16 @@ Here are the available schedules and fee options:
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
 
-        fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                subject: `Enquiry: ${courseNames.slice(0, 2).join(', ')}${courseNames.length > 2 ? ` +${courseNames.length - 2} more` : ''} — ${name}`,
-                replyTo: email,
-                html: adminHtml
-            })
+        const fields = {
+            'Programme': branches.join(' + '), 'Courses': courseNames.join(', '), 'Student name': name,
+            'WhatsApp': phone, 'Email': email, 'Age / grade': studentAge, 'Parent / guardian': parentName,
+            'Preferred timing': preferred, 'Message': message
+        };
+        window.LB_sendLead({
+            subject: `Enquiry: ${courseNames.slice(0, 2).join(', ')}${courseNames.length > 2 ? ` +${courseNames.length - 2} more` : ''} — ${name}`,
+            replyTo: email, fields
         })
-            .then(async res => {
-                if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Request failed');
+            .then(() => {
                 showSuccess(name, phone);
                 cart = [];
                 saveCart();
@@ -328,7 +327,7 @@ Here are the available schedules and fee options:
             })
             .catch(err => {
                 console.error(err);
-                window.LB_toast('We could not send that. Please message us on WhatsApp instead.', 'error');
+                window.LB_waFallback(window.LB_leadText('Hi Learning Bubble! I would like to enquire about:', fields));
             })
             .finally(() => { btn.disabled = false; btn.innerHTML = label; });
     });
@@ -350,16 +349,28 @@ Here are the available schedules and fee options:
     /* ---------- boot ---------- */
     loadCart();
 
-    const preset = new URLSearchParams(location.search).get('id');
-    if (preset) {
-        const c = LB.course(preset);
-        if (c) {
-            pickBranch = c.branch;
-            document.documentElement.setAttribute('data-branch', c.branch);
-            document.body.dataset.branch = c.branch;
-            addCourse(Number(preset), true);
-            history.replaceState(null, '', location.pathname);
-        }
+    const qs = new URLSearchParams(location.search);
+    const preset = qs.get('id');
+    const presetCourse = preset ? LB.course(preset) : null;
+    const urlBranch = qs.get('branch');
+    /* Coming from a Kids or Academics page: show only that programme. */
+    const lockedBranch = presetCourse ? presetCourse.branch
+        : (urlBranch === 'kids' || urlBranch === 'academics') ? urlBranch : null;
+    if (lockedBranch) {
+        pickBranch = lockedBranch;
+        document.documentElement.setAttribute('data-branch', lockedBranch);
+        document.body.dataset.branch = lockedBranch;
+        const tabs = $('[data-pick-branch]') && $('[data-pick-branch]').closest('.branch-switch');
+        if (tabs) tabs.style.display = 'none';
+        const wsBtn = $('#wsRegBtn');
+        if (wsBtn && lockedBranch === 'academics') wsBtn.style.display = 'none';
+        const before = cart.length;
+        cart = cart.filter(c => c.branch === lockedBranch);
+        if (cart.length !== before) saveCart();
+    }
+    if (presetCourse) {
+        addCourse(Number(preset), true);
+        history.replaceState(null, '', location.pathname + '?branch=' + lockedBranch);
     }
 
     /* header switch only — the modal's tabs use data-pick-branch and manage themselves */

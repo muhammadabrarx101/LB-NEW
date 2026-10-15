@@ -115,7 +115,7 @@
         new MutationObserver(() => {
             if (queued) return;
             queued = true;
-            requestAnimationFrame(() => { queued = false; cleanLinks(); });
+            requestAnimationFrame(() => { queued = false; cleanLinks(); carryBranch(); });
         }).observe(document.body, { childList: true, subtree: true });
     }
 
@@ -326,13 +326,13 @@
             <h4>Learning Bubble</h4>
             <ul>
               <li><a href="about">About us</a></li>
-              <li><a href="workshops">Free kids workshops</a></li>
+              ${b === 'academics' ? '' : '<li><a href="workshops">Free kids workshops</a></li>'}
               <li><a href="blog">Parent &amp; student guides</a></li>
               <li><a href="resources">Resources</a></li>
               <li><a href="contact">Contact</a></li>
               <li><a href="enrollment">Enquire / Enrol</a></li>
               <li><a href="${CFG.courseFormUrl}" target="_blank" rel="noopener" data-course-form="footer">Course registration form</a></li>
-              <li><a href="${CFG.workshopFormUrl}" target="_blank" rel="noopener" data-register="footer">Free workshop registration</a></li>
+              ${b === 'academics' ? '' : `<li><a href="${CFG.workshopFormUrl}" target="_blank" rel="noopener" data-register="footer">Free workshop registration</a></li>`}
               <li><a href="courses?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
           </div>
@@ -371,7 +371,7 @@
             <a href="contact">Online Tutor in Pakistan</a> ·
             <a href="/">Online Academy in Pakistan</a> ·
             <a href="course-learn-python">Python for Kids</a> ·
-            <a href="courses?branch=academics&amp;cat=A-Level%20Academics">A-Level Academics</a> ·
+            <a href="course-a-level-academics">A-Level Academics</a> ·
             <a href="course-financial-literacy-ages-8-12">Financial Literacy for Kids</a> ·
             <a href="blog-free-online-workshops-for-kids-pakistan">Free Online Workshops for Kids</a> ·
             <a href="igcse-o-level-subjects">IGCSE &amp; O Level Tuition</a> ·
@@ -397,6 +397,59 @@
     /* ============================================================
        WHATSAPP + BACK TO TOP
        ============================================================ */
+    /* Form delivery. The old /api/send-email endpoint never existed on
+       Cloudflare Pages, so every form failed. Leads now go to the inbox in
+       CFG.email through FormSubmit (no server needed). If that fails for any
+       reason, the visitor is sent to WhatsApp with their details already
+       typed in, so no enquiry is ever lost. */
+    function sendLead(o) {
+        const body = Object.assign({ _subject: o.subject || 'Website enquiry', _template: 'table', _captcha: 'false' }, o.fields || {});
+        if (o.replyTo) body._replyto = o.replyTo;
+        return fetch('https://formsubmit.co/ajax/' + CFG.email, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(body)
+        }).then(res => res.json().catch(() => ({})).then(j => {
+            if (!res.ok || String(j.success) !== 'true') throw new Error(j.message || 'Send failed');
+            return j;
+        }));
+    }
+    function leadText(title, fields) {
+        return title + '\n\n' + Object.keys(fields)
+            .filter(k => fields[k] && String(fields[k]).trim())
+            .map(k => k + ': ' + fields[k]).join('\n');
+    }
+    function waFallback(text) {
+        const url = waLink(text);
+        toast('Opening WhatsApp so you can send your details to us directly.', 'info');
+        setTimeout(() => {
+            const w = window.open(url, '_blank');
+            if (w) { try { w.opener = null; } catch (e) { } } else { location.href = url; }
+        }, 600);
+    }
+    window.LB_sendLead = sendLead;
+    window.LB_leadText = leadText;
+    window.LB_waFallback = waFallback;
+
+    /* On a Kids or Academics page, links to the demo, enquiry and contact
+       pages carry ?branch= so those forms only show that programme. */
+    function carryBranch() {
+        const b = currentBranch();
+        if (b !== 'kids' && b !== 'academics') return;
+        const page = pageName();
+        if (['demo', 'enrollment', 'contact'].includes(page)) return;
+        $$('a[href]').forEach(a => {
+            const h = a.getAttribute('href');
+            const m = /^(demo|enrollment|contact)(\.html)?(\?[^#]*)?(#.*)?$/.exec(h || '');
+            if (!m) return;
+            const q = new URLSearchParams((m[3] || '').slice(1));
+            if (q.has('branch') || q.has('course') || q.has('id')) return;
+            q.set('branch', b);
+            a.setAttribute('href', m[1] + '?' + q.toString() + (m[4] || ''));
+        });
+    }
+    window.LB_carryBranch = carryBranch;
+
     function waLink(msg) {
         const b = currentBranch();
         const fallback = b === 'academics'
@@ -784,6 +837,16 @@
         const form = $('#contactForm');
         if (!form) return;
 
+        /* Coming from a Kids or Academics page: offer only that programme. */
+        const lock = new URLSearchParams(location.search).get('branch');
+        const interestSel = $('#cinterest', form);
+        if (interestSel && (lock === 'kids' || lock === 'academics')) {
+            const keep = lock === 'kids' ? 'Learning Bubble for Kids' : 'Learning Bubble Academics';
+            Array.from(interestSel.options).forEach(o => { if (o.text !== keep) o.remove(); });
+            interestSel.value = keep;
+            root.setAttribute('data-branch', lock);
+        }
+
         form.addEventListener('submit', e => {
             e.preventDefault();
             const data = new FormData(form);
@@ -832,20 +895,16 @@
         </div>
       </body></html>`;
 
-            fetch('/api/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ subject: `Contact: ${subject}`, replyTo: email, html })
-            })
-                .then(async res => {
-                    if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Request failed');
+            const fields = { 'Name': name, 'Email': email, 'Phone / WhatsApp': phone, 'Interested in': interest || 'Not sure yet', 'Subject': subject, 'Message': message, 'Page': location.href };
+            sendLead({ subject: `Contact: ${subject} — ${name}`, replyTo: email, fields })
+                .then(() => {
                     toast('Thank you! Your message is on its way — we usually reply within a day.', 'success');
                     track('generate_lead', { form: 'contact', subject: subject, interest: interest || 'not set' });
                     form.reset();
                 })
                 .catch(err => {
                     console.error(err);
-                    toast('Something went wrong. Please message us on WhatsApp instead.', 'error');
+                    waFallback(leadText('Hi Learning Bubble! I sent a message on your website:', fields));
                 })
                 .finally(() => { btn.disabled = false; btn.innerHTML = label; });
         });
@@ -901,6 +960,7 @@
         const page = pageName();
         if (['workshops', 'enrollment', 'demo', 'contact', '404', 'course-detail'].includes(page)) return;
         if (Date.now() >= WORKSHOPS_END) return;
+        if (currentBranch() === 'academics') return; /* kids workshops are not shown on Academics pages */
         try { if (localStorage.getItem(ANN_KEY) === '1') return; } catch (e) { }
         const header = $('#siteHeader');
         if (!header || $('.announce')) return;
@@ -980,6 +1040,8 @@
         initContactForm();
         initReveal();
         initTracking();
+        carryBranch();
+        setTimeout(carryBranch, 900);
         watchLinks();
         root.classList.remove('fouc-prevent');
     }

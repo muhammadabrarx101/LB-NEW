@@ -82,6 +82,15 @@
         if (c) startBranch = c.branch;
     }
 
+    /* Coming from a Kids or Academics page: show only that programme. */
+    const lockedBranch = startBranch;
+    if (lockedBranch) {
+        const pick = $('#branchPick');
+        const group = pick && pick.closest('[data-field="branch"]');
+        if (group) group.style.display = 'none';
+        $$('input[name="branch"]').forEach(r => { r.checked = r.value === lockedBranch; });
+    }
+
     if (startBranch) {
         const radio = $(`input[name="branch"][value="${startBranch}"]`);
         if (radio) radio.checked = true;
@@ -231,24 +240,24 @@ Here are the slots we can offer:
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
 
-        fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                subject: `Demo request: ${course || branchName} — ${name}`,
-                replyTo: email,
-                html
-            })
-        })
-            .then(async res => {
-                if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Request failed');
+        const fields = {
+            'Programme': branchName, 'Student name': name, 'WhatsApp': phone, 'Email': email,
+            'Age / grade': age, 'Course / subject': course || 'Not decided yet',
+            'Preferred days': days.join(', '), 'Preferred times': times.join(', '),
+            'Time zone': timezone, 'Parent / guardian': parentName, 'Notes': message
+        };
+        window.LB_sendLead({ subject: `Demo request: ${course || branchName} — ${name}`, replyTo: email, fields })
+            .then(() => {
                 showSuccess(name, phone);
                 form.reset();
-                applyBranch('hub');
+                if (lockedBranch) {
+                    $$('input[name="branch"]').forEach(r => { r.checked = r.value === lockedBranch; });
+                    applyBranch(lockedBranch);
+                } else applyBranch('hub');
             })
             .catch(err => {
                 console.error(err);
-                window.LB_toast('We could not send that. Please book on WhatsApp instead.', 'error');
+                window.LB_waFallback(window.LB_leadText('Hi Learning Bubble! I would like to book a free demo class.', fields));
             })
             .finally(() => { btn.disabled = false; btn.innerHTML = label; });
     });

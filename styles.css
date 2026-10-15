@@ -1864,3 +1864,20 @@ html.has-announce { --ann-h: 42px; }
     .compare-table thead th { white-space: normal; font-size: .72rem; letter-spacing: .04em; }
     .compare-table tbody th { width: 28%; }
 }
+
+
+/* ---------- choice pills (demo form: programme, days, times) ---------- */
+.slot-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
+.form-group .slot {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: .62rem 1.05rem; border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface-2); color: var(--text); font-weight: 600; font-size: .9rem;
+    cursor: pointer; user-select: none; transition: border-color var(--t), background var(--t);
+}
+.form-group .slot input {
+    width: auto; padding: 0; margin: 0; border: 0; box-shadow: none; background: none;
+    accent-color: var(--accent); width: 1.05rem; height: 1.05rem; flex-shrink: 0; cursor: pointer;
+}
+.form-group .slot:hover { border-color: var(--accent); }
+.form-group .slot:has(input:checked) { border-color: var(--accent); background: var(--accent-wash); }
+.form-group .slot:focus-within { box-shadow: 0 0 0 4px var(--accent-wash); }
