@@ -1,6 +1,6 @@
 # Learning Bubble
 
-> Learning Bubble (learningbubble.org) is an online academy in Pakistan with two programmes: Learning Bubble for Kids (creative, tech and life-skills courses for ages 7-18) and Learning Bubble Academics (IGCSE, O Level, A-Level, IELTS, SAT and English). All classes are taught live online in small groups (3-5 students) or one-to-one.
+> Learning Bubble (learningbubble.org) is an online academy in Pakistan with two programmes: Learning Bubble for Kids (creative, tech and life-skills courses for ages 7-18) and Learning Bubble Academics (IGCSE, O Level, A-Level, IELTS, SAT and English). All classes are taught live online in small groups (3-5 students) or one-to-one. Students join from Pakistan, the UAE, the UK, the USA, Canada, Australia and other countries; classes are scheduled in the student's own time zone.
 
 ## Fees (important)
 
@@ -25,6 +25,13 @@
 - [Free workshops for kids](https://learningbubble.org/workshops)
 - [How fees work: affordable online courses](https://learningbubble.org/blog-affordable-online-courses-pakistan)
 - [About](https://learningbubble.org/about)
+- [Online classes in Karachi](https://learningbubble.org/online-classes-karachi)
+- [Online classes in Lahore](https://learningbubble.org/online-classes-lahore)
+- [Online classes in Islamabad & Rawalpindi](https://learningbubble.org/online-classes-islamabad)
+- [Online tutoring in Dubai & the UAE](https://learningbubble.org/online-classes-uae)
+- [Online tutoring in the UK](https://learningbubble.org/online-classes-uk)
+- [Online classes in the USA](https://learningbubble.org/online-classes-usa)
+- [Online classes in Canada](https://learningbubble.org/online-classes-canada)
 - [Guides](https://learningbubble.org/blog)
 
 ## Kids courses

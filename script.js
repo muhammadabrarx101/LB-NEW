@@ -378,7 +378,15 @@
             <a href="ielts-sat-english-guides">IELTS, SAT &amp; English Guides</a> ·
             <a href="coding-and-ai-for-kids">Coding &amp; AI for Kids</a> ·
             <a href="free-activities-for-kids">Free Activities for Kids</a> ·
-            <a href="free-demo-classes">Free Demo Classes</a>
+            <a href="free-demo-classes">Free Demo Classes</a> ·
+            <a href="blog-affordable-online-courses-pakistan">Affordable Online Courses</a> ·
+            <a href="online-classes-karachi">Online Classes in Karachi</a> ·
+            <a href="online-classes-lahore">Online Classes in Lahore</a> ·
+            <a href="online-classes-islamabad">Online Classes in Islamabad</a> ·
+            <a href="online-classes-uae">Online Tutoring in Dubai &amp; UAE</a> ·
+            <a href="online-classes-uk">Online Tutoring UK</a> ·
+            <a href="online-classes-usa">Online Classes USA</a> ·
+            <a href="online-classes-canada">Online Tutoring Canada</a>
           </p>
         </div>
 
