@@ -386,7 +386,17 @@
             <a href="online-classes-uae">Online Tutoring in Dubai &amp; UAE</a> ·
             <a href="online-classes-uk">Online Tutoring UK</a> ·
             <a href="online-classes-usa">Online Classes USA</a> ·
-            <a href="online-classes-canada">Online Tutoring Canada</a>
+            <a href="online-classes-canada">Online Tutoring Canada</a> ·
+            <a href="online-classes-australia">Online Tutoring Australia</a> ·
+            <a href="online-classes-saudi-arabia">Online Tutoring Saudi Arabia</a> ·
+            <a href="online-classes-qatar">Online Tutoring Qatar</a> ·
+            <a href="online-classes-germany">Online Classes Germany</a> ·
+            <a href="online-classes-china">Online Classes China</a> ·
+            <a href="online-classes-japan">Online Classes Japan</a> ·
+            <a href="online-classes-singapore">IGCSE Tuition Singapore</a> ·
+            <a href="online-classes-malaysia">IGCSE Tuition Malaysia</a> ·
+            <a href="online-classes-worldwide">Online Classes Worldwide</a> ·
+            <a href="blog-advantages-and-disadvantages-of-online-learning">Advantages of Online Learning</a>
           </p>
         </div>
 
@@ -960,8 +970,8 @@
 
     /* Free-workshops announcement bar. Sits just under the fixed header, scrolls
        away with the page, can be dismissed, and retires itself after the last
-       workshop day (Code Quest, 1 Nov 2026): ends 2 Nov 00:00 PKT = 1 Nov 19:00 UTC. */
-    const WORKSHOPS_END = Date.UTC(2026, 10, 1, 19, 0, 0);
+       workshop day (AI Explorers, 25 Oct 2026): ends 26 Oct 00:00 PKT = 25 Oct 19:00 UTC. */
+    const WORKSHOPS_END = Date.UTC(2026, 9, 25, 19, 0, 0);
     const ANN_KEY = 'lb-ann-workshops-2026-10';
 
     function initAnnounce() {
@@ -981,7 +991,7 @@
       <a class="announce-link" href="workshops">
         <span class="announce-badge">Free</span>
         <span class="announce-text"><strong>Free kids workshops on Zoom</strong>
-          <span class="announce-dates">· StoryCraft 24 Oct · AI Explorers 25 Oct · Code Quest 1 Nov</span></span>
+          <span class="announce-dates">· StoryCraft 24 Oct · AI Explorers 25 Oct</span></span>
         <span class="announce-go">Register <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
       </a>
       <button type="button" class="announce-x" aria-label="Dismiss announcement"><i class="fas fa-xmark" aria-hidden="true"></i></button>`;

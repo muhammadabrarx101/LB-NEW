@@ -33,7 +33,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -51,38 +53,99 @@
     <script defer src="script.js"></script>
 
     <script type="application/ld+json">
+{
+  "@id": "https://learningbubble.org/#organization",
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Learning Bubble",
+  "alternateName": "Learning Bubble Online Learning for Kids & Academics in Pakistan",
+  "url": "https://learningbubble.org/",
+  "logo": "https://learningbubble.org/assets/images/logo.png",
+  "description": "Learning Bubble is Pakistan's online learning and elearning platform offering two programmes: creative courses for kids (AI for kids, coding for kids, creative writing for kids, history mystery, poetry for kids) and academic learning in Pakistan for IGCSE, IELTS, SAT and English Language courses.",
+  "areaServed": [
     {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Learning Bubble",
-      "alternateName": "Learning Bubble Online Learning for Kids & Academics in Pakistan",
-      "url": "https://learningbubble.org/",
-      "logo": "https://learningbubble.org/assets/images/logo.png",
-      "description": "Learning Bubble is Pakistan's online learning and elearning platform offering two programmes: creative courses for kids (AI for kids, coding for kids, creative writing for kids, history mystery, poetry for kids) and academic learning in Pakistan for IGCSE, IELTS, SAT and English Language courses.",
-      "areaServed": [
-        { "@type": "Country", "name": "Pakistan" },
-        { "@type": "Country", "name": "United Arab Emirates" },
-        { "@type": "Country", "name": "United Kingdom" },
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "Canada" },
-        { "@type": "Country", "name": "Australia" }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PK"
-      },
-      "sameAs": [
-        "https://www.facebook.com/share/1J5LhTqGc4/",
-        "https://www.instagram.com/learningbubblekids",
-        "https://www.instagram.com/learningbubbleacademics"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+92-321-2481610",
-        "contactType": "customer service",
-        "email": "info@learningbubble.org"
-      }
+      "@type": "Country",
+      "name": "Pakistan"
+    },
+    {
+      "@type": "Country",
+      "name": "United Arab Emirates"
+    },
+    {
+      "@type": "Country",
+      "name": "Saudi Arabia"
+    },
+    {
+      "@type": "Country",
+      "name": "Qatar"
+    },
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "Country",
+      "name": "Canada"
+    },
+    {
+      "@type": "Country",
+      "name": "Australia"
+    },
+    {
+      "@type": "Country",
+      "name": "Germany"
+    },
+    {
+      "@type": "Country",
+      "name": "China"
+    },
+    {
+      "@type": "Country",
+      "name": "Japan"
+    },
+    {
+      "@type": "Country",
+      "name": "Singapore"
+    },
+    {
+      "@type": "Country",
+      "name": "Malaysia"
     }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PK"
+  },
+  "sameAs": [
+    "https://www.facebook.com/share/1J5LhTqGc4/",
+    "https://www.instagram.com/learningbubblekids",
+    "https://www.instagram.com/learningbubbleacademics"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-321-2481610",
+    "contactType": "customer service",
+    "email": "info@learningbubble.org"
+  },
+  "knowsAbout": [
+    "Online learning for kids",
+    "Coding for kids",
+    "Python for kids",
+    "Artificial intelligence for kids",
+    "Creative writing for kids",
+    "IGCSE tuition",
+    "O Level tuition",
+    "A-Level tuition",
+    "IELTS preparation",
+    "SAT preparation",
+    "English language courses",
+    "Financial literacy for kids"
+  ]
+}
     </script>
 
     <script type="application/ld+json">
@@ -119,26 +182,28 @@
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Learning Bubble",
-      "alternateName": [
-        "LearningBubble",
-        "Learning Bubble Pakistan",
-        "Bubble Learning",
-        "Learning Bubble Academy",
-        "learningbubble.org"
-      ],
-      "url": "https://learningbubble.org/",
-      "inLanguage": "en",
-      "publisher": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": "https://learningbubble.org/assets/images/logo.png"
-      }
-    }
+{
+  "@id": "https://learningbubble.org/#website",
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Learning Bubble",
+  "alternateName": [
+    "LearningBubble",
+    "Learning Bubble Pakistan",
+    "Bubble Learning",
+    "Learning Bubble Academy",
+    "learningbubble.org"
+  ],
+  "url": "https://learningbubble.org/",
+  "inLanguage": "en",
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": "https://learningbubble.org/assets/images/logo.png"
+  }
+}
     </script>
 </head>
 
@@ -243,9 +308,9 @@
                 <div class="promo-strip reveal">
                     <span class="promo-ico" aria-hidden="true"><i class="fas fa-ticket"></i></span>
                     <div>
-                        <h2>Free live workshops for kids — Oct 24, Oct 25 &amp; Nov 1</h2>
-                        <p>StoryCraft (creative writing), AI Explorers and Code Quest (coding). Online on Zoom, ages
-                            7–12, free this season.</p>
+                        <h2>Free live workshops for kids — Oct 24 &amp; Oct 25</h2>
+                        <p>StoryCraft (creative writing) and AI Explorers (AI for kids). Online on Zoom, ages
+                            7–10, free this season.</p>
                     </div>
                     <a class="btn btn-primary" href="workshops"><i class="fas fa-ticket"></i> See workshops &amp; register</a>
                 </div>

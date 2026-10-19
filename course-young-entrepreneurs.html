@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Young Entrepreneurs",
-      "description": "Designed for children with big ideas, this course introduces the fundamentals of entrepreneurship in a practical, engaging way. Students learn to spot opportunities, understand basic business concepts and develop a product or service idea. With guided support, learners go through the process of making a real sale — gaining confidence, creativity and real-world problem-solving skills.",
-      "url": "https://learningbubble.org/course-young-entrepreneurs",
-      "inLanguage": "en",
-      "educationalLevel": "Beginner",
-      "teaches": "Spot a real opportunity, Build a product or service idea, Pricing, pitching and customers, Complete an actual first sale",
-      "typicalAgeRange": "10–14",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-young-entrepreneurs" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "6 sessions · 1.5 months",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Young Entrepreneurs",
+  "description": "Designed for children with big ideas, this course introduces the fundamentals of entrepreneurship in a practical, engaging way. Students learn to spot opportunities, understand basic business concepts and develop a product or service idea. With guided support, learners go through the process of making a real sale — gaining confidence, creativity and real-world problem-solving skills.",
+  "url": "https://learningbubble.org/course-young-entrepreneurs",
+  "inLanguage": "en",
+  "educationalLevel": "Beginner",
+  "teaches": "Spot a real opportunity, Build a product or service idea, Pricing, pitching and customers, Complete an actual first sale",
+  "typicalAgeRange": "10–14",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-young-entrepreneurs"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "6 sessions · 1.5 months",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

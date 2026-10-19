@@ -32,7 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -253,7 +255,7 @@
         <section class="section section--tight">
             <div class="container">
                 <div class="prose article-body">
-                    <p>No sign-up, no cost. Each activity lists the age, the time it takes, what you need and step-by-step instructions. They are grouped around our three free workshops: <strong>writing and storytelling</strong> (<a href="workshop-storycraft-creative-writing">StoryCraft</a>), <strong>artificial intelligence</strong> (<a href="workshop-ai-explorers-ai-for-kids">AI Explorers</a>) and <strong>coding</strong> (<a href="workshop-code-quest-coding-for-kids">Code Quest</a>). See all <a href="workshops">free workshops</a>.</p>
+                    <p>No sign-up, no cost. Each activity lists the age, the time it takes, what you need and step-by-step instructions. They are grouped into three themes: <strong>writing and storytelling</strong> (linked to our free <a href="workshop-storycraft-creative-writing">StoryCraft</a> workshop), <strong>artificial intelligence</strong> (linked to <a href="workshop-ai-explorers-ai-for-kids">AI Explorers</a>) and <strong>coding</strong> (linked to our <a href="course-fun-coding">Fun with Coding</a> course). See all <a href="workshops">free workshops</a>.</p>
                 </div>
             </div>
         </section>

@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "English Language — Advanced",
-      "description": "An advanced course for learners aiming at academic or professional English. Focuses on nuance, tone, advanced structures and formal writing — the level of control expected in university work and professional settings.",
-      "url": "https://learningbubble.org/course-english-language-advanced",
-      "inLanguage": "en",
-      "educationalLevel": "C1+",
-      "teaches": "Nuance, tone and register control, Advanced grammatical structures, Formal and academic writing, Presentation and discussion skills",
-      "typicalAgeRange": "All ages",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-english-language-advanced" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "8 sessions",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "English Language — Advanced",
+  "description": "An advanced course for learners aiming at academic or professional English. Focuses on nuance, tone, advanced structures and formal writing — the level of control expected in university work and professional settings.",
+  "url": "https://learningbubble.org/course-english-language-advanced",
+  "inLanguage": "en",
+  "educationalLevel": "C1+",
+  "teaches": "Nuance, tone and register control, Advanced grammatical structures, Formal and academic writing, Presentation and discussion skills",
+  "typicalAgeRange": "All ages",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-english-language-advanced"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "8 sessions",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

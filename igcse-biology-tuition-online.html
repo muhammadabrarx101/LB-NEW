@@ -32,7 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -57,45 +59,47 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "IGCSE & O Level Biology tuition online",
-      "description": "Online IGCSE Biology (0610) and O Level Biology (5090) tuition in Pakistan. Learn the keywords examiners reward and practise structured answers.",
-      "url": "https://learningbubble.org/igcse-biology-tuition-online",
-      "inLanguage": "en",
-      "educationalLevel": "IGCSE / O Level",
-      "teaches": "Cells; biological molecules and enzymes; nutrition; transport; disease and immunity; respiration; coordination; reproduction and inheritance; ecology; biotechnology",
-      "isAccessibleForFree": false,
-      "offers": {
-        "@type": "Offer",
-        "category": "Paid",
-        "url": "https://learningbubble.org/igcse-biology-tuition-online"
-      },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": [
-          "Pakistan",
-          "Worldwide"
-        ]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "Flexible · small group or one-to-one",
-        "location": {
-          "@type": "VirtualLocation",
-          "url": "https://learningbubble.org/igcse-biology-tuition-online"
-        },
-        "instructor": {
-          "@type": "Organization",
-          "name": "Learning Bubble",
-          "url": "https://learningbubble.org/"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "IGCSE & O Level Biology tuition online",
+  "description": "Online IGCSE Biology (0610) and O Level Biology (5090) tuition in Pakistan. Learn the keywords examiners reward and practise structured answers.",
+  "url": "https://learningbubble.org/igcse-biology-tuition-online",
+  "inLanguage": "en",
+  "educationalLevel": "IGCSE / O Level",
+  "teaches": "Cells; biological molecules and enzymes; nutrition; transport; disease and immunity; respiration; coordination; reproduction and inheritance; ecology; biotechnology",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/igcse-biology-tuition-online"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "Flexible · small group or one-to-one",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/igcse-biology-tuition-online"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble",
+      "url": "https://learningbubble.org/"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">

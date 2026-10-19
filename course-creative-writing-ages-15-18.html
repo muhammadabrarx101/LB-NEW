@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Creative Writing — Ages 15–18",
-      "description": "An advanced creative writing course for teens ready to refine their voice. Students explore personal style, advanced narrative technique and multi-genre writing, while receiving guided feedback to improve clarity, depth and expression.",
-      "url": "https://learningbubble.org/course-creative-writing-ages-15-18",
-      "inLanguage": "en",
-      "educationalLevel": "Advanced",
-      "teaches": "Advanced narrative technique, Individual written feedback, Multi-genre experimentation, Portfolio-ready finished pieces",
-      "typicalAgeRange": "15–18",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-creative-writing-ages-15-18" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "5 sessions · 1 month",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Creative Writing — Ages 15–18",
+  "description": "An advanced creative writing course for teens ready to refine their voice. Students explore personal style, advanced narrative technique and multi-genre writing, while receiving guided feedback to improve clarity, depth and expression.",
+  "url": "https://learningbubble.org/course-creative-writing-ages-15-18",
+  "inLanguage": "en",
+  "educationalLevel": "Advanced",
+  "teaches": "Advanced narrative technique, Individual written feedback, Multi-genre experimentation, Portfolio-ready finished pieces",
+  "typicalAgeRange": "15–18",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-creative-writing-ages-15-18"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "5 sessions · 1 month",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

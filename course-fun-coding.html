@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Fun with Coding",
-      "description": "A playful, beginner-friendly introduction to coding using Small Basic. Students learn fundamental programming concepts through drawing, painting, animation and simple games. The course builds logical thinking, creativity and confidence with technology — perfect for young learners taking their first steps into code.",
-      "url": "https://learningbubble.org/course-fun-coding",
-      "inLanguage": "en",
-      "educationalLevel": "Beginner",
-      "teaches": "No prior experience needed, Learn through drawing, animation and games, Loops, variables and logic made visual, Finish with projects you can show off",
-      "typicalAgeRange": "10–16",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-fun-coding" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "5 sessions · 1 month",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Fun with Coding",
+  "description": "A playful, beginner-friendly introduction to coding using Small Basic. Students learn fundamental programming concepts through drawing, painting, animation and simple games. The course builds logical thinking, creativity and confidence with technology — perfect for young learners taking their first steps into code.",
+  "url": "https://learningbubble.org/course-fun-coding",
+  "inLanguage": "en",
+  "educationalLevel": "Beginner",
+  "teaches": "No prior experience needed, Learn through drawing, animation and games, Loops, variables and logic made visual, Finish with projects you can show off",
+  "typicalAgeRange": "10–16",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-fun-coding"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "5 sessions · 1 month",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -233,7 +249,7 @@
                         <li><a href="blog-what-age-should-a-child-start-coding">What age should a child start coding?</a></li>
                         <li><a href="blog-scratch-vs-python-for-kids">Scratch vs Python for kids: which should your child learn?</a></li>
                         <li><a href="blog-online-coding-classes-pakistan-what-to-look-for">Online coding classes for kids in Pakistan: what to look for</a></li>
-                        <li><a href="workshops">Free Code Quest coding workshop for kids — 1 November</a></li>
+                        <li><a href="free-demo-class-coding-for-kids">Free coding demo class for kids</a></li>
                         </ul>
                     </div>
                     <div class="course-guides">

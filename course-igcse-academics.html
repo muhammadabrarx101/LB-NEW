@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "IGCSE Academics",
-      "description": "Structured IGCSE tuition built around three things that actually move grades: genuine concept clarity, relentless past-paper practice and exam technique. Sessions run in small groups of 3–5 students or one-to-one, with pacing matched to your school syllabus and exam session.",
-      "url": "https://learningbubble.org/course-igcse-academics",
-      "inLanguage": "en",
-      "educationalLevel": "IGCSE / O-Level",
-      "teaches": "Physics, Chemistry, Biology, Mathematics, English, Islamiat, Pakistan Studies, Accounting, Economics, Business Studies",
-      "typicalAgeRange": "Grades 9–11",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-igcse-academics" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "8–12 sessions per month",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "IGCSE Academics",
+  "description": "Structured IGCSE tuition built around three things that actually move grades: genuine concept clarity, relentless past-paper practice and exam technique. Sessions run in small groups of 3–5 students or one-to-one, with pacing matched to your school syllabus and exam session.",
+  "url": "https://learningbubble.org/course-igcse-academics",
+  "inLanguage": "en",
+  "educationalLevel": "IGCSE / O-Level",
+  "teaches": "Physics, Chemistry, Biology, Mathematics, English, Islamiat, Pakistan Studies, Accounting, Economics, Business Studies",
+  "typicalAgeRange": "Grades 9–11",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-igcse-academics"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "8–12 sessions per month",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

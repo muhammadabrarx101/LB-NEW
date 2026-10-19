@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "MS Office for Kids",
-      "description": "A practical course introducing students to essential digital tools — Microsoft Word, PowerPoint and Excel. Learners get hands-on experience creating documents, presentations and simple spreadsheets while understanding the real-world purpose and correct use of each tool, building skills for school and well beyond.",
-      "url": "https://learningbubble.org/course-ms-office-for-kids",
-      "inLanguage": "en",
-      "educationalLevel": "Beginner",
-      "teaches": "Word: proper document structure, PowerPoint: presentations that hold attention, Excel: formulas, tables and simple charts, Skills that pay off in every subject",
-      "typicalAgeRange": "10–16",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-ms-office-for-kids" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "7 sessions · 1.5 months",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "MS Office for Kids",
+  "description": "A practical course introducing students to essential digital tools — Microsoft Word, PowerPoint and Excel. Learners get hands-on experience creating documents, presentations and simple spreadsheets while understanding the real-world purpose and correct use of each tool, building skills for school and well beyond.",
+  "url": "https://learningbubble.org/course-ms-office-for-kids",
+  "inLanguage": "en",
+  "educationalLevel": "Beginner",
+  "teaches": "Word: proper document structure, PowerPoint: presentations that hold attention, Excel: formulas, tables and simple charts, Skills that pay off in every subject",
+  "typicalAgeRange": "10–16",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-ms-office-for-kids"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "7 sessions · 1.5 months",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

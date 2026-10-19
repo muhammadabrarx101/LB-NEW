@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,20 +52,25 @@
     <script defer src="demo.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Book a Free Demo Class — Learning Bubble",
-      "url": "https://learningbubble.org/demo",
-      "description": "Book a free 30-minute online demo class in Pakistan. Meet the teacher and try a real lesson before enrolling: coding, AI, creative writing, IGCSE, IELTS or SAT.",
-      "isPartOf": { "@type": "WebSite", "name": "Learning Bubble", "url": "https://learningbubble.org/" },
-      "primaryImageOfPage": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
-      "about": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      }
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Book a Free Demo Class — Learning Bubble",
+  "url": "https://learningbubble.org/demo",
+  "description": "Book a free 30-minute online demo class in Pakistan. Meet the teacher and try a real lesson before enrolling: coding, AI, creative writing, IGCSE, IELTS or SAT.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "primaryImageOfPage": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
+  "about": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  }
+}
     </script>
 
     <script type="application/ld+json">

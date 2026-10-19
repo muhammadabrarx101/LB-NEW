@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "The World of Sherlock Holmes",
-      "description": "Step into the world of mystery, logic and deduction through one of literature’s most iconic detectives. Students read and explore Sherlock Holmes cases, analyze clues, debate suspects and work together to solve mysteries. Through guided discussion and problem-solving activities, learners develop sharp observation skills, logical reasoning and attention to detail — learning to see the world through Holmes’ analytical lens.",
-      "url": "https://learningbubble.org/course-the-world-of-sherlock-holmes",
-      "inLanguage": "en",
-      "educationalLevel": "Beginner",
-      "teaches": "Close-reading of original Conan Doyle cases, Deduction and evidence-mapping activities, Group case-solving with guided debate, Builds observation and logical reasoning",
-      "typicalAgeRange": "12–16",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-the-world-of-sherlock-holmes" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "4 sessions · 1 month",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "The World of Sherlock Holmes",
+  "description": "Step into the world of mystery, logic and deduction through one of literature’s most iconic detectives. Students read and explore Sherlock Holmes cases, analyze clues, debate suspects and work together to solve mysteries. Through guided discussion and problem-solving activities, learners develop sharp observation skills, logical reasoning and attention to detail — learning to see the world through Holmes’ analytical lens.",
+  "url": "https://learningbubble.org/course-the-world-of-sherlock-holmes",
+  "inLanguage": "en",
+  "educationalLevel": "Beginner",
+  "teaches": "Close-reading of original Conan Doyle cases, Deduction and evidence-mapping activities, Group case-solving with guided debate, Builds observation and logical reasoning",
+  "typicalAgeRange": "12–16",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-the-world-of-sherlock-holmes"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "4 sessions · 1 month",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">
