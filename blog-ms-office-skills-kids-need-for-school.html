@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "The MS Office skills kids need for school: Word, PowerPoint and Excel",
-      "description": "The Microsoft Word, PowerPoint and Excel skills children need for school projects, with what to learn at each stage and common mistakes to fix early.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "MS Office for kids, Word skills for students, PowerPoint for kids, Excel for kids, computer skills for school, Microsoft Office course for kids",
-      "wordCount": 384,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-ms-office-skills-kids-need-for-school"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-8.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The MS Office skills kids need for school: Word, PowerPoint and Excel",
+  "description": "The Microsoft Word, PowerPoint and Excel skills children need for school projects, with what to learn at each stage and common mistakes to fix early.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "MS Office for kids, Word skills for students, PowerPoint for kids, Excel for kids, computer skills for school, Microsoft Office course for kids",
+  "wordCount": 384,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-ms-office-skills-kids-need-for-school"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-8.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -253,7 +257,7 @@
                     <p>Office skills are used across school subjects, in university and in almost every job. Children who learn them properly early spend less time fighting the software and more time on the actual work.</p>
                     <h2>Our course</h2>
                     <p><a href="course-ms-office-for-kids">MS Office for Kids</a> (ages 10–16) gives hands-on practice creating documents, presentations and simple spreadsheets for real school purposes.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>What computer skills do kids need for school?</strong><br>
                         Core Word, PowerPoint and Excel skills: formatting documents, making clear slides, and entering data with simple formulas and charts.</p>

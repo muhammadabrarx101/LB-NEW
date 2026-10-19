@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Coding for kids: a complete guide for parents",
-      "description": "A parent guide to coding for kids in Pakistan: what coding is, the right age, which language to start with, what a good class looks like and costs to expect.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "coding for kids Pakistan, coding classes for kids, kids programming, learn to code for kids, coding for beginners kids, online coding for kids Pakistan",
-      "wordCount": 536,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-coding-for-kids-guide-for-parents"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Coding for kids: a complete guide for parents",
+  "description": "A parent guide to coding for kids in Pakistan: what coding is, the right age, which language to start with, what a good class looks like and costs to expect.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "coding for kids Pakistan, coding classes for kids, kids programming, learn to code for kids, coding for beginners kids, online coding for kids Pakistan",
+  "wordCount": 536,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-coding-for-kids-guide-for-parents"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -251,7 +255,7 @@
                     <p><strong>Does my child need to be good at maths?</strong> Not for the first couple of years. Early coding is closer to writing clear instructions than to algebra.</p>
                     <p><strong>Is it just more screen time?</strong> It is a different kind of screen time — producing rather than consuming. See <a href="blog-screen-time-vs-creative-screen-time">creative screen time vs passive screen time</a>.</p>
                     <p><strong>What equipment is needed?</strong> Usually a laptop or desktop computer and a stable connection. See <a href="blog-computer-setup-for-online-classes">what you need for online coding classes</a>.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>What is the best age for a child to start coding?</strong><br>
                         Many children can start with simple visual or unplugged activities from around 6 to 8, a beginner language from around 10, and Python from around 12. Readiness matters more than exact age.</p>

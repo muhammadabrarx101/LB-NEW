@@ -31,7 +31,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -47,24 +49,36 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Is online learning actually effective for kids?",
-      "description": "The evidence is more specific than the arguments. What matters is group size, live teaching and what the child does in the session.",
-      "datePublished": "2026-07-11",
-      "dateModified": "2026-07-11",
-      "inLanguage": "en",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://learningbubble.org/blog-is-online-learning-effective-for-kids" },
-      "image": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
-      "author": { "@type": "Organization", "name": "Learning Bubble", "url": "https://learningbubble.org/" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": { "@type": "ImageObject", "url": "https://learningbubble.org/assets/images/logo.png" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Is online learning actually effective for kids?",
+  "description": "The evidence is more specific than the arguments. What matters is group size, live teaching and what the child does in the session.",
+  "datePublished": "2026-07-11",
+  "dateModified": "2026-07-11",
+  "inLanguage": "en",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-is-online-learning-effective-for-kids"
+  },
+  "image": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">

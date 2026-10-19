@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "What your child needs for online coding and live classes",
-      "description": "A simple checklist for online classes: the right device, internet, headphones, camera, a quiet space, software setup and tips for a smooth first session.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "online class setup for kids, laptop for online classes, internet for online classes Pakistan, coding class requirements, headphones for kids online class, Zoom class tips",
-      "wordCount": 440,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-computer-setup-for-online-classes"
-      },
-      "image": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What your child needs for online coding and live classes",
+  "description": "A simple checklist for online classes: the right device, internet, headphones, camera, a quiet space, software setup and tips for a smooth first session.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "online class setup for kids, laptop for online classes, internet for online classes Pakistan, coding class requirements, headphones for kids online class, Zoom class tips",
+  "wordCount": 440,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-computer-setup-for-online-classes"
+  },
+  "image": "https://learningbubble.org/assets/images/heroSectionImage1.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -266,7 +270,7 @@
                         <li>Have the <strong>setup guide</strong> open in case anything needs checking</li>
                     </ol>
                     <p>We send a setup guide before every course, and you can always message us on WhatsApp if something is not working.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>Can my child do coding classes on a tablet?</strong><br>
                         A laptop or desktop is strongly recommended for coding, because it needs a keyboard and installed software.</p>

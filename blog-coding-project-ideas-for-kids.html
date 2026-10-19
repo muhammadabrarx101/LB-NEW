@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "15 coding project ideas for kids, from beginner to intermediate",
-      "description": "Fifteen coding project ideas for kids, from first drawings and quizzes to games and data projects, sorted by level, with what each one teaches.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "coding projects for kids, kids coding ideas, beginner coding projects, Python projects for kids, simple games to code, programming ideas for students",
-      "wordCount": 407,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-coding-project-ideas-for-kids"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "15 coding project ideas for kids, from beginner to intermediate",
+  "description": "Fifteen coding project ideas for kids, from first drawings and quizzes to games and data projects, sorted by level, with what each one teaches.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "coding projects for kids, kids coding ideas, beginner coding projects, Python projects for kids, simple games to code, programming ideas for students",
+  "wordCount": 407,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-coding-project-ideas-for-kids"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -265,7 +269,7 @@
                     </ol>
                     <h2>Where to start</h2>
                     <p>Projects 1–5 suit beginners in visual or simple text languages; 6–10 suit students comfortable with loops and conditions; 11–15 suit students learning Python. Want to try coding without a computer first? See our <a href="free-activities-for-kids">free coding activities for kids</a>.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>What is a good first coding project for a child?</strong><br>
                         Something small and visual, such as drawing their initials or a spiral pattern with code, or a simple quiz.</p>

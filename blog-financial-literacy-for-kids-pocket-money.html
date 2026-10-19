@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Financial literacy for kids: teaching money with pocket money",
-      "description": "How to teach children about money using pocket money: saving, spending and giving jars, goals, needs vs wants, mistakes as lessons and age-by-age ideas.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "financial literacy for kids, teaching kids about money, pocket money tips, saving for kids, money skills children Pakistan, kids budgeting",
-      "wordCount": 388,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-financial-literacy-for-kids-pocket-money"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-19.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Financial literacy for kids: teaching money with pocket money",
+  "description": "How to teach children about money using pocket money: saving, spending and giving jars, goals, needs vs wants, mistakes as lessons and age-by-age ideas.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "financial literacy for kids, teaching kids about money, pocket money tips, saving for kids, money skills children Pakistan, kids budgeting",
+  "wordCount": 388,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-financial-literacy-for-kids-pocket-money"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-19.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">

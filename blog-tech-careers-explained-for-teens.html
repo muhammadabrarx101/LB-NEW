@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Tech careers explained for teens: what people actually do",
-      "description": "A guide to technology careers for teenagers: software, data, AI, design, cybersecurity and more — what each job involves and which school subjects help.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "tech careers for teens, technology jobs explained, software developer career, data science career, careers in AI, computer science career Pakistan",
-      "wordCount": 411,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-tech-careers-explained-for-teens"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-6.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tech careers explained for teens: what people actually do",
+  "description": "A guide to technology careers for teenagers: software, data, AI, design, cybersecurity and more — what each job involves and which school subjects help.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "tech careers for teens, technology jobs explained, software developer career, data science career, careers in AI, computer science career Pakistan",
+  "wordCount": 411,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-tech-careers-explained-for-teens"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-6.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -250,7 +254,7 @@
                     <p>Many tech roles are filled by computer science graduates, but people also arrive from maths, engineering, physics, design and business — and some through self-taught portfolios. Strong skills and evidence of projects matter a great deal.</p>
                     <h2>Not sure yet? That is normal</h2>
                     <p>Most teenagers do not know what they want to do, and that is fine. Building general skills — coding, clear thinking, communication — keeps many doors open.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>What tech careers are there?</strong><br>
                         Software development, data analysis and data science, AI and machine learning, design, cybersecurity, IT support and product management, among others.</p>

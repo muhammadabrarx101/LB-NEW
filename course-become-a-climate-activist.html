@@ -30,7 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
 
     <script>
@@ -50,33 +52,47 @@
     <script defer src="course-page.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Become a Climate Activist",
-      "description": "This course introduces students to environmental awareness and responsibility. Learners explore carbon emissions, pollution, deforestation, wildlife conservation, endangered species and planetary safety. Through books, resources, discussion and worksheets, students build knowledge — and the mindset to protect the planet.",
-      "url": "https://learningbubble.org/course-become-a-climate-activist",
-      "inLanguage": "en",
-      "educationalLevel": "Beginner",
-      "teaches": "Climate science at the right level, Conservation and biodiversity, Discussion-led, not doom-led, Ends with a personal action project",
-      "typicalAgeRange": "8–12",
-      "isAccessibleForFree": false,
-      "offers": { "@type": "Offer", "category": "Paid", "url": "https://learningbubble.org/course-become-a-climate-activist" },
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "areaServed": ["Pakistan", "Worldwide"]
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "2 months",
-        "location": { "@type": "VirtualLocation", "url": "https://learningbubble.org/" },
-        "instructor": { "@type": "Organization", "name": "Learning Bubble" }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Become a Climate Activist",
+  "description": "This course introduces students to environmental awareness and responsibility. Learners explore carbon emissions, pollution, deforestation, wildlife conservation, endangered species and planetary safety. Through books, resources, discussion and worksheets, students build knowledge — and the mindset to protect the planet.",
+  "url": "https://learningbubble.org/course-become-a-climate-activist",
+  "inLanguage": "en",
+  "educationalLevel": "Beginner",
+  "teaches": "Climate science at the right level, Conservation and biodiversity, Discussion-led, not doom-led, Ends with a personal action project",
+  "typicalAgeRange": "8–12",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "url": "https://learningbubble.org/course-become-a-climate-activist"
+  },
+  "provider": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "EducationalOrganization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "areaServed": [
+      "Pakistan",
+      "Worldwide"
+    ]
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "2 months",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://learningbubble.org/"
+    },
+    "instructor": {
+      "@id": "https://learningbubble.org/#organization",
+      "@type": "Organization",
+      "name": "Learning Bubble"
     }
-
+  }
+}
     </script>
 
     <script type="application/ld+json">

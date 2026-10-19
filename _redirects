@@ -7,3 +7,6 @@
 # before course-detail.js ever runs.
 
 # .html requests are already 308'd to the clean path by Pages itself.
+
+# Code Quest workshop withdrawn (Oct 2026)
+/workshop-code-quest-coding-for-kids /workshops 301

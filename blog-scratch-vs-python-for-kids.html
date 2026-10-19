@@ -34,7 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css">
     <style>
         .article-body a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -59,36 +61,38 @@
     <script defer src="article.js"></script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Scratch vs Python for kids: which should your child learn?",
-      "description": "Scratch vs Python for kids compared: block-based vs text coding, the right age for each, what children can build and how to move from one to the other.",
-      "datePublished": "2026-10-12",
-      "dateModified": "2026-10-12",
-      "inLanguage": "en",
-      "keywords": "Scratch vs Python, Scratch for kids, Python for kids, block coding vs text coding, best coding language for kids, kids programming languages",
-      "wordCount": 413,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://learningbubble.org/blog-scratch-vs-python-for-kids"
-      },
-      "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Learning Bubble",
-        "url": "https://learningbubble.org/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://learningbubble.org/assets/images/logo.png"
-        }
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Scratch vs Python for kids: which should your child learn?",
+  "description": "Scratch vs Python for kids compared: block-based vs text coding, the right age for each, what children can build and how to move from one to the other.",
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "inLanguage": "en",
+  "keywords": "Scratch vs Python, Scratch for kids, Python for kids, block coding vs text coding, best coding language for kids, kids programming languages",
+  "wordCount": 413,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://learningbubble.org/blog-scratch-vs-python-for-kids"
+  },
+  "image": "https://learningbubble.org/assets/images/courses/course-5.jpg",
+  "author": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/"
+  },
+  "publisher": {
+    "@id": "https://learningbubble.org/#organization",
+    "@type": "Organization",
+    "name": "Learning Bubble",
+    "url": "https://learningbubble.org/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://learningbubble.org/assets/images/logo.png"
     }
+  }
+}
     </script>
 
     <script type="application/ld+json">
@@ -237,12 +241,12 @@
                     <p>Moving straight from Scratch to Python can be a shock: suddenly a missing colon breaks everything. A bridge language with <strong>real typed code but gentle errors</strong> smooths the transition. That is why our <a href="course-fun-coding">Fun with Coding</a> course uses <strong>Small Basic</strong> before students move to <a href="course-learn-python">Python</a>. Read <a href="blog-why-small-basic-for-beginners">why we start beginners on Small Basic</a>.</p>
                     <h2>Which should your child learn?</h2>
                     <ul class="check-list">
-                        <li><i class="fas fa-check"></i> <span><strong>Under 10 and never coded?</strong> Start with blocks or unplugged activities. Try the free <a href="workshops#code-quest">Code Quest workshop</a> or <a href="free-activities-for-kids">at-home coding activities</a>.</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>Under 10 and never coded?</strong> Start with blocks or unplugged activities. Try our free <a href="free-activities-for-kids">at-home coding activities</a> or a <a href="free-demo-class-coding-for-kids">free coding demo class</a>.</span></li>
                         <li><i class="fas fa-check"></i> <span><strong>10–12, new to coding?</strong> A beginner text language like Small Basic.</span></li>
                         <li><i class="fas fa-check"></i> <span><strong>12+ and comfortable typing?</strong> Python.</span></li>
                     </ul>
                     <p>Interest matters more than age. A child excited to build a specific game will push through difficulties a reluctant child will not.</p>
-                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#code-quest">Code Quest</a> and <a href="workshops#ai-explorers">AI Explorers</a> workshops.</p>
+                    <p>Our technology courses for kids: <a href="course-fun-coding">Fun with Coding</a> (ages 10–16), <a href="course-learn-python">Learn Python</a> (ages 12–18) and <a href="course-artificial-intelligence-for-kids">Artificial Intelligence for Kids</a> (ages 12–16). For younger children, try the free <a href="workshops#ai-explorers">AI Explorers</a> workshop or our <a href="free-activities-for-kids">free at-home coding activities</a>.</p>
                     <h2 id="faq">Frequently asked questions</h2>
                     <p><strong>Is Scratch or Python better for kids?</strong><br>
                         Scratch suits younger children (about 7–11) because blocks remove syntax errors. Python suits most children from about 12 and is used professionally.</p>
