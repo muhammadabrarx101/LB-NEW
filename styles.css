@@ -1,5 +1,5 @@
 /* ============================================================
-   LEARNING BUBBLE — Design System
+   LEARNING BUBBLE: Design System
    ------------------------------------------------------------
    One stylesheet, two brands.
 
@@ -57,7 +57,7 @@ ul, ol { list-style: none; }
     --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-display: 'Playfair Display', Georgia, serif;
 
-    /* neutrals — light */
+    /* neutrals: light */
     --bg: #ffffff;
     --bg-soft: #f5f7fc;
     --bg-sunk: #eef1f9;
@@ -360,6 +360,7 @@ p { color: var(--text-soft); text-wrap: pretty; }
 }
 
 .chip i { font-size: .78em; opacity: .8; }
+a.chip:hover { color: var(--accent); border-color: var(--accent); }
 .chip--accent { background: var(--accent-wash); color: var(--accent); border-color: transparent; }
 .chip--kids { background: rgba(255, 90, 54, .12); color: #d94520; border-color: transparent; }
 .chip--academics { background: rgba(28, 47, 114, .1); color: #1c2f72; border-color: transparent; }

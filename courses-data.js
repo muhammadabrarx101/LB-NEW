@@ -1,5 +1,5 @@
 /* ============================================================
-   Learning Bubble — Shared Course Data
+   Learning Bubble: Shared Course Data
    ------------------------------------------------------------
    Two branches:
      • kids      → Learning Bubble for Kids   (creative / exploratory)
@@ -15,7 +15,7 @@ const BRANCHES = {
         name: 'Learning Bubble for Kids',
         short: 'For Kids',
         tagline: 'Curiosity-led courses for ages 6–18',
-        blurb: 'Playful, project-first courses in storytelling, coding, art, writing and logic — built to make children fall in love with learning.',
+        blurb: 'Playful, project-first courses in storytelling, coding, art, writing and logic: built to make children fall in love with learning.',
         home: 'kids.html',
         icon: 'fa-rocket',
         emoji: '🚀',
@@ -35,7 +35,7 @@ const BRANCHES = {
 };
 
 /* ------------------------------------------------------------
-   Categories — each belongs to exactly one branch.
+   Categories: each belongs to exactly one branch.
    ------------------------------------------------------------ */
 const categoriesData = [
     // ---------- KIDS ----------
@@ -53,7 +53,7 @@ const categoriesData = [
         short: 'Tech & Coding',
         icon: 'fa-code',
         image: 'assets/images/categories/technologyAndCoding.jpeg',
-        blurb: 'From first lines of code to AI literacy, Python and design tools — technology as a creative material.'
+        blurb: 'From first lines of code to AI literacy, Python and design tools: technology as a creative material.'
     },
     {
         name: 'Creative Writing & Literature Development',
@@ -69,7 +69,7 @@ const categoriesData = [
         short: 'Arts & Science',
         icon: 'fa-palette',
         image: 'assets/images/categories/artsCreativity.jpeg',
-        blurb: 'Hands-on art, experiments and making — where the answer is never just one right answer.'
+        blurb: 'Hands-on art, experiments and making, where the answer is never just one right answer.'
     },
     {
         name: 'Math, Logic & Skills',
@@ -77,7 +77,7 @@ const categoriesData = [
         short: 'Math & Logic',
         icon: 'fa-puzzle-piece',
         image: 'assets/images/categories/Math, Logic & Skills.jpeg',
-        blurb: 'Mental maths, money sense, enterprise and climate thinking — life skills disguised as games.'
+        blurb: 'Mental maths, money sense, enterprise and climate thinking: life skills disguised as games.'
     },
     {
         name: 'Workshops',
@@ -85,7 +85,7 @@ const categoriesData = [
         short: 'Short Workshops',
         icon: 'fa-bolt',
         image: 'assets/images/categories/workshopCollection.jpg',
-        blurb: 'One and two-day intensives — a fast, low-commitment way to try something new.'
+        blurb: 'One and two-day intensives: a fast, low-commitment way to try something new.'
     },
 
     // ---------- ACADEMICS ----------
@@ -143,7 +143,7 @@ const coursesData = [
         duration: '4 sessions · 1 month', ages: '12–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-1.jpg', icon: 'fa-magnifying-glass',
         tagline: 'Read the clues. Name the culprit. Think like a detective.',
-        about: 'Step into the world of mystery, logic and deduction through one of literature’s most iconic detectives. Students read and explore Sherlock Holmes cases, analyze clues, debate suspects and work together to solve mysteries. Through guided discussion and problem-solving activities, learners develop sharp observation skills, logical reasoning and attention to detail — learning to see the world through Holmes’ analytical lens.',
+        about: 'Step into the world of mystery, logic and deduction through one of literature’s most iconic detectives. Students read and explore Sherlock Holmes cases, analyze clues, debate suspects and work together to solve mysteries. Through guided discussion and problem-solving activities, learners develop sharp observation skills, logical reasoning and attention to detail: learning to see the world through Holmes’ analytical lens.',
         highlights: ['Close-reading of original Conan Doyle cases', 'Deduction and evidence-mapping activities', 'Group case-solving with guided debate', 'Builds observation and logical reasoning']
     },
     {
@@ -151,8 +151,8 @@ const coursesData = [
         category: 'Literature, History & Storytelling',
         duration: '6 sessions · 1.5 months', ages: '12–16', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-2.jpg', icon: 'fa-landmark',
-        tagline: 'History without the memorising — just the good parts.',
-        about: 'History comes alive through storytelling, investigation and inquiry. This course takes students through ancient civilisations, major historical events and lesser-known stories that shaped the modern world. Rather than memorising dates, students explore why things happened, how societies evolved, and how the past still shapes the present — developing genuine historical thinking.',
+        tagline: 'History without the memorising, just the good parts.',
+        about: 'History comes alive through storytelling, investigation and inquiry. This course takes students through ancient civilisations, major historical events and lesser-known stories that shaped the modern world. Rather than memorising dates, students explore why things happened, how societies evolved, and how the past still shapes the present: developing genuine historical thinking.',
         highlights: ['Inquiry-led rather than date-led', 'Primary-source investigation', 'Connects past events to present-day life', 'Builds argument and evidence skills']
     },
     {
@@ -171,8 +171,8 @@ const coursesData = [
         category: 'Technology & Coding',
         duration: '8 sessions · 1.5 months', ages: '12–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-4.jpg', icon: 'fa-robot',
-        tagline: 'Understand AI properly — then use it responsibly.',
-        about: 'This course introduces students to artificial intelligence in a clear, age-appropriate and responsible way. Learners explore how AI shows up in everyday life, how AI tools actually work, and how to interact with them safely and ethically. Students experiment with building simple AI bots, understand data basics, and learn to use AI as a tool for learning and creativity — alongside real digital-safety habits.',
+        tagline: 'Understand AI properly, then use it responsibly.',
+        about: 'This course introduces students to artificial intelligence in a clear, age-appropriate and responsible way. Learners explore how AI shows up in everyday life, how AI tools actually work, and how to interact with them safely and ethically. Students experiment with building simple AI bots, understand data basics, and learn to use AI as a tool for learning and creativity: alongside real digital-safety habits.',
         highlights: ['How AI systems actually work, explained simply', 'Build your own simple AI bot', 'Data literacy and bias basics', 'Online safety and digital responsibility']
     },
     {
@@ -181,7 +181,7 @@ const coursesData = [
         duration: '5 sessions · 1 month', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-5.jpg', icon: 'fa-gamepad',
         tagline: 'First code, first game, first "I made that".',
-        about: 'A playful, beginner-friendly introduction to coding using Small Basic. Students learn fundamental programming concepts through drawing, painting, animation and simple games. The course builds logical thinking, creativity and confidence with technology — perfect for young learners taking their first steps into code.',
+        about: 'A playful, beginner-friendly introduction to coding using Small Basic. Students learn fundamental programming concepts through drawing, painting, animation and simple games. The course builds logical thinking, creativity and confidence with technology: perfect for young learners taking their first steps into code.',
         highlights: ['No prior experience needed', 'Learn through drawing, animation and games', 'Loops, variables and logic made visual', 'Finish with projects you can show off']
     },
     {
@@ -199,7 +199,7 @@ const coursesData = [
         duration: '6 sessions · 2 months', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-7.jpg', icon: 'fa-pen-nib',
         tagline: 'Make things that actually look designed.',
-        about: 'An introduction to digital design for young creators. Students learn design fundamentals — layout, colour, hierarchy and typography — while working hands-on in Canva and Illustrator. The course emphasises creativity, visual communication and practical skills through real project briefs.',
+        about: 'An introduction to digital design for young creators. Students learn design fundamentals, layout, colour, hierarchy and typography, while working hands-on in Canva and Illustrator. The course emphasises creativity, visual communication and practical skills through real project briefs.',
         highlights: ['Layout, colour and typography fundamentals', 'Hands-on Canva and Illustrator work', 'Real design briefs, not just exercises', 'Build a small personal portfolio']
     },
     {
@@ -208,7 +208,7 @@ const coursesData = [
         duration: '7 sessions · 1.5 months', ages: '10–16', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-8.jpg', icon: 'fa-file-lines',
         tagline: 'The tools every school project quietly depends on.',
-        about: 'A practical course introducing students to essential digital tools — Microsoft Word, PowerPoint and Excel. Learners get hands-on experience creating documents, presentations and simple spreadsheets while understanding the real-world purpose and correct use of each tool, building skills for school and well beyond.',
+        about: 'A practical course introducing students to essential digital tools: Microsoft Word, PowerPoint and Excel. Learners get hands-on experience creating documents, presentations and simple spreadsheets while understanding the real-world purpose and correct use of each tool, building skills for school and well beyond.',
         highlights: ['Word: proper document structure', 'PowerPoint: presentations that hold attention', 'Excel: formulas, tables and simple charts', 'Skills that pay off in every subject']
     },
 
@@ -223,7 +223,7 @@ const coursesData = [
         highlights: ['Read and recite with confidence', 'Poetic devices, taught through examples', 'Write and revise your own poems', 'Small, supportive workshop setting']
     },
     {
-        id: 10, branch: 'kids', slug: 'course-poets-corner-advanced', name: "Poet's Corner — Advanced",
+        id: 10, branch: 'kids', slug: 'course-poets-corner-advanced', name: "Poet's Corner: Advanced",
         category: 'Creative Writing & Literature Development',
         duration: '6 sessions · 1 month', ages: '15–20', level: 'Advanced', format: 'Live online · workshop',
         image: 'assets/images/courses/course-10.jpg', icon: 'fa-feather-pointed',
@@ -232,7 +232,7 @@ const coursesData = [
         highlights: ['Led by a practising writer/poet', 'Full draft → critique → revision cycle', 'Advanced form and technique', 'Develop a distinct personal voice']
     },
     {
-        id: 11, branch: 'kids', slug: 'course-creative-writing-ages-8-10', name: 'Creative Writing — Ages 8–10',
+        id: 11, branch: 'kids', slug: 'course-creative-writing-ages-8-10', name: 'Creative Writing: Ages 8–10',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '8–10', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-11.jpg', icon: 'fa-pencil',
@@ -241,7 +241,7 @@ const coursesData = [
         highlights: ['Playful prompts that unlock ideas', 'Descriptive writing made concrete', 'Short stories from start to finish', 'Confidence before correctness']
     },
     {
-        id: 12, branch: 'kids', slug: 'course-creative-writing-ages-11-14', name: 'Creative Writing — Ages 11–14',
+        id: 12, branch: 'kids', slug: 'course-creative-writing-ages-11-14', name: 'Creative Writing: Ages 11–14',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '11–14', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-12.jpg', icon: 'fa-pen-fancy',
@@ -250,7 +250,7 @@ const coursesData = [
         highlights: ['Plot structure that actually holds up', 'Characters readers care about', 'Writing believable dialogue', 'Try multiple genres and styles']
     },
     {
-        id: 13, branch: 'kids', slug: 'course-creative-writing-ages-15-18', name: 'Creative Writing — Ages 15–18',
+        id: 13, branch: 'kids', slug: 'course-creative-writing-ages-15-18', name: 'Creative Writing: Ages 15–18',
         category: 'Creative Writing & Literature Development',
         duration: '5 sessions · 1 month', ages: '15–18', level: 'Advanced', format: 'Live online · workshop',
         image: 'assets/images/courses/course-13.jpg', icon: 'fa-scroll',
@@ -264,7 +264,7 @@ const coursesData = [
         duration: '10 sessions · 1.5 months', ages: '14–18', level: 'Intermediate', format: 'Live online · small group',
         image: 'assets/images/courses/course-14.jpg', icon: 'fa-spell-check',
         tagline: 'A bigger vocabulary, without the flashcard grind.',
-        about: 'A dynamic course designed to strengthen vocabulary, comprehension and expression. Students learn advanced, context-based words through games, challenges and real-life usage — helping them speak and write with clarity and confidence.',
+        about: 'A dynamic course designed to strengthen vocabulary, comprehension and expression. Students learn advanced, context-based words through games, challenges and real-life usage: helping them speak and write with clarity and confidence.',
         highlights: ['Words learned in context, not in lists', 'Game and challenge-based sessions', 'Direct payoff for essays and exams', 'Comprehension and expression together']
     },
 
@@ -275,7 +275,7 @@ const coursesData = [
         duration: '4 sessions · 1 month', ages: '12–18', level: 'All levels', format: 'Live online · studio style',
         image: 'assets/images/courses/course-15.jpg', icon: 'fa-paintbrush',
         tagline: 'New style every session. No theory lectures.',
-        about: 'A bold and expressive art course for young creatives. Each session introduces a new style or technique — sketching, painting, mixed media, experimental art — without heavy theory. Students are encouraged to explore, experiment and express freely, building confidence and creative independence.',
+        about: 'A bold and expressive art course for young creatives. Each session introduces a new style or technique, sketching, painting, mixed media, experimental art, without heavy theory. Students are encouraged to explore, experiment and express freely, building confidence and creative independence.',
         highlights: ['A different technique every session', 'Sketching, painting, mixed media', 'Experiment-first, theory-light', 'Builds real creative independence']
     },
     {
@@ -295,7 +295,7 @@ const coursesData = [
         duration: '6 sessions · 2 months', ages: '6–10', level: 'Beginner', format: 'Live online · small group',
         image: 'assets/images/courses/course-17.jpg', icon: 'fa-calculator',
         tagline: 'The tricks that make hard sums look easy.',
-        about: 'This course turns maths into something genuinely enjoyable. Students learn clever strategies, patterns and problem-solving techniques that make even complex questions approachable. Through puzzles, challenges and interactive activities, learners build confidence, speed and logical thinking — discovering that maths can be fun.',
+        about: 'This course turns maths into something genuinely enjoyable. Students learn clever strategies, patterns and problem-solving techniques that make even complex questions approachable. Through puzzles, challenges and interactive activities, learners build confidence, speed and logical thinking: discovering that maths can be fun.',
         highlights: ['Mental-maths strategies and shortcuts', 'Pattern spotting and number sense', 'Puzzle and challenge based', 'Kills maths anxiety early']
     },
     {
@@ -304,20 +304,20 @@ const coursesData = [
         duration: '6 sessions · 1.5 months', ages: '10–14', level: 'Beginner', format: 'Live online · project based',
         image: 'assets/images/courses/course-18.jpg', icon: 'fa-lightbulb',
         tagline: 'Have an idea? Take it all the way to a real sale.',
-        about: 'Designed for children with big ideas, this course introduces the fundamentals of entrepreneurship in a practical, engaging way. Students learn to spot opportunities, understand basic business concepts and develop a product or service idea. With guided support, learners go through the process of making a real sale — gaining confidence, creativity and real-world problem-solving skills.',
+        about: 'Designed for children with big ideas, this course introduces the fundamentals of entrepreneurship in a practical, engaging way. Students learn to spot opportunities, understand basic business concepts and develop a product or service idea. With guided support, learners go through the process of making a real sale: gaining confidence, creativity and real-world problem-solving skills.',
         highlights: ['Spot a real opportunity', 'Build a product or service idea', 'Pricing, pitching and customers', 'Complete an actual first sale']
     },
     {
-        id: 19, branch: 'kids', slug: 'course-financial-literacy-ages-8-12', name: 'Financial Literacy — Ages 8–12',
+        id: 19, branch: 'kids', slug: 'course-financial-literacy-ages-8-12', name: 'Financial Literacy: Ages 8–12',
         category: 'Math, Logic & Skills',
         duration: '5 sessions · 1 month', ages: '8–12', level: 'Beginner', format: 'Live online · simulation',
         image: 'assets/images/courses/course-19.jpg', icon: 'fa-piggy-bank',
         tagline: 'Money sense, learned before it matters.',
-        about: 'Students learn the basics of saving, spending and understanding money in everyday life. Through activities and a guided simulation, learners make financial decisions using digital in-game money and see the real outcomes of their choices — building early financial awareness and responsibility.',
+        about: 'Students learn the basics of saving, spending and understanding money in everyday life. Through activities and a guided simulation, learners make financial decisions using digital in-game money and see the real outcomes of their choices: building early financial awareness and responsibility.',
         highlights: ['Saving vs spending, made concrete', 'Guided in-game money simulation', 'See consequences of real decisions', 'Early financial responsibility']
     },
     {
-        id: 20, branch: 'kids', slug: 'course-financial-literacy-ages-13-18', name: 'Financial Literacy — Ages 13–18',
+        id: 20, branch: 'kids', slug: 'course-financial-literacy-ages-13-18', name: 'Financial Literacy: Ages 13–18',
         category: 'Math, Logic & Skills',
         duration: '5 sessions · 1 month', ages: '13–18', level: 'Intermediate', format: 'Live online · simulation',
         image: 'assets/images/courses/course-20.jpg', icon: 'fa-chart-line',
@@ -330,8 +330,8 @@ const coursesData = [
         category: 'Math, Logic & Skills',
         duration: '2 months', ages: '8–12', level: 'Beginner', format: 'Live online · discussion & worksheets',
         image: 'assets/images/courses/course-21.jpg', icon: 'fa-leaf',
-        tagline: 'Understand the planet — then do something about it.',
-        about: 'This course introduces students to environmental awareness and responsibility. Learners explore carbon emissions, pollution, deforestation, wildlife conservation, endangered species and planetary safety. Through books, resources, discussion and worksheets, students build knowledge — and the mindset to protect the planet.',
+        tagline: 'Understand the planet, then do something about it.',
+        about: 'This course introduces students to environmental awareness and responsibility. Learners explore carbon emissions, pollution, deforestation, wildlife conservation, endangered species and planetary safety. Through books, resources, discussion and worksheets, students build knowledge, and the mindset to protect the planet.',
         highlights: ['Climate science at the right level', 'Conservation and biodiversity', 'Discussion-led, not doom-led', 'Ends with a personal action project']
     },
 
@@ -384,7 +384,7 @@ const coursesData = [
         level: 'A-Level', format: 'Small group (3–5) or 1-to-1',
         image: null, icon: 'fa-square-root-variable',
         tagline: 'AS and A2 support built for the mark scheme.',
-        about: 'A-Level tuition focused on specification mastery and structured answering. We work through the syllabus in order, then move into full past-paper cycles — teaching students not just the content but exactly how examiners award marks. Available as small-group or one-to-one, across AS and A2.',
+        about: 'A-Level tuition focused on specification mastery and structured answering. We work through the syllabus in order, then move into full past-paper cycles: teaching students not just the content but exactly how examiners award marks. Available as small-group or one-to-one, across AS and A2.',
         subjects: ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Further Mathematics', 'Economics', 'Business', 'Accounting', 'English Literature'],
         highlights: ['Specification-mapped lesson sequence', 'Mark-scheme and command-word training', 'Structured long-answer technique', 'AS and A2 covered']
     },
@@ -396,7 +396,7 @@ const coursesData = [
         duration: 'Flexible · hourly or module based', ages: '15+', level: 'Band 6.0 → 8.0+', format: '1-to-1 or group of 3–5',
         image: 'assets/images/courses/course-23.jpg', icon: 'fa-bullseye',
         tagline: 'For university applications and study abroad.',
-        about: 'Full IELTS Academic preparation across all four modules — Listening, Reading, Writing and Speaking. Starts with a diagnostic to establish your current band, then targets the specific modules holding your score back, using timed practice and detailed written feedback on Task 1 and Task 2.',
+        about: 'Full IELTS Academic preparation across all four modules: Listening, Reading, Writing and Speaking. Starts with a diagnostic to establish your current band, then targets the specific modules holding your score back, using timed practice and detailed written feedback on Task 1 and Task 2.',
         subjects: ['Listening', 'Reading', 'Academic Writing Task 1 & 2', 'Speaking'],
         highlights: ['Diagnostic band assessment first', 'Detailed Writing Task 1 & 2 feedback', 'Timed, exam-condition practice', 'Speaking mocks with an examiner mindset']
     },
@@ -416,14 +416,14 @@ const coursesData = [
         duration: '4 months · 3 sessions per week (~48 sessions)', ages: '15–18', level: 'Digital SAT', format: 'Group tuition or per session',
         image: 'assets/images/courses/course-25.jpg', icon: 'fa-chart-simple',
         tagline: 'A full 4-month programme built around your target score.',
-        about: 'A comprehensive SAT preparation programme running three sessions a week over four months — roughly 48 sessions — designed to move students to their target score through structured instruction and personalised support. Covers both SAT English and Math, with test-taking strategy, focused work on individual weak areas, curated practice materials, and ongoing performance tracking throughout.',
+        about: 'A comprehensive SAT preparation programme running three sessions a week over four months, roughly 48 sessions, designed to move students to their target score through structured instruction and personalised support. Covers both SAT English and Math, with test-taking strategy, focused work on individual weak areas, curated practice materials, and ongoing performance tracking throughout.',
         subjects: ['Reading & Writing', 'Math (Calculator & No-Calculator)', 'Test strategy', 'Full-length mocks'],
         highlights: ['~48 sessions across 4 months', 'Expert guidance in both English and Math', 'Individual weak-area targeting', 'Regular mocks with performance tracking']
     },
 
     /* ========== ACADEMICS · English Language ========== */
     {
-        id: 26, branch: 'academics', slug: 'course-english-language-basic', name: 'English Language — Basic',
+        id: 26, branch: 'academics', slug: 'course-english-language-basic', name: 'English Language: Basic',
         category: 'English Language',
         duration: '10 sessions', ages: 'All ages', level: 'A1 – A2', format: 'Live online · small group',
         image: 'assets/images/courses/course-26.jpg', icon: 'fa-comment',
@@ -432,21 +432,21 @@ const coursesData = [
         highlights: ['Core grammar taught in plain language', 'Everyday, high-frequency vocabulary', 'Low-pressure speaking practice', 'Clear progress checkpoints']
     },
     {
-        id: 27, branch: 'academics', slug: 'course-english-language-intermediate', name: 'English Language — Intermediate',
+        id: 27, branch: 'academics', slug: 'course-english-language-intermediate', name: 'English Language: Intermediate',
         category: 'English Language',
         duration: '10 sessions', ages: 'All ages', level: 'B1 – B2', format: 'Live online · small group',
         image: 'assets/images/courses/course-27.jpg', icon: 'fa-comments',
         tagline: 'From understanding English to actually using it.',
-        about: 'For learners who understand English but hesitate to use it. This course builds fluency and accuracy together — tenses, connectors and register — alongside structured writing practice and extended conversation work.',
+        about: 'For learners who understand English but hesitate to use it. This course builds fluency and accuracy together, tenses, connectors and register, alongside structured writing practice and extended conversation work.',
         highlights: ['Fluency and accuracy developed together', 'Tenses, connectors and register', 'Structured writing practice', 'Extended conversation work']
     },
     {
-        id: 28, branch: 'academics', slug: 'course-english-language-advanced', name: 'English Language — Advanced',
+        id: 28, branch: 'academics', slug: 'course-english-language-advanced', name: 'English Language: Advanced',
         category: 'English Language',
         duration: '8 sessions', ages: 'All ages', level: 'C1+', format: 'Live online · small group',
         image: 'assets/images/courses/course-28.jpg', icon: 'fa-graduation-cap',
         tagline: 'Precise, academic, professional English.',
-        about: 'An advanced course for learners aiming at academic or professional English. Focuses on nuance, tone, advanced structures and formal writing — the level of control expected in university work and professional settings.',
+        about: 'An advanced course for learners aiming at academic or professional English. Focuses on nuance, tone, advanced structures and formal writing: the level of control expected in university work and professional settings.',
         highlights: ['Nuance, tone and register control', 'Advanced grammatical structures', 'Formal and academic writing', 'Presentation and discussion skills']
     },
 
@@ -457,7 +457,7 @@ const coursesData = [
         duration: '2 days', ages: '16+', level: 'All levels', format: 'Live online · intensive',
         image: 'assets/images/courses/course-32.jpg', icon: 'fa-envelope-open-text',
         tagline: 'Write emails people actually reply to.',
-        about: 'A two-day practical workshop on professional written communication. Covers structure, tone, subject lines, follow-ups and the common mistakes that make emails get ignored — with real templates you can reuse immediately.',
+        about: 'A two-day practical workshop on professional written communication. Covers structure, tone, subject lines, follow-ups and the common mistakes that make emails get ignored, with real templates you can reuse immediately.',
         highlights: ['Structure and tone for every situation', 'Subject lines that get opened', 'Follow-ups without being annoying', 'Reusable templates included']
     }
 ];
@@ -509,7 +509,7 @@ const LB = {
     }
 };
 
-/* Legacy alias — a couple of older scripts still reference this. */
+/* Legacy alias: a couple of older scripts still reference this. */
 const categoryColors = {};
 categoriesData.forEach(c => { categoryColors[c.name] = c.branch; });
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   LEARNING BUBBLE — Free demo class booking
+   LEARNING BUBBLE: Free demo class booking
    ------------------------------------------------------------
    Picking a programme retints the page, swaps the liquid palette
    and repopulates the course list, so the form always reflects
@@ -48,7 +48,7 @@
 
         const keep = courseSel.value;
         const cats = LB.categoriesFor(branch);
-        const label = branch === 'kids' ? 'Not sure yet — help me choose' : 'Not sure yet — advise me';
+        const label = branch === 'kids' ? 'Not sure yet, help me choose' : 'Not sure yet, advise me';
 
         courseSel.innerHTML =
             `<option value="">${label}</option>` +
@@ -246,7 +246,7 @@ Here are the slots we can offer:
             'Preferred days': days.join(', '), 'Preferred times': times.join(', '),
             'Time zone': timezone, 'Parent / guardian': parentName, 'Notes': message
         };
-        window.LB_sendLead({ subject: `Demo request: ${course || branchName} — ${name}`, replyTo: email, fields })
+        window.LB_sendLead({ subject: `Demo request: ${course || branchName}: ${name}`, replyTo: email, fields })
             .then(() => {
                 showSuccess(name, phone);
                 form.reset();
@@ -267,7 +267,7 @@ Here are the slots we can offer:
       <div class="success-ico"><i class="fas fa-video"></i></div>
       <h2 style="font-size:1.5rem">Demo requested, ${esc(name.split(' ')[0])}</h2>
       <p style="margin-top:.75rem">We will message you on WhatsApp at <strong>${esc(phone)}</strong>
-        with two or three slots that fit your timings — usually within a few hours.</p>
+        with two or three slots that fit your timings, usually within a few hours.</p>
       <div class="stack" style="margin-top:1.75rem">
         <a class="btn btn-wa btn-block" target="_blank" rel="noopener"
            href="https://wa.me/${WA}?text=${encodeURIComponent('Hi Learning Bubble! I just requested a free demo class through the website.')}">

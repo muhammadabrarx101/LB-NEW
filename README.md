@@ -7,7 +7,7 @@ A two-audience educational website. One codebase, two brands:
 | **Learning Bubble for Kids** | `kids.html` | Ages 6–18. Creative, project-first, non-examined courses. |
 | **Learning Bubble Academics** | `academics.html` | Exam students. IGCSE, A-Level, IELTS, SAT, English proficiency. |
 
-`index.html` is a neutral hub that lets a visitor pick a side. **Courses never cross between the two** — a kids course cannot appear in Academics and vice versa.
+`index.html` is a neutral hub that lets a visitor pick a side. **Courses never cross between the two**: a kids course cannot appear in Academics and vice versa.
 
 No prices appear anywhere on the site. Fees are quoted personally over WhatsApp after an enquiry.
 
@@ -17,16 +17,16 @@ No prices appear anywhere on the site. Fees are quoted personally over WhatsApp 
 
 Vanilla HTML5 / CSS3 / JavaScript. No build step, no framework, no `package.json`.
 
-- **Fonts** — Inter (body), Playfair Display (hub + Academics display), Fredoka (Kids display), via Google Fonts
-- **Icons** — Font Awesome 6.5.2 (CDN)
-- **Email** — Resend, called from a serverless function (`/api/send-email`)
+- **Fonts**, Inter (body), Playfair Display (hub + Academics display), Fredoka (Kids display), via Google Fonts
+- **Icons**, Font Awesome 6.5.2 (CDN)
+- **Email**: Resend, called from a serverless function (`/api/send-email`)
 
 ---
 
 ## File map
 
 ```
-index.html            Hub landing — brand chooser + shared sections
+index.html            Hub landing: brand chooser + shared sections
 kids.html             Kids branch home
 academics.html        Academics branch home
 courses.html          Catalogue (branch/category/age/level filters + search)
@@ -72,7 +72,7 @@ Dark mode is a `dark-theme` class on `<html>`, remembered in `localStorage` unde
 
 ### Adding a course
 
-Add one object to `coursesData` in [`courses-data.js`](courses-data.js). Nothing else needs touching — the catalogue, search, carousels, footer counts and enquiry picker all read from it.
+Add one object to `coursesData` in [`courses-data.js`](courses-data.js). Nothing else needs touching: the catalogue, search, carousels, footer counts and enquiry picker all read from it.
 
 ```js
 {
@@ -93,7 +93,7 @@ Add one object to `coursesData` in [`courses-data.js`](courses-data.js). Nothing
 }
 ```
 
-`id` values must stay unique and stable — they are the permalink (`course-detail.html?id=34`).
+`id` values must stay unique and stable. They are the permalink (`course-detail.html?id=34`).
 
 ### Adding a category
 
@@ -103,18 +103,18 @@ Add to `categoriesData` with a `branch`. Category images live in `assets/images/
 
 ## Features
 
-- **Search** — magnifier in the header, or `Ctrl`/`⌘ + K`, or `/`. Scoped to the current branch by default, with tabs to widen it.
-- **Catalogue filters** — search, category chips, age bucket (Kids only), level and sort. Every combination is reflected in the URL, so filtered views are shareable.
-- **WhatsApp** — a floating button on every page plus contextual CTAs. The prefilled message adapts to the branch, and course pages prefill the course name.
-- **Enquiry cart** — add courses from cards, detail pages or the picker modal. Persisted in `localStorage` (`lb-enquiry-cart`).
-- **Light / dark mode** — toggle in the header, remembered across pages and sessions.
-- **Accessibility** — visible focus rings, ARIA on nav/modals/toasts, and `prefers-reduced-motion` respected.
+- **Search**: magnifier in the header, or `Ctrl`/`⌘ + K`, or `/`. Scoped to the current branch by default, with tabs to widen it.
+- **Catalogue filters**: search, category chips, age bucket (Kids only), level and sort. Every combination is reflected in the URL, so filtered views are shareable.
+- **WhatsApp**: a floating button on every page plus contextual CTAs. The prefilled message adapts to the branch, and course pages prefill the course name.
+- **Enquiry cart**: add courses from cards, detail pages or the picker modal. Persisted in `localStorage` (`lb-enquiry-cart`).
+- **Light / dark mode**: toggle in the header, remembered across pages and sessions.
+- **Accessibility**: visible focus rings, ARIA on nav/modals/toasts, and `prefers-reduced-motion` respected.
 
 ---
 
 ## Running locally
 
-Any static server works. The site is plain files — but you need HTTP (not `file://`) for the fetch calls to behave.
+Any static server works. The site is plain files, but you need HTTP (not `file://`) for the fetch calls to behave.
 
 With Node installed:
 
@@ -130,7 +130,7 @@ python -m http.server 5599
 
 VS Code Live Server also works (`.vscode/settings.json` pins port 5501).
 
-Then open `http://localhost:5599`. Everything works offline except the two forms, which need `/api/send-email` — see below.
+Then open `http://localhost:5599`. Everything works offline except the two forms, which need `/api/send-email`: see below.
 
 ---
 
@@ -138,7 +138,7 @@ Then open `http://localhost:5599`. Everything works offline except the two forms
 
 The repo is already configured (`vercel.json` + `api/send-email.js`). It is a static site with one Edge Function, so there is nothing to build.
 
-### Option A — dashboard
+### Option A: dashboard
 
 1. Push this folder to a GitHub repository.
 2. Go to [vercel.com/new](https://vercel.com/new) and import that repository.
@@ -153,7 +153,7 @@ The repo is already configured (`vercel.json` + `api/send-email.js`). It is a st
 
 5. Click **Deploy**. You get a `*.vercel.app` URL in about a minute.
 
-### Option B — CLI
+### Option B: CLI
 
 ```bash
 npm i -g vercel
@@ -187,7 +187,7 @@ Resend will only send from a domain you have verified. Verify `learningbubble.or
 
 Still supported and unchanged. `functions/api/send-email.js` implements the same `/api/send-email` contract. Set `RESEND_API_KEY` under **Settings → Environment variables**, with build command empty and output directory `/`.
 
-Both hosts can run from the same repository — the front end only ever calls `/api/send-email`.
+Both hosts can run from the same repository: the front end only ever calls `/api/send-email`.
 
 ---
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   Learning Bubble — article page runtime
+   Learning Bubble: article page runtime
    Renders the "related courses" rail from the ids in the
    [data-related] attribute the generator writes.
    ============================================================ */

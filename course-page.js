@@ -1,9 +1,9 @@
 /* ============================================================
-   Learning Bubble — static course page runtime
+   Learning Bubble, static course page runtime
    ------------------------------------------------------------
    The page already carries its own title, description, canonical,
    H1, about text, highlights, Course schema AND the richer blocks
-   (who it is for, outcomes, syllabus, FAQs) in the raw HTML — that
+   (who it is for, outcomes, syllabus, FAQs) in the raw HTML, that
    is what gets indexed. This script wires the WhatsApp CTA, falls
    back to rendering those blocks if a page lacks them, and builds
    the related-courses rail.

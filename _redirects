@@ -3,10 +3,10 @@
 # clean path automatically); course-detail.js reads ?id=N client-side and
 # forwards straight to the matching static course page's clean URL. A
 # missing/unknown id falls back to the course catalogue. Do NOT add a
-# blanket redirect for /course-detail here — it would strip the ?id
+# blanket redirect for /course-detail here; it would strip the ?id
 # before course-detail.js ever runs.
 
 # .html requests are already 308'd to the clean path by Pages itself.
 
-# Code Quest workshop withdrawn (Oct 2026)
+# Retired workshop page: send old links to the workshops page
 /workshop-code-quest-coding-for-kids /workshops 301

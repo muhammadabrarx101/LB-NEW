@@ -1,8 +1,8 @@
 /* ============================================================
-   Learning Bubble — Guides index
+   Learning Bubble: Guides index
    Renders the article list and its branch filter, and emits an
    ItemList so Google can see the whole set from one page.
-   Links use the clean URL (no .html) — the host 308-redirects
+   Links use the clean URL (no .html): the host 308-redirects
    .html requests, and linking to a redirect shows up in Search
    Console as "Page with redirect".
    ============================================================ */

@@ -1,5 +1,5 @@
 /* ============================================================
-   LEARNING BUBBLE — Core shell
+   LEARNING BUBBLE: Core shell
    ------------------------------------------------------------
    Runs on every page. Handles:
      analytics · theme · branch memory · nav · search overlay
@@ -20,7 +20,7 @@
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
-        /* Google Analytics 4 — paste the Measurement ID from
+        /* Google Analytics 4: paste the Measurement ID from
            GA → Admin → Data streams → (your web stream), e.g. 'G-AB12CD34EF'.
            Leave empty to keep analytics switched off. */
         gaMeasurementId: '',
@@ -140,7 +140,7 @@
        account. Everything else (home, demo, contact/enquiry,
        enrollment/checkout, courses hub, blog, about, resources) shows BOTH,
        since those pages represent the whole brand rather than one section.
-       There is no general/official account any more — it was retired in
+       There is no general/official account any more. It was retired in
        favour of these two. A page can force the "show both" hub behaviour
        regardless of its own data-branch via data-ig-branch="hub" on <html>
        (used by demo.html, contact.html, enrollment.html so those show both
@@ -148,11 +148,11 @@
     function igLinks() {
         const forced = root.getAttribute('data-ig-branch');
         const b = forced || currentBranch();
-        if (b === 'kids') return [{ url: CFG.instagramKids, label: 'Instagram — Learning Bubble Kids' }];
-        if (b === 'academics') return [{ url: CFG.instagramAcademics, label: 'Instagram — Learning Bubble Academics' }];
+        if (b === 'kids') return [{ url: CFG.instagramKids, label: 'Instagram | Learning Bubble Kids' }];
+        if (b === 'academics') return [{ url: CFG.instagramAcademics, label: 'Instagram | Learning Bubble Academics' }];
         return [
-            { url: CFG.instagramKids, label: 'Instagram — Learning Bubble Kids' },
-            { url: CFG.instagramAcademics, label: 'Instagram — Learning Bubble Academics' }
+            { url: CFG.instagramKids, label: 'Instagram | Learning Bubble Kids' },
+            { url: CFG.instagramAcademics, label: 'Instagram | Learning Bubble Academics' }
         ];
     }
 
@@ -224,7 +224,7 @@
             onScroll();
         }
 
-        /* on small screens the header switch is hidden — move a copy
+        /* on small screens the header switch is hidden: move a copy
            into the drawer so both programmes stay one tap away */
         const hdrSwitch = document.querySelector('.site-header .branch-switch');
         if (links && hdrSwitch && !links.querySelector('.nav-branch')) {
@@ -235,7 +235,7 @@
         }
 
         if (links && !links.querySelector('.nav-cta')) {
-            /* the header "Enquire" button is hidden on narrow screens —
+            /* the header "Enquire" button is hidden on narrow screens:
                give the drawer its own call to action instead */
             const cta = document.createElement('a');
             cta.className = 'nav-link nav-cta';
@@ -273,7 +273,7 @@
     }
 
     /* ============================================================
-       FOOTER (injected — identical on every page)
+       FOOTER (injected: identical on every page)
        ============================================================ */
     function renderFooter() {
         const host = $('#siteFooter');
@@ -294,7 +294,7 @@
             and academic learning in Pakistan. Our creative courses for kids cover AI for kids, coding for kids,
             history mystery for kids, poetry for kids and creative writing for kids, while our academic learning
             programmes cover IGCSE in Pakistan, IELTS in Pakistan (Academic &amp; General), SAT in Pakistan and
-            English Language courses — plus practical skills like Professional Email Writing. Every session is live
+            English Language courses, plus practical skills like Professional Email Writing. Every session is live
             online, taught in small groups, for students in Pakistan and worldwide. Our approach blends personalized,
             project-based learning with STEM &amp; STEAM thinking, building the 21st-century skills, critical thinking
             and study skills that carry students through exams and beyond.</p>
@@ -396,7 +396,14 @@
             <a href="online-classes-singapore">IGCSE Tuition Singapore</a> ·
             <a href="online-classes-malaysia">IGCSE Tuition Malaysia</a> ·
             <a href="online-classes-worldwide">Online Classes Worldwide</a> ·
-            <a href="blog-advantages-and-disadvantages-of-online-learning">Advantages of Online Learning</a>
+            <a href="blog-advantages-and-disadvantages-of-online-learning">Advantages of Online Learning</a> ·
+            <a href="a-level-subjects">A Level Tuition Online</a> ·
+            <a href="a-level-physics-tuition-online">A Level Physics Tuition</a> ·
+            <a href="a-level-maths-tuition-online">A Level Maths Tuition</a> ·
+            <a href="blog-ielts-fee-in-pakistan">IELTS Fee in Pakistan</a> ·
+            <a href="blog-ielts-vs-pte-vs-toefl">IELTS vs PTE vs TOEFL</a> ·
+            <a href="blog-sat-in-pakistan-fees-registration">SAT in Pakistan</a> ·
+            <a href="blog-ibcc-equivalence-o-level-a-level">IBCC Equivalence</a>
           </p>
         </div>
 
@@ -756,7 +763,7 @@
     /* ============================================================
        COURSE CARD MARKUP (shared)
        ============================================================ */
-    /* Some courses have no bespoke artwork — fall back to a branded
+    /* Some courses have no bespoke artwork: fall back to a branded
        gradient panel carrying the course icon rather than a stock photo
        that would misrepresent the subject. */
     function media(c) {
@@ -899,7 +906,7 @@
             <tr><td style="padding:6px 0;width:150px"><strong>Name</strong></td><td>${esc(name)}</td></tr>
             <tr><td style="padding:6px 0"><strong>Email</strong></td><td>${esc(email)}</td></tr>
             <tr><td style="padding:6px 0"><strong>Phone / WhatsApp</strong></td><td>${esc(phone)}</td></tr>
-            <tr><td style="padding:6px 0"><strong>Interested in</strong></td><td>${esc(interest || '—')}</td></tr>
+            <tr><td style="padding:6px 0"><strong>Interested in</strong></td><td>${esc(interest || 'Not specified')}</td></tr>
             <tr><td style="padding:6px 0"><strong>Subject</strong></td><td>${esc(subject)}</td></tr>
           </table>
           <h3 style="margin:22px 0 8px;color:#1c2f72;font-size:15px">Message</h3>
@@ -914,9 +921,9 @@
       </body></html>`;
 
             const fields = { 'Name': name, 'Email': email, 'Phone / WhatsApp': phone, 'Interested in': interest || 'Not sure yet', 'Subject': subject, 'Message': message, 'Page': location.href };
-            sendLead({ subject: `Contact: ${subject} — ${name}`, replyTo: email, fields })
+            sendLead({ subject: `Contact: ${subject}: ${name}`, replyTo: email, fields })
                 .then(() => {
-                    toast('Thank you! Your message is on its way — we usually reply within a day.', 'success');
+                    toast('Thank you! Your message is on its way. We usually reply within a day.', 'success');
                     track('generate_lead', { form: 'contact', subject: subject, interest: interest || 'not set' });
                     form.reset();
                 })
@@ -955,8 +962,8 @@
 
     /* Anchors marked data-demo-wa / data-wa get a real WhatsApp link.
        demo.js (loaded only on the demo page) overrides data-demo-wa with its
-       own message; everywhere else — notably the six guide pages, whose CTA
-       used to point at "#" — this fills the link in. */
+       own message; everywhere else: notably the six guide pages, whose CTA
+       used to point at "#": this fills the link in. */
     function initWaLinks() {
         $$('a[data-demo-wa], a[data-wa]').forEach(a => {
             const href = a.getAttribute('href');

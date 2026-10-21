@@ -1,5 +1,5 @@
 /* ============================================================
-   LEARNING BUBBLE — Course catalogue
+   LEARNING BUBBLE: Course catalogue
    ------------------------------------------------------------
    Drives courses.html. Reads state from the URL so every filter
    combination is a shareable link:
@@ -55,7 +55,7 @@
     function ageRange(text) {
         const s = String(text || '');
         if (!s || /all ages/i.test(s)) return [0, 99];
-        const span = s.match(/(\d+)\s*[–\-—]\s*(\d+)/);
+        const span = s.match(/(\d+)\s*[–\-\u2014]\s*(\d+)/);
         if (span) return [+span[1], +span[2]];
         const open = s.match(/(\d+)\s*\+/);
         if (open) return [+open[1], 99];

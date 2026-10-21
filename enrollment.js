@@ -1,5 +1,5 @@
 /* ============================================================
-   LEARNING BUBBLE — Enquiry / enrolment
+   LEARNING BUBBLE: Enquiry / enrolment
    ------------------------------------------------------------
    Multi-course enquiry list + form. No pricing anywhere:
    fees are quoted personally over WhatsApp afterwards.
@@ -315,7 +315,7 @@ Here are the available schedules and fee options:
             'Preferred timing': preferred, 'Message': message
         };
         window.LB_sendLead({
-            subject: `Enquiry: ${courseNames.slice(0, 2).join(', ')}${courseNames.length > 2 ? ` +${courseNames.length - 2} more` : ''} — ${name}`,
+            subject: `Enquiry: ${courseNames.slice(0, 2).join(', ')}${courseNames.length > 2 ? ` +${courseNames.length - 2} more` : ''}: ${name}`,
             replyTo: email, fields
         })
             .then(() => {
@@ -337,7 +337,7 @@ Here are the available schedules and fee options:
       <div class="success-ico"><i class="fas fa-check"></i></div>
       <h2 style="font-size:1.5rem">Enquiry sent, ${esc(name.split(' ')[0])}</h2>
       <p style="margin-top:.75rem">We have your request and will message you on WhatsApp at
-        <strong>${esc(phone)}</strong> with schedules and fees — usually within a few hours.</p>
+        <strong>${esc(phone)}</strong> with schedules and fees, usually within a few hours.</p>
       <div class="stack" style="margin-top:1.75rem">
         <a class="btn btn-wa btn-block" href="https://wa.me/${WA}?text=${encodeURIComponent('Hi Learning Bubble! I just submitted an enquiry through the website.')}"
            target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Message us now</a>
@@ -373,7 +373,7 @@ Here are the available schedules and fee options:
         history.replaceState(null, '', location.pathname + '?branch=' + lockedBranch);
     }
 
-    /* header switch only — the modal's tabs use data-pick-branch and manage themselves */
+    /* header switch only: the modal's tabs use data-pick-branch and manage themselves */
     $$('.site-header .branch-switch a').forEach(a => a.classList.toggle('is-on', a.dataset.branch === pickBranch));
     $$('[data-pick-branch]').forEach(b => b.classList.toggle('is-on', b.dataset.pickBranch === pickBranch));
     const sub = $('#brandSub');

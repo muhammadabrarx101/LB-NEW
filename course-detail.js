@@ -1,10 +1,10 @@
 /* ============================================================
-   LEARNING BUBBLE — Legacy course-detail redirect
+   LEARNING BUBBLE: Legacy course-detail redirect
    ------------------------------------------------------------
    This URL only exists for old links / bookmarks (?id=N). It is
    marked noindex and forwards straight to the real static course
    page (its own title, meta, canonical and Course schema live
-   there — that is the page Google should index). No content is
+   there. That is the page Google should index). No content is
    rendered or duplicated here.
    ============================================================ */
 (function () {
