@@ -16,7 +16,7 @@
         whatsappDisplay: '+92 321 2481610',
         email: 'info@learningbubble.org',
         workshopFormUrl: 'https://forms.gle/YtgVSWtMfaxssyTq9',
-        courseFormUrl: 'https://forms.gle/eax44SUcWNHex4BLA',
+        courseFormUrl: 'https://forms.gle/7R9Hc1KjYtZ2Pp6J9',
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
