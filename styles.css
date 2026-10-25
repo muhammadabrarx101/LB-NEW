@@ -1882,3 +1882,25 @@ html.has-announce { --ann-h: 42px; }
 .form-group .slot:hover { border-color: var(--accent); }
 .form-group .slot:has(input:checked) { border-color: var(--accent); background: var(--accent-wash); }
 .form-group .slot:focus-within { box-shadow: 0 0 0 4px var(--accent-wash); }
+
+/* ---------- Ended-workshop notice ---------- */
+.ws-ended { margin: 1.4rem 0; padding: 1.1rem 1.25rem; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 14px; background: var(--bg-sunk); }
+.ws-ended p { margin: 0 0 .9rem; }
+
+/* ---------- Reviews ---------- */
+.rv-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1.6rem; }
+.rv-list { margin-top: .5rem; }
+.rv-form { max-width: 46rem; margin: 1.6rem auto 0; }
+.rv-label { font-size: .85rem; font-weight: 620; color: var(--text); }
+.rv-rate { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: .15rem; }
+.rv-rate input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.rv-rate label { font-size: 1.9rem; line-height: 1; cursor: pointer; color: var(--border); transition: color .15s, transform .15s; }
+.rv-rate label:hover, .rv-rate label:hover ~ label, .rv-rate input:checked ~ label { color: var(--accent-2, #f5b301); }
+.rv-rate label:hover { transform: scale(1.12); }
+.rv-rate input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.form-group.rv-consent label { display: flex; gap: .6rem; align-items: flex-start; font-weight: 500; line-height: 1.5; }
+.form-group.rv-consent input[type="checkbox"] { width: 1.1rem; height: 1.1rem; min-height: 0; padding: 0; margin: .2rem 0 0; flex: none; border: 0; box-shadow: none; accent-color: var(--accent); }
+.rv-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+.rv-note { font-size: .82rem; color: var(--text-mute); margin: 1rem 0; }
+.rv-thanks { margin: 0; font-size: 1rem; }
+.rv-thanks i { color: var(--accent); }

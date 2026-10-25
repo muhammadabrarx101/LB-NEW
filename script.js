@@ -17,6 +17,9 @@
         email: 'info@learningbubble.org',
         workshopFormUrl: 'https://forms.gle/YtgVSWtMfaxssyTq9',
         courseFormUrl: 'https://forms.gle/7R9Hc1KjYtZ2Pp6J9',
+        /* Google review link: Google Business Profile → "Ask for reviews" → copy the link
+           (looks like https://g.page/r/XXXX/review). Leave empty to hide the button. */
+        googleReviewUrl: 'https://g.page/r/CdxiPEN_lJfdEBM/review',
         facebook: 'https://www.facebook.com/share/1J5LhTqGc4/?mibextid=wwXIfr',
         instagramKids: 'https://www.instagram.com/learningbubblekids',
         instagramAcademics: 'https://www.instagram.com/learningbubbleacademics',
@@ -332,7 +335,6 @@
               <li><a href="contact">Contact</a></li>
               <li><a href="enrollment">Enquire / Enrol</a></li>
               <li><a href="${CFG.courseFormUrl}" target="_blank" rel="noopener" data-course-form="footer">Course registration form</a></li>
-              ${b === 'academics' ? '' : `<li><a href="${CFG.workshopFormUrl}" target="_blank" rel="noopener" data-register="footer">Free workshop registration</a></li>`}
               <li><a href="courses?branch=${b === 'hub' ? 'kids' : b}">All courses</a></li>
             </ul>
           </div>
@@ -969,7 +971,7 @@
             const href = a.getAttribute('href');
             if (href && href !== '#') return;
             const msg = a.dataset.wa || (pageName() === 'workshops'
-                ? 'Hi Learning Bubble! I would like to register my child for a free workshop.'
+                ? 'Hi Learning Bubble! Please let me know when your next free workshop opens.'
                 : 'Hi Learning Bubble! I would like to book a free demo class.');
             a.href = waLink(msg);
         });
@@ -977,8 +979,8 @@
 
     /* Free-workshops announcement bar. Sits just under the fixed header, scrolls
        away with the page, can be dismissed, and retires itself after the last
-       workshop day (AI Explorers, 25 Oct 2026): ends 26 Oct 00:00 PKT = 25 Oct 19:00 UTC. */
-    const WORKSHOPS_END = Date.UTC(2026, 9, 25, 19, 0, 0);
+       workshop day. The October 2026 workshops have ended, so it is switched off. */
+    const WORKSHOPS_END = Date.UTC(2026, 9, 25, 8, 0, 0);
     const ANN_KEY = 'lb-ann-workshops-2026-10';
 
     function initAnnounce() {
@@ -1021,10 +1023,10 @@
         const bar = document.createElement('div');
         bar.className = 'mobile-cta';
         bar.innerHTML = `
-      <a class="btn btn-primary mobile-cta-main" href="${isWs ? CFG.workshopFormUrl : 'demo'}"${isWs ? ' target="_blank" rel="noopener" data-register="sticky"' : ''}>
-        <i class="fas ${isWs ? 'fa-ticket' : 'fa-video'}" aria-hidden="true"></i> ${isWs ? 'Register free' : 'Book a free demo'}
+      <a class="btn btn-primary mobile-cta-main" href="demo">
+        <i class="fas fa-video" aria-hidden="true"></i> Book a free demo
       </a>
-      <a class="btn btn-wa mobile-cta-wa" href="${isWs ? waLink('Hi Learning Bubble! I would like to register my child for a free workshop.') : waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <a class="btn btn-wa mobile-cta-wa" href="${isWs ? waLink('Hi Learning Bubble! Please let me know when your next free workshop opens.') : waLink()}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
       </a>`;
         document.body.appendChild(bar);
@@ -1041,6 +1043,172 @@
         };
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+    }
+
+    /* ============================================================
+       REVIEWS
+       Any element with data-reviews="all" | "kids" | "academics" |
+       "<course slug>" becomes a reviews section: approved reviews
+       from reviews-data.js, a "Write a review" form (sent to our
+       inbox for checking, never published automatically) and, when
+       CFG.googleReviewUrl is set, a "Review us on Google" button.
+       ============================================================ */
+    function initReviews() {
+        const hosts = $$('[data-reviews]');
+        if (!hosts.length) return;
+        const escH = s => String(s == null ? '' : s).replace(/[<>&"]/g, m => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[m]));
+        const stars = n => '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n);
+        const allCourses = (window.LB && LB.courses) || [];
+        const courseBySlug = slug => allCourses.find(c => c.slug === slug) || null;
+
+        hosts.forEach((host, hi) => {
+            const scope = host.dataset.reviews || 'all';
+            const course = courseBySlug(scope);
+            const branch = course ? course.branch : (scope === 'kids' || scope === 'academics' ? scope : 'all');
+            const pool = branch === 'all' ? allCourses : allCourses.filter(c => c.branch === branch);
+            const opts = pool.map(c => `<option value="${escH(c.name)}"${course && c.slug === course.slug ? ' selected' : ''}>${escH(c.name)}</option>`).join('');
+            const wsOpts = branch === 'academics' ? '' : '<option>Free workshop: StoryCraft</option><option>Free workshop: AI Explorers</option>';
+            const id = 'rv' + hi;
+            const gBtn = CFG.googleReviewUrl
+                ? `<a class="btn btn-outline" href="${escH(CFG.googleReviewUrl)}" target="_blank" rel="noopener" data-rv-google><i class="fab fa-google" aria-hidden="true"></i> Review us on Google</a>` : '';
+            host.innerHTML = `
+            <div class="container">
+                <div class="section-head section-head--center">
+                    <span class="eyebrow"><i class="fas fa-star" aria-hidden="true"></i> Reviews</span>
+                    <h2>${course ? 'Reviews of ' + escH(course.name) : 'Parent and student reviews'}</h2>
+                    <p class="rv-summary">Took a course, a demo class or a free workshop with us? Your honest review helps other families choose.</p>
+                </div>
+                <div class="grid grid-3 rv-list" hidden></div>
+                <div class="rv-actions">
+                    <button type="button" class="btn btn-primary" data-rv-open aria-expanded="false" aria-controls="${id}Form"><i class="fas fa-pen" aria-hidden="true"></i> Write a review</button>
+                    ${gBtn}
+                </div>
+                <form class="form-card rv-form" id="${id}Form" novalidate hidden>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="${id}Name">Your name <span class="req">*</span></label>
+                            <input type="text" id="${id}Name" name="name" autocomplete="name" placeholder="e.g. Ayesha Khan" required maxlength="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="${id}Role">You are <span class="req">*</span></label>
+                            <select id="${id}Role" name="role" required>
+                                <option value="">Choose…</option><option>Parent</option><option>Student</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label for="${id}Course">Course or workshop <span class="req">*</span></label>
+                            <select id="${id}Course" name="course" required>
+                                <option value="">Choose…</option>${opts}${wsOpts}<option>Free demo class</option><option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <span class="rv-label" id="${id}RateLbl">Your rating <span class="req">*</span></span>
+                            <div class="rv-rate" role="radiogroup" aria-labelledby="${id}RateLbl">
+                                ${[5, 4, 3, 2, 1].map(n => `<input type="radio" id="${id}R${n}" name="rating" value="${n}"><label for="${id}R${n}" title="${n} star${n > 1 ? 's' : ''}">★<span class="sr-only">${n} star${n > 1 ? 's' : ''}</span></label>`).join('')}
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label for="${id}Text">Your review <span class="req">*</span></label>
+                            <textarea id="${id}Text" name="review" required minlength="20" maxlength="800" placeholder="What did you or your child enjoy? What changed?"></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <label for="${id}Email">Email (optional, never shown)</label>
+                            <input type="email" id="${id}Email" name="email" autocomplete="email" placeholder="you@example.com">
+                        </div>
+                        <div class="form-group full rv-consent">
+                            <label><input type="checkbox" name="consent" required> I agree that Learning Bubble may publish this review on its website with my first name and the course. <span class="req">*</span></label>
+                        </div>
+                        <input type="text" name="_honey" class="rv-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    </div>
+                    <p class="rv-note">Every review is read by our team before it appears here.</p>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send review</button>
+                </form>
+            </div>`;
+
+            const form = $('.rv-form', host);
+            const openBtn = $('[data-rv-open]', host);
+            openBtn.addEventListener('click', () => {
+                const show = form.hidden;
+                form.hidden = !show;
+                openBtn.setAttribute('aria-expanded', String(show));
+                if (show) $('input[name="name"]', form).focus();
+                track('review_form_open', { scope: scope });
+            });
+            const g = $('[data-rv-google]', host);
+            if (g) g.addEventListener('click', () => track('review_google_click', { scope: scope }));
+
+            const F = n => form.elements.namedItem(n);
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                if (F('_honey') && F('_honey').value) return;
+                const rating = (form.querySelector('input[name="rating"]:checked') || {}).value;
+                const text = F('review').value.trim();
+                let msg = '';
+                if (!F('name').value.trim()) msg = 'Please add your name.';
+                else if (!F('role').value) msg = 'Please choose parent or student.';
+                else if (!F('course').value) msg = 'Please choose the course or workshop.';
+                else if (!rating) msg = 'Please choose a star rating.';
+                else if (text.length < 20) msg = 'Please write at least a sentence or two (20 characters).';
+                else if (!F('consent').checked) msg = 'Please tick the box so we can publish your review.';
+                else if (F('email').value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(F('email').value)) msg = 'Please check your email address.';
+                if (msg) { toast(msg, 'error'); return; }
+
+                const fields = {
+                    'Name': F('name').value.trim(), 'Role': F('role').value, 'Course': F('course').value,
+                    'Rating': stars(Number(rating)) + ' (' + rating + '/5)', 'Review': text,
+                    'Email': F('email').value.trim(), 'Permission to publish': 'Yes', 'Page': location.href
+                };
+                const btn = $('button[type="submit"]', form);
+                btn.disabled = true;
+                sendLead({ subject: 'New website review (' + rating + '/5): ' + F('course').value, replyTo: fields.Email || undefined, fields: fields })
+                    .then(() => {
+                        form.innerHTML = '<p class="rv-thanks"><i class="fas fa-circle-check" aria-hidden="true"></i> <strong>Thank you!</strong> We read every review and publish it here once it has been checked.</p>';
+                        track('review_submit', { scope: scope, rating: Number(rating) });
+                    })
+                    .catch(() => { btn.disabled = false; waFallback(leadText('New review for Learning Bubble', fields)); });
+            });
+        });
+
+        const paint = () => {
+            const all = Array.isArray(window.LB_REVIEWS) ? window.LB_REVIEWS : [];
+            hosts.forEach(host => {
+                const scope = host.dataset.reviews || 'all';
+                const course = courseBySlug(scope);
+                let list;
+                if (course) {
+                    list = all.filter(r => r.course === course.slug);
+                    if (list.length < 3) list = list.concat(all.filter(r => r.course !== course.slug && r.branch === course.branch));
+                } else if (scope === 'kids' || scope === 'academics') {
+                    list = all.filter(r => r.branch === scope);
+                } else list = all.slice();
+                list = list.slice(0, 6);
+                const box = $('.rv-list', host);
+                if (!box || !list.length) return;
+                box.innerHTML = list.map(r => {
+                    const c = courseBySlug(r.course);
+                    const n = Math.max(1, Math.min(5, Number(r.rating) || 5));
+                    const initials = String(r.name || '?').split(/\s+/).map(w => w[0] || '').join('').slice(0, 2).toUpperCase();
+                    return `<div class="quote">
+                        <div class="quote-stars" aria-label="${n} out of 5 stars">${stars(n)}</div>
+                        <p>“${escH(r.text)}”</p>
+                        <div class="quote-by">
+                            <span class="quote-av">${escH(initials)}</span>
+                            <div><strong>${escH(r.name)}</strong><span>${escH([r.role, c ? c.name : r.course].filter(Boolean).join(' · '))}</span></div>
+                        </div>
+                    </div>`;
+                }).join('');
+                box.hidden = false;
+                const avg = list.reduce((a, r) => a + (Number(r.rating) || 0), 0) / list.length;
+                const sum = $('.rv-summary', host);
+                if (sum) sum.textContent = `${avg.toFixed(1)} out of 5 from ${list.length} review${list.length > 1 ? 's' : ''} by Learning Bubble families. Add yours below.`;
+            });
+        };
+        if (Array.isArray(window.LB_REVIEWS)) { paint(); return; }
+        const s = document.createElement('script');
+        s.src = 'reviews-data.js';
+        s.defer = true;
+        s.onload = paint;
+        document.head.appendChild(s);
     }
 
     /* ============================================================
@@ -1063,6 +1231,7 @@
         initCounters();
         initBubbles();
         initContactForm();
+        initReviews();
         initReveal();
         initTracking();
         carryBranch();
